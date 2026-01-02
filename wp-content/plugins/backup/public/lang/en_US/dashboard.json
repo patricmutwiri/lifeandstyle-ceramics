@@ -1,0 +1,28 @@
+
+{
+    "Access all plugin-specific settings, including performance, security, notifications, and retention rules.": "Access all plugin-specific settings, including performance, security, notifications, and retention rules.",
+    "Alerts": "Alerts",
+    "Backup Jobs": "Backup Jobs",
+    "Backups": "Backups",
+    "Completed": "Completed",
+    "Create and manage automated backup tasks. You can also run jobs manually whenever needed.": "Create and manage automated backup tasks. You can also run jobs manually whenever needed.",
+    "Create and manage schedules to automate when your backup jobs run. Assign these to your backup jobs to ensure seamless operation.": "Create and manage schedules to automate when your backup jobs run. Assign these to your backup jobs to ensure seamless operation.",
+    "Destinations": "Destinations",
+    "Easily manage your existing backups: restore, download, export, or extract files. This is your central hub for all backup-related actions.": "Easily manage your existing backups: restore, download, export, or extract files. This is your central hub for all backup-related actions.",
+    "Failed\/Canceled": "Failed\/Canceled",
+    "Manage Options": "Manage Options",
+    "Pending": "Pending",
+    "Processing": "Processing",
+    "Queue": "Queue",
+    "Queue Summary": "Queue Summary",
+    "Schedules": "Schedules",
+    "Set up and manage where your backups are stored. Choose local or remote destinations for safe, secure, and flexible storage.": "Set up and manage where your backups are stored. Choose local or remote destinations for safe, secure, and flexible storage.",
+    "Settings": "Settings",
+    "System Info": "System Info",
+    "Total Backups": "Total Backups",
+    "Total Backups Size": "Total Backups Size",
+    "View Options": "View Options",
+    "View System information.": "View System information.",
+    "View all your alerts and notifications here.": "View all your alerts and notifications here.",
+    "View and manage all active backup, restore, and system tasks in real time. Click a task to see details or take action.": "View and manage all active backup, restore, and system tasks in real time. Click a task to see details or take action."
+}

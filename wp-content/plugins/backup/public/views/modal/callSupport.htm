@@ -1,0 +1,98 @@
+<div class="modal-header">
+    <div class="modal-main-title">
+        <h1 class="modal-title fs-5" id="callSupport">{{ lang.t("Support") }}</h1>
+    </div>
+    <button type="button" class="btn-close" ng-click="cancel()" aria-label="Close"></button>
+</div>
+
+<div class="modal-body">
+
+    <div class="jb-panel-items d-flex flex-wrap justify-content-center">
+        <!-- ChatBot Support -->
+        <div class="col rounded-3 jb-panel-inner-item d-flex jb-grey-0" ng-click="openChatBot()">
+            <ul>
+                <li>
+                    <span class="jb-panel-inner-item-icon inner-icons">
+                        <span class="icon">
+                            <i class="fa-solid fa-comments"></i>
+                        </span>
+                    </span>
+                </li>
+                <li><span class="jb-panel-inner-item-text">{{ lang.t('ChatBot Support') }}</span></li>
+            </ul>
+        </div>
+
+        <!-- Open Support Ticket -->
+        <div class="col rounded-3 jb-panel-inner-item d-flex jb-grey-0">
+            <a href="https://billing.jetbackup.com/submitticket.php?step=2&deptid=2" target="_blank">
+                <ul>
+                    <li>
+                        <span class="jb-panel-inner-item-icon inner-icons">
+                            <span class="icon">
+                                <i class="fa-solid fa-bullhorn"></i>
+                            </span>
+                        </span>
+                    </li>
+                    <li><span class="jb-panel-inner-item-text">{{ lang.t('Open Support Ticket') }}</span></li>
+                </ul>
+            </a>
+        </div>
+
+        <!-- Generate Support User -->
+        <div class="col rounded-3 jb-panel-inner-item d-flex jb-grey-0" ng-click="generateSupportUser()" ng-class="{'disabled': userDetails.username}">
+            <ul>
+                <li>
+                    <span class="jb-panel-inner-item-icon inner-icons">
+                        <span class="icon">
+                            <i class="fa-solid fa-user-shield"></i>
+                        </span>
+                    </span>
+                </li>
+                <li><span class="jb-panel-inner-item-text">{{ lang.t('Generate Support User') }}</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <div ng-if="showChatBot" class="modal-body d-flex justify-content-center align-items-center mt-4">
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item"
+                    src="https://docsbot.ai/iframe/rlwAvBItbA0WIeZId1Td/eNyNFBhIx7XzO8NqFRwb"
+                    width="600"
+                    height="650"
+                    frameborder="0"
+                    allowtransparency="true"
+                    scrolling="no">
+            </iframe>
+        </div>
+    </div>
+
+    <div ng-if="loading" class="loading-overlay">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">{{ lang.t('Loading...') }}</span>
+        </div>
+    </div>
+
+
+    <div ng-if="showSupportUser && !loading" class="modal-body d-flex justify-content-center align-items-center mt-4">
+        <div class="position-relative w-100">
+        <pre class="border p-3 bg-light position-relative">
+            User: {{ userDetails.username }}
+            Email: {{ userDetails.email }}
+            Password: {{ userDetails.password }}
+            WordPress Admin URL :{{userDetails.wordpress_admin_url}}
+            <span class="call-support btn btn-outline-secondary position-absolute top-0 end-0 m-2"
+                  ng-click="copySupportUser()">
+                <i class="fa-solid fa-copy"></i>
+            </span>
+        </pre>
+            <p>*This temporary user will be auto deleted after 30 days</p>
+        </div>
+    </div>
+
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-secondary cancel_btn" type="button" ng-click="cancel()">
+        {{ lang.t("Cancel") }}
+    </button>
+</div>

@@ -1,0 +1,29 @@
+<div class="modal-header">
+    <div class="modal-main-title">
+        <h1 class="modal-title fs-5" id="extractBackupLabel">{{ lang.t("Extracted Backup Path") }}</h1>
+    </div>
+    <button type="button" class="btn-close" ng-click="$dismiss()" aria-label="{{ lang.t('Close') }}"></button>
+</div>
+
+<div class="modal-body">
+    <p class="text-muted">
+        {{ lang.t("The backup has been successfully extracted into a temporary folder. You can now browse and review its contents without affecting the current system state.") }}
+    </p>
+
+    <div class="form-group mt-4">
+        <label for="extractedPathInput" class="form-label">{{ lang.t("Extracted Path") }}</label>
+        <div class="input-group">
+            <input type="text" class="form-control" id="extractedPathInput" ng-model="extractPath" readonly>
+            <button class="btn btn-outline-secondary" type="button" ng-click="copyToClipboard()">
+                <i class="fa fa-clipboard"></i>
+            </button>
+        </div>
+        <small class="form-text text-muted">{{ lang.t("Use this path to browse the extracted files.") }}</small>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-secondary cancel_btn" type="button" ng-click="$dismiss()">
+        {{ lang.t("Close") }}
+    </button>
+</div>

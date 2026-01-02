@@ -1,0 +1,73 @@
+<div class="pd-20 settings">
+
+    <div class="form-group row">
+        <label for="RESTORE_COMPATIBILITY_CHECK" class="col-sm-3 col-form-label jb-label">{{ lang.t('Compatibility Check') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 switch-main">
+                <label class="switch">
+                    <input id="RESTORE_COMPATIBILITY_CHECK"
+                           type="checkbox"
+                           ng-model="saveData.RESTORE_COMPATIBILITY_CHECK"
+                           ng-true-value=1
+                           ng-false-value=0>
+                    <span class="slider round"></span>
+                </label>
+                <p class="pd-3">{{ lang.t('Enabling this flag ensures that the backup environment is checked against the local system for compatibility. When disabled, the plugin will skip this verification, which may lead to unexpected results or fatal errors during the restore process.') }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="RESTORE_ALLOW_CROSS_DOMAIN" class="col-sm-3 col-form-label jb-label">{{ lang.t('Cross-Domain Restore') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 switch-main">
+                <label class="switch">
+                    <input id="RESTORE_ALLOW_CROSS_DOMAIN"
+                           type="checkbox"
+                           ng-model="saveData.RESTORE_ALLOW_CROSS_DOMAIN"
+                           ng-true-value=1
+                           ng-false-value=0>
+                    <span class="slider round"></span>
+                </label>
+                <p class="pd-3">{{ lang.t('Enable restoring backups created for one domain (e.g., Domain X) on a different domain (e.g., Domain Y). This is useful for migrations but should only be allowed if intentional. By default, this action is restricted to protect against accidental domain mismatches.') }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="RESTORE_ALTERNATE_PATH" class="col-sm-3 col-form-label jb-label">{{ lang.t('Alternate Restore Path') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 switch-main">
+                <label class="switch">
+                    <input id="RESTORE_ALTERNATE_PATH"
+                           aria-label="Enable/Disable alternate path"
+                           type="checkbox"
+                           ng-model="saveData.RESTORE_ALTERNATE_PATH"
+                           ng-true-value=1
+                           ng-false-value=0>
+                    <span class="slider round"></span>
+                </label>
+                <p class="pd-3">{{ lang.t('Enable this option to access the restore file from the plugin’s directory (/wp-content/plugins/backup/restore.php) instead of the default location (mysite.com/restore.php). Use this only if your hosting environment restricts access to the root public path.') }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="RESTORE_WP_CONTENT_ONLY" class="col-sm-3 col-form-label jb-label">{{ lang.t('Restore wp-content only') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 switch-main">
+                <label class="switch">
+                    <input id="RESTORE_WP_CONTENT_ONLY"
+                           aria-label="Enable/Disable restore wp-content only"
+                           type="checkbox"
+                           ng-model="saveData.RESTORE_WP_CONTENT_ONLY"
+                           ng-true-value=1
+                           ng-false-value=0>
+                    <span class="slider round"></span>
+                </label>
+                <p class="pd-3">{{ lang.t(' Enable this option to restore only the wp-content folder while ignoring all other WordPress files. This is useful for hosting environments that restrict changes outside the wp-content directory.') }}</p>
+            </div>
+        </div>
+    </div>
+
+</div>

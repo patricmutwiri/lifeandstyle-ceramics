@@ -1,0 +1,64 @@
+<div class="modal-header">
+    <div class="modal-main-title">
+        <h1 class="modal-title fs-5" id="editBackupNotesLabel">{{ lang.t("Edit Backup Notes") }}</h1>
+    </div>
+    <button type="button" class="btn-close" ng-click="cancel()" aria-label="Close"></button>
+</div>
+
+<div class="modal-body d-flex flex-column align-items-center">
+
+    <!-- Destination selection (shown only if there are multiple destinations) -->
+    <div class="row w-100 justify-content-center mt-4" ng-if="backupObject.destinations.length > 1">
+        <div class="col-md-6 text-start">
+            <label class="form-label text-start w-100">
+                {{ lang.t("This backup exists on multiple destinations. Please select the destination you want to apply the changes to.") }}
+            </label>
+            <div>
+                <label ng-repeat="dest in backupObject.destinations"
+                       class="list-group-item"
+                       ng-show="!selectedDestination || selectedDestination === dest.id">
+                    <input type="radio"
+                           name="destinationRadio"
+                           ng-model="selectedDestination"
+                           ng-value="dest.id"
+                           ng-change="selectDestination(dest.id)">
+                    {{ lang.t(dest.name || 'Unknown') }}
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Single destination message -->
+    <div class="row w-100 justify-content-center mt-4" ng-if="backupObject.destinations.length === 1">
+        <div class="col-md-6 text-center">
+            <p>
+                {{ lang.t("This backup has only one destination:") }}
+                <strong>{{ backupObject.destinations[0].name }}</strong>
+            </p>
+        </div>
+    </div>
+
+    <!-- Notes textarea -->
+    <div class="row w-100 justify-content-center mt-4">
+        <div class="col-md-6">
+            <label for="backupNotes" class="form-label">{{ lang.t("Notes") }}</label>
+            <textarea id="backupNotes"
+                      ng-model="backupObject.notes"
+                      class="form-control"
+                      rows="6"
+                      placeholder="{{ lang.t('Enter your notes here') }}"
+                      ng-disabled="backupObject.destinations.length > 1 && !selectedDestination"></textarea>
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-secondary cancel_btn" type="button" ng-click="cancel()">
+        {{ lang.t("Cancel") }}
+    </button>
+    <button class="btn btn-primary apply_btn" type="button"
+            ng-click="ok()"
+            ng-disabled="backupObject.destinations.length > 1 && !selectedDestination">
+        {{ lang.t("Save") }}
+    </button>
+</div>

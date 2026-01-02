@@ -1,0 +1,63 @@
+<div class="container-xxl pt-xxl-5 jb-holder jb-grey-0 just">
+
+    <div id="alert-floating-container" ng-show="alerts.length">
+        <alert-box
+                ng-repeat="alert in alerts"
+                ng-model="alert"
+                auto-close="alert.ttl">
+        </alert-box>
+    </div>
+
+    <div class="row align-items-left jb-white-0 jb-header">
+        <div class="col">
+            <span id="logo" class="site_title" title="JetBackup"></span>
+        </div>
+        <div class="col d-flex justify-content-end">
+            <div class="jb-alerts rounded-4 jb-grey-1 d-flex justify-content-between">
+                <a href="#!/settings/general"  aria-label="General settings">
+                <span class="jb-settings rounded-circle jb-grey-2 justify-content-center head-icons">
+                    <span class="icon"><i class="fa-sharp fa-light fa-gear"></i></span>
+                </span>
+                </a>
+                <span ng-click="callSupport()" title='{{ lang.t("Click For Support") }}' aria-label="call support">
+                    <span class="jb-settings rounded-circle jb-grey-2 head-icons position-relative">
+                        <span class="icon"><i class="fa-sharp fa-light fa-headset"></i></span>
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="col jb-user rounded-4 jb-grey-2 d-flex justify-content-between">
+            <span class="jb-user-avatar user-ph">
+                 <a style="color: #fff;" href="{{account.profile}}" aria-label="User profile"><span class="icon"><i class="fa-sharp fa-light fa-user"></i></span></a>
+            </span>
+            <span class="jb-user-name">
+                <ul class="jb-user-name-ul">
+                    <li class="name">{{account.name}}</li>
+                    <li class="title">{{account.role}}</li>
+                </ul>
+            </span>
+        </div>
+    </div>
+    <div ng-if="errors" class="row rounded-4 jb-white-0 d-flex justify-content-between justify-content-lg-around">
+        <div class="row jb-header-alert">
+            <div class="alert alert-danger d-flex align-items-center" role="alert">
+                <ul>
+                    <li ng-repeat="error in errors">{{error}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div ng-view></div>
+    
+    <div class="row d-flex align-items-center">
+        <div class="d-flex justify-content-center version">
+            <p style="color: #585858; font-family: monospace;">JetBackup WordPress Version {{info.version}}</p>
+        </div>
+    </div>
+</div> <!-- container-xxl from header -->
+
+<script type="text/javascript">window.DocsBotAI=window.DocsBotAI||{},DocsBotAI.init=function(e){return new Promise((t,r)=>{var n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://widget.docsbot.ai/chat.js";let o=document.getElementsByTagName("script")[0];o.parentNode.insertBefore(n,o),n.addEventListener("load",()=>{let n;Promise.all([new Promise((t,r)=>{window.DocsBotAI.mount(Object.assign({}, e)).then(t).catch(r)}),(n=function e(t){return new Promise(e=>{if(document.querySelector(t))return e(document.querySelector(t));let r=new MutationObserver(n=>{if(document.querySelector(t))return e(document.querySelector(t)),r.disconnect()});r.observe(document.body,{childList:!0,subtree:!0})})})("#docsbotai-root"),]).then(()=>t()).catch(r)}),n.addEventListener("error",e=>{r(e.message)})})};</script>
+<script type="text/javascript">
+    DocsBotAI.init({id: "rlwAvBItbA0WIeZId1Td/eNyNFBhIx7XzO8NqFRwb"});
+</script>

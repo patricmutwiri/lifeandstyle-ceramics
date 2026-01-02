@@ -1,0 +1,127 @@
+<div class="pd-20 settings">
+
+    <div class="form-group row">
+        <label for="publicCron" class="col-sm-3 col-form-label jb-label">{{ lang.t('Public Cron Url') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 switch-main">
+                <pre id="publicCron">{{ saveData.AUTOMATION_CRON_PUBLIC }}</pre>
+                <p class="pd-3">{{ lang.t('Utilize the public cron URL to initiate a scheduled task through the web. This unique token for the website ensures access is granted only when the correct token is provided.') }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="cronCommand" class="col-sm-3 col-form-label jb-label">{{ lang.t('Cron Command') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 switch-main">
+                <pre id="cronCommand">{{ saveData.AUTOMATION_CRON_COMMAND }}</pre>
+                <p class="pd-3">{{ lang.t('Configure this cron command to ensure your backup plugin\'s background tasks run smoothly every minute. It triggers essential operations like data backup and system synchronization, maintaining your system\'s integrity without manual intervention. Add this to your crontab to automate the process, ensuring continuous protection and up-to-date backups.') }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="WP_CRON" class="col-sm-3 col-form-label jb-label">{{ lang.t('WordPress Cron') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 switch-main">
+                <label class="switch">
+                    <input id="WP_CRON"
+                           type="checkbox"
+                           ng-model="saveData.WP_CRON"
+                           ng-true-value=1
+                           ng-false-value=0>
+                    <span class="slider round"></span>
+                    <input type="hidden" name="WP_CRON" ng-value="saveData.WP_CRON">
+                </label>
+                <p class="pd-3">
+                    {{ lang.t('Enable or disable JetBackup\'s integration with WordPress\'s internal cron system (WP-Cron). This allows JetBackup tasks to run alongside WordPress\'s scheduled events. While this method provides flexibility and ease of use, it is less precise than a real server-level cron. For optimal reliability, we recommend keeping this enabled, especially if server-level cron access is unavailable.') }}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="HEARTBEAT" class="col-sm-3 col-form-label jb-label">{{ lang.t('Backend Heartbeat') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 switch-main">
+                <label class="switch">
+                    <input id="HEARTBEAT"
+                           type="checkbox"
+                           ng-model="saveData.HEARTBEAT"
+                           ng-true-value=1
+                           ng-false-value=0>
+                    <span class="slider round"></span>
+                    <input type="hidden" name="HEARTBEAT" ng-value="saveData.HEARTBEAT">
+                </label>
+                <p class="pd-3">
+                    {{ lang.t('Enable or disable JetBackup\'s independent Backend Heartbeat to trigger scheduled tasks. This operates in parallel with the WordPress Heartbeat API and ensures backups and related tasks run reliably in the background. We recommend keeping both enabled for optimal performance.') }}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="HEARTBEAT_TTL" class="col-sm-3 col-form-label jb-label">{{ lang.t('Heartbeat TTL') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 switch-main">
+                <select id="HEARTBEAT_TTL"
+                        class="form-control"
+                        ng-model="saveData.HEARTBEAT_TTL">
+                    <option ng-repeat="(key, value) in saveData.HEARTBEAT_TTL_VALUES" ng-value="value">
+                        {{ key + ' seconds' }}
+                    </option>
+                </select>
+                <p class="pd-3">{{ lang.t('Select the Heartbeat Time-To-Live (TTL) interval to control the frequency of the backend heartbeat calls. Adjusting this interval can help manage server load. This is not related the WordPress Heartbeat which has it\'s own independent TTL not controlled by JetBackup.') }}</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group row">
+        <label for="CRONS" class="col-sm-3 col-form-label jb-label">{{ lang.t('Cron Scheduling') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 switch-main">
+                <label class="switch">
+                    <input id="CRONS"
+                           type="checkbox"
+                           ng-model="saveData.CRONS"
+                           ng-true-value=1
+                           ng-false-value=0>
+                    <span class="slider round"></span>
+                    <input type="hidden" name="CRONS" ng-value="saveData.CRONS">
+                </label>
+                <p class="pd-3">{{ lang.t('Enable/Disable the scheduled cron system, including the inability for AJAX calls to trigger cron tasks. This option should only be considered if you plan to manage the cron system exclusively via the wp-cli interface.') }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row"  ng-if="!is_windows">
+        <label for="CRON_STATUS" class="col-sm-3 col-form-label jb-label">{{ lang.t('Crontab Automation') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 switch-main">
+                <span ng-if="details.CRON_STATUS" class="btn btn-success" style="background-color: #B2DD4C; border: none; cursor: default;">{{ lang.t('Crontab Entry installed') }}</span>
+                <span ng-if="!details.CRON_STATUS" class="btn btn-secondary" style="cursor: default;">{{ lang.t('Not installed / unknown') }}</span>
+                <label class="switch">
+                    <input id="CRON_STATUS"
+                           type="checkbox"
+                           ng-model="saveData.CRON_STATUS"
+                           ng-true-value=1
+                           ng-false-value=0>
+                    <span class="slider round"></span>
+                </label>
+                <p class="pd-3">{{ lang.t('An unknown state doesn\'t indicate there is an error, it just means that JetBackup cannot read your crontab content from inside WordPress.') }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row" ng-if="details.CRON_STATUS && saveData.AUTOMATION_CRON_CONTENT" >
+        <label for="CronTabStatus" class="col-sm-3 col-form-label jb-label">{{ lang.t('Crontab Content') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 switch-main">
+                <pre id="CronTabStatus">{{ saveData.AUTOMATION_CRON_CONTENT }}</pre>
+            </div>
+        </div>
+    </div>
+
+
+</div>

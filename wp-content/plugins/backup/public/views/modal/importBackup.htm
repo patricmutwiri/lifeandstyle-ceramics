@@ -1,0 +1,54 @@
+<div class="modal-header">
+    <div class="modal-main-title">
+        <h1 class="modal-title fs-5" id="importBackupLabel">{{ lang.t("Import & Restore") }}</h1>
+    </div>
+    <button type="button" class="btn-close" ng-click="cancel()" aria-label="Close"></button>
+</div>
+
+<div class="modal-body">
+    <p class="pd-3" ng-bind-html="lang.t('Upload your backup file in tar compressed format (.tar or .tar.gz). <br /> This manual restore procedure allows you to use a backup downloaded from an offsite location. Once uploaded, the backup will be prepared for restoration, and you can monitor the upload and restoration progress in the queue for real-time updates.')"></p>
+
+    <div class="alert alert-warning">
+        <p ng-bind-html="lang.t('Disclaimer: Restoring a backup from another environment can potentially cause issues or result in a fatal error if the environment differs significantly from the current one. Examples include but are not limited to:')"></p>
+        <ul class="fs-13" style="list-style: numbers;">
+            <li ng-bind-html="lang.t('Mismatch in PHP versions between the environments.')"></li>
+            <li ng-bind-html="lang.t('Usage of server-side caching plugins like Redis or Memcached.')"></li>
+            <li ng-bind-html="lang.t('File system differences (e.g., restoring a backup from Windows to Linux).')"></li>
+            <li ng-bind-html="lang.t('Differences in web server software, such as Apache vs. Nginx configurations.')"></li>
+            <li ng-bind-html="lang.t('Incompatibility in database versions or configurations.')"></li>
+        </ul>
+        <p ng-bind-html="lang.t('Ensure that the environments are compatible before proceeding with the restoration.')"></p>
+        <div class="form-check mt-3">
+            <input class="form-check-input" type="checkbox" id="envCompatibilityCheck" ng-model="envChecked" />
+            <label class="form-check-label fw-bold fs-13" for="envCompatibilityCheck" ng-bind-html="lang.t('I understand the risks and confirm that the backup environment matches the current environment as closely as possible.')"></label>
+        </div>
+    </div>
+
+    <div ng-show="file.name" class="file-info" ng-class="{ 'opacity-50': !envChecked }">
+        <p><strong>{{ lang.t("File Name:") }}</strong> {{ file.name }}</p>
+        <p><strong>{{ lang.t("File Size:") }}</strong> {{ file.size }}</p>
+        <p><strong>{{ lang.t("File Type:") }}</strong> {{ file.type }}</p>
+        <div class="progress mb-3">
+            <div class="progress-bar" role="progressbar" style="width: {{ progress }}%;" aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100">
+                {{ progress }}%
+            </div>
+        </div>
+        <a ng-hide="uploading" href="#" class="text-decoration-none" ng-click="clearFile()">
+            {{ lang.t("Change File") }}
+        </a>
+    </div>
+
+    <div ng-hide="file.name" class="file-upload fs-13" ng-class="{ 'opacity-50': !envChecked }">
+        <label for="file" class="form-label">{{ lang.t("Select Backup File") }}</label>
+        <input id="file" type="file" file-model="file" class="form-control pd-5" ng-disabled="!envChecked" />
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-secondary cancel_btn" type="button" ng-click="cancel()">
+        {{ lang.t("Cancel") }}
+    </button>
+    <button class="btn btn-primary apply_btn" type="button" ng-click="ok()" ng-disabled="!file.name || uploading || !envChecked">
+        {{ lang.t("Upload") }}
+    </button>
+</div>

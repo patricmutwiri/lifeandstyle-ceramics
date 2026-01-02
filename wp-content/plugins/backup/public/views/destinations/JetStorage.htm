@@ -1,0 +1,90 @@
+<div ng-controller="JetStorage">
+
+    <div class="form-group row" ng-show="saveData.simpleMode && !saveData._id">
+        <label class="col-sm-3 col-form-label jb-label">{{ lang.t("Quick Access Code") }}</label>
+        <div class="col-sm-7">
+            <input type="text" class="form-control" ng-model="saveData.options.quick_access_code">
+            <p class="pd-3">{{ lang.t("Paste your Quick Access Code here") }}</p>
+        </div>
+    </div>
+
+
+    <div class="form-group row" ng-show="!saveData.simpleMode">
+        <label class="col-sm-3 col-form-label jb-label">{{ lang.t("Region") }}</label>
+        <div class="col-sm-7">
+            <select class="form-control"
+                    id="region"
+                    data-ng-options="region_id as region.name group by region.group for (region_id, region) in vendors[selected_vendor].regions"
+                    ng-change="changeRegion()"
+                    data-ng-model="selected_region"
+                    ng-disabled="saveData._id">
+            </select>
+            <p class="pd-3">{{ lang.t("Select your JetBackup Storage region.") }}</p>
+        </div>
+    </div>
+
+    <div class="form-group row" ng-show="!saveData.simpleMode">
+        <label class="col-sm-3 col-form-label jb-label">{{ lang.t("Access Key") }}</label>
+        <div class="col-sm-7">
+            <input type="text"
+                   class="form-control"
+                   ng-model="saveData.options.access_key"
+                   ng-disabled="saveData._id"
+                   placeholder="{{ lang.t('Your S3 access key.') }}">
+        </div>
+    </div>
+
+    <div class="form-group row" ng-show="!saveData.simpleMode">
+        <label class="col-sm-3 col-form-label jb-label">{{ lang.t("Secret Key") }}</label>
+        <div class="col-sm-7">
+            <input type="password"
+                   class="form-control"
+                   ng-model="saveData.options.secret_key"
+                   ng-disabled="saveData._id"
+                   placeholder="{{ lang.t('Your S3 secret key.') }}">
+        </div>
+    </div>
+
+    <div class="form-group row" ng-show="!saveData.simpleMode">
+        <label class="col-sm-3 col-form-label jb-label">{{ lang.t("Bucket") }}</label>
+        <div class="col-sm-7">
+            <input type="text"
+                   class="form-control"
+                   ng-model="saveData.options.bucket"
+                   ng-disabled="saveData._id"
+                   placeholder="{{ lang.t('Your S3 Bucket Name') }}">
+        </div>
+    </div>
+
+    <div class="form-group row" ng-show="!saveData.simpleMode">
+        <label class="col-sm-3 col-form-label jb-label">{{ lang.t("Verify SSL") }}</label>
+        <div class="col-sm-7">
+            <label class="switch">
+                <input type="checkbox" ng-model="saveData.options.verifyssl">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group row" ng-show="!saveData.simpleMode">
+        <label class="col-sm-3 col-form-label jb-label">{{ lang.t("Retries") }}</label>
+        <div class="col-sm-7">
+            <input type="number" class="form-control" ng-model="saveData.options.retries">
+        </div>
+    </div>
+
+    <div class="form-group row" ng-show="!saveData.simpleMode">
+        <label class="col-sm-3 col-form-label jb-label">{{ lang.t("Keep-Alive Timeout") }}</label>
+        <div class="col-sm-7">
+            <input type="number" class="form-control" ng-model="saveData.options.keepalive_timeout">
+        </div>
+    </div>
+
+    <div class="form-group row" ng-show="!saveData.simpleMode">
+        <label class="col-sm-3 col-form-label jb-label">{{ lang.t("Keep-Alive Requests") }}</label>
+        <div class="col-sm-7">
+            <input type="number" class="form-control" ng-model="saveData.options.keepalive_requests">
+        </div>
+    </div>
+
+</div>

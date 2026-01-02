@@ -1,0 +1,3220 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: SureMail 1.6.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/suremails\n"
+"Last-Translator: gpt-po v1.2.3\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-05-23T17:15:07+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Language: \n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: suremails\n"
+
+#. Plugin Name of the plugin
+#. Author of the plugin
+#: suremails.php
+#: inc/nps-notice.php:88
+msgid "SureMail"
+msgstr "SureMail"
+
+#. Plugin URI of the plugin
+#: suremails.php
+msgid "https://suremails.com"
+msgstr "https://suremails.com"
+
+#. Description of the plugin
+#: suremails.php
+msgid "WordPress emails often go missing or land in spam because web hosts aren’t built for reliable delivery. SureMail fixes this by connecting to trusted SMTP services, so your emails reach inboxes—no more lost messages or frustrated customers."
+msgstr "Le email di WordPress spesso vanno perse o finiscono nello spam perché gli host web non sono costruiti per una consegna affidabile. SureMail risolve questo collegandosi a servizi SMTP affidabili, in modo che le tue email raggiungano le caselle di posta—niente più messaggi persi o clienti frustrati."
+
+#. Author URI of the plugin
+#: suremails.php
+msgid "https://suremails.com/"
+msgstr "https://suremails.com/"
+
+#: inc/admin/plugin.php:192
+msgid "SureMail Settings"
+msgstr "Impostazioni di SureMail"
+
+#: inc/admin/plugin.php:313
+#: inc/admin/plugin.php:371
+#: build/main.js:2
+msgid "Settings"
+msgstr "Impostazioni"
+
+#: inc/ajax/ajax.php:43
+#: inc/ajax/ajax.php:117
+msgid "Not an ajax request."
+msgstr "Non è una richiesta ajax."
+
+#: inc/ajax/ajax.php:53
+msgid "You do not have permission to activate plugins."
+msgstr "Non hai il permesso di attivare i plugin."
+
+#: inc/ajax/ajax.php:65
+msgid "No plugin specified."
+msgstr "Nessun plugin specificato."
+
+#: inc/ajax/ajax.php:97
+msgid "Plugin activated successfully."
+msgstr "Plugin attivato con successo."
+
+#: inc/ajax/ajax.php:127
+msgid "You do not have permission to activate themes."
+msgstr "Non hai il permesso di attivare i temi."
+
+#: inc/ajax/ajax.php:139
+msgid "No theme specified."
+msgstr "Nessun tema specificato."
+
+#: inc/ajax/ajax.php:157
+msgid "Theme activated successfully."
+msgstr "Tema attivato con successo."
+
+#: inc/api/api-base.php:59
+msgid "You do not have permission to perform this action."
+msgstr "Non hai il permesso di eseguire questa azione."
+
+#: inc/api/api-base.php:70
+msgid "Nonce is missing."
+msgstr "Nonce mancante."
+
+#: inc/api/api-base.php:79
+msgid "Nonce is invalid."
+msgstr "Nonce non valido."
+
+#: inc/api/delete-connection.php:86
+msgid "No connections found."
+msgstr "Nessuna connessione trovata."
+
+#: inc/api/delete-connection.php:97
+#: inc/api/send-test-email.php:107
+msgid "Connection not found."
+msgstr "Connessione non trovata."
+
+#: inc/api/delete-connection.php:110
+msgid "Connection details do not match."
+msgstr "I dettagli della connessione non corrispondono."
+
+#: inc/api/delete-connection.php:128
+#: build/main.js:2
+msgid "Connection deleted successfully."
+msgstr "Connessione eliminata con successo."
+
+#: inc/api/email-stats.php:102
+msgid "The start_date parameter is required."
+msgstr "Il parametro start_date è obbligatorio."
+
+#: inc/api/provider.php:61
+msgid "Optional. Specify the provider key to retrieve details of a specific provider."
+msgstr "Facoltativo. Specifica la chiave del fornitore per recuperare i dettagli di un fornitore specifico."
+
+#: inc/api/provider.php:112
+msgid "Provider not found."
+msgstr "Fornitore non trovato."
+
+#: inc/api/recommended-plugin.php:70
+msgid "You do not have permissions to perform this action."
+msgstr "Non hai i permessi per eseguire questa azione."
+
+#: inc/api/recommended-plugin.php:82
+msgid "Invalid nonce."
+msgstr "Nonce non valido."
+
+#: inc/api/save-test-connection.php:95
+msgid "Unsupported connection type."
+msgstr "Tipo di connessione non supportato."
+
+#. translators: %s: Connection priority
+#: inc/api/save-test-connection.php:125
+#, php-format
+msgid "Connection Sequence %1$s is already assigned to another connection. Please choose a different sequence."
+msgstr "La sequenza di connessione %1$s è già assegnata a un'altra connessione. Si prega di scegliere una sequenza diversa."
+
+#: inc/api/save-test-connection.php:141
+msgid "Failed to authenticate."
+msgstr "Autenticazione fallita."
+
+#: inc/api/save-test-connection.php:154
+msgid "Connection authenticated and settings saved."
+msgstr "Connessione autenticata e impostazioni salvate."
+
+#: inc/api/save-test-connection.php:163
+msgid "An error occurred: "
+msgstr "Si è verificato un errore:"
+
+#: inc/api/save-test-connection.php:185
+#: inc/emails/handler/mail-handler.php:168
+msgid "Invalid connection type."
+msgstr "Tipo di connessione non valido."
+
+#: inc/api/save-test-connection.php:318
+msgid "Missing required field."
+msgstr "Campo obbligatorio mancante."
+
+#. Translators: %s is the site name.
+#: inc/api/send-test-email.php:136
+#, php-format
+msgid "SureMail: Test Email - %s"
+msgstr "SureMail: Email di prova - %s"
+
+#: inc/api/send-test-email.php:143
+#: inc/emails/handler/mail-handler.php:183
+msgid "Email sent successfully."
+msgstr "Email inviata con successo."
+
+#: inc/api/send-test-email.php:148
+msgid "Failed to send test email"
+msgstr "Invio dell'email di prova fallito"
+
+#: inc/api/set-settings.php:85
+msgid "Settings data is missing or invalid."
+msgstr "I dati delle impostazioni sono mancanti o non validi."
+
+#: inc/api/set-settings.php:104
+msgid "Invalid or missing default connection data."
+msgstr "Dati di connessione predefiniti non validi o mancanti."
+
+#: inc/api/set-settings.php:176
+msgid "Settings updated successfully."
+msgstr "Impostazioni aggiornate con successo."
+
+#: inc/api/set-settings.php:192
+msgid "No changes made to the settings."
+msgstr "Nessuna modifica apportata alle impostazioni."
+
+#: inc/controller/content-guard.php:104
+msgid "An error occurred while validating the content."
+msgstr "Si è verificato un errore durante la convalida del contenuto."
+
+#: inc/controller/content-guard.php:309
+msgid "Email content is flagged."
+msgstr "Il contenuto dell'email è contrassegnato."
+
+#: inc/controller/content-guard.php:310
+#: build/main.js:2
+msgid "Reputation Shield"
+msgstr "Reputation Shield"
+
+#. translators: %d is the log ID.
+#. translators: %d: Log ID.
+#. translators: %d is the log ID that failed to update.
+#: inc/controller/content-guard.php:388
+#: inc/controller/logger.php:563
+#: inc/controller/logger.php:565
+#: inc/emails/handler/mail-handler.php:360
+#, php-format
+msgid "Failed to update log ID %d."
+msgstr "Aggiornamento del log ID %d fallito."
+
+#: inc/emails/handler/mail-handler.php:145
+#: inc/emails/handler/mail-handler.php:472
+#: inc/emails/providers/aws/aws-handler.php:134
+#: inc/emails/providers/brevo/brevo-handler.php:152
+#: inc/emails/providers/emailit/emailit-handler.php:95
+#: inc/emails/providers/mailgun/mailgun-handler.php:98
+#: inc/emails/providers/sendgrid/sendgrid-handler.php:107
+#: inc/emails/providers/smtp/smtp-handler.php:90
+msgid "WordPress"
+msgstr "WordPress"
+
+#: inc/emails/handler/mail-handler.php:183
+msgid "Failed to send email."
+msgstr "Invio dell'email fallito."
+
+#: inc/emails/handler/uploads.php:75
+msgid "Invalid upload base directory."
+msgstr "Directory base di upload non valida."
+
+#. translators: %s is the directory path.
+#: inc/emails/handler/uploads.php:88
+#, php-format
+msgid "Cannot create directory %s. Check parent directory permissions."
+msgstr "Impossibile creare la directory %s. Controlla i permessi della directory padre."
+
+#. translators: %s is the directory path.
+#: inc/emails/handler/uploads.php:96
+#, php-format
+msgid "Directory %s is not writable."
+msgstr "La directory %s non è scrivibile."
+
+#. translators: %s is the file path.
+#: inc/emails/provider-helper.php:147
+#, php-format
+msgid "Unable to remove attachment file: %s"
+msgstr "Impossibile rimuovere il file allegato: %s"
+
+#: inc/emails/providers/aws/aws-handler.php:84
+#: inc/emails/providers/aws/aws-handler.php:103
+msgid "AWS SES authentication successful."
+msgstr "Autenticazione AWS SES riuscita."
+
+#: inc/emails/providers/aws/aws-handler.php:105
+msgid "AWS SES authentication failed: The from_email or its domain is not a verified identity."
+msgstr "Autenticazione AWS SES fallita: L'email mittente o il suo dominio non è un'identità verificata."
+
+#: inc/emails/providers/aws/aws-handler.php:108
+msgid "AWS SES authentication failed: "
+msgstr "Autenticazione AWS SES fallita:"
+
+#: inc/emails/providers/aws/aws-handler.php:154
+msgid "Email sent successfully via AWS SES."
+msgstr "Email inviata con successo tramite AWS SES."
+
+#: inc/emails/providers/aws/aws-handler.php:174
+msgid "AWS Connection"
+msgstr "Connessione AWS"
+
+#: inc/emails/providers/aws/aws-handler.php:175
+msgid "Amazon SES"
+msgstr "Amazon SES"
+
+#: inc/emails/providers/aws/aws-handler.php:176
+msgid "Enter the details below to connect with your Amazon SES account."
+msgstr "Inserisci i dettagli qui sotto per connetterti al tuo account Amazon SES."
+
+#: inc/emails/providers/aws/aws-handler.php:196
+msgid "Access Key"
+msgstr "Chiave di accesso"
+
+#: inc/emails/providers/aws/aws-handler.php:198
+msgid "Enter your AWS access key"
+msgstr "Inserisci la tua chiave di accesso AWS"
+
+#: inc/emails/providers/aws/aws-handler.php:205
+#: inc/emails/providers/mailjet/mailjet-handler.php:231
+msgid "Secret Key"
+msgstr "Chiave segreta"
+
+#: inc/emails/providers/aws/aws-handler.php:207
+msgid "Enter your AWS secret key"
+msgstr "Inserisci la tua chiave segreta AWS"
+
+#: inc/emails/providers/aws/aws-handler.php:214
+#: inc/emails/providers/smtp/smtp-handler.php:188
+msgid "The Return Path is where bounce messages (failed delivery notices) are sent. If it’s off, you might not get these messages. Turn it on to receive bounce notifications at the \"From Email\" address if delivery fails."
+msgstr "Il percorso di ritorno è dove vengono inviati i messaggi di rimbalzo (notifiche di consegna non riuscita). Se è disattivato, potresti non ricevere questi messaggi. Attivalo per ricevere notifiche di rimbalzo all'indirizzo \"Email del mittente\" se la consegna fallisce."
+
+#: inc/emails/providers/aws/aws-handler.php:215
+#: inc/emails/providers/gmail/gmail-handler.php:328
+#: inc/emails/providers/smtp/smtp-handler.php:189
+#: inc/emails/providers/zoho/zoho-handler.php:423
+msgid "Return Path"
+msgstr "Percorso di ritorno"
+
+#: inc/emails/providers/aws/aws-handler.php:217
+#: inc/emails/providers/gmail/gmail-handler.php:330
+#: inc/emails/providers/zoho/zoho-handler.php:425
+msgid "Enter Return Path"
+msgstr "Inserisci il percorso di ritorno"
+
+#: inc/emails/providers/aws/aws-handler.php:228
+#: inc/emails/providers/mailgun/mailgun-handler.php:230
+#: inc/emails/providers/netcore/netcore-handler.php:225
+#: inc/emails/providers/sparkpost/sparkpost-handler.php:290
+msgid "Region"
+msgstr "Regione"
+
+#: inc/emails/providers/aws/aws-handler.php:230
+msgid "Select Region"
+msgstr "Seleziona regione"
+
+#: inc/emails/providers/brevo/brevo-handler.php:123
+#: inc/emails/providers/elastic/elastic-handler.php:114
+#: inc/emails/providers/sendgrid/sendgrid-handler.php:74
+#: inc/emails/providers/smtp2go/smtp2go-handler.php:67
+msgid "API key or From Email is missing in the connection data."
+msgstr "La chiave API o l'email del mittente mancano nei dati di connessione."
+
+#: inc/emails/providers/brevo/brevo-handler.php:129
+msgid "Brevo Connection saved successfully."
+msgstr "Connessione Brevo salvata con successo."
+
+#: inc/emails/providers/brevo/brevo-handler.php:227
+#: inc/emails/providers/emailit/emailit-handler.php:187
+#: inc/emails/providers/mailjet/mailjet-handler.php:147
+#: inc/emails/providers/sendgrid/sendgrid-handler.php:184
+#: inc/emails/providers/smtp2go/smtp2go-handler.php:139
+#: inc/emails/providers/sparkpost/sparkpost-handler.php:152
+msgid "Failed to encode email payload to JSON."
+msgstr "Impossibile codificare il payload dell'email in JSON."
+
+#: inc/emails/providers/brevo/brevo-handler.php:256
+msgid "Email sent successfully via Brevo."
+msgstr "Email inviata con successo tramite Brevo."
+
+#: inc/emails/providers/brevo/brevo-handler.php:258
+#: inc/emails/providers/mailersend/mailersend-handler.php:196
+#: inc/emails/providers/mailgun/mailgun-handler.php:179
+#: inc/emails/providers/postmark/postmark-handler.php:175
+#: inc/emails/providers/sendgrid/sendgrid-handler.php:213
+msgid "Unknown error."
+msgstr "Errore sconosciuto."
+
+#: inc/emails/providers/brevo/brevo-handler.php:285
+msgid "Brevo Connection"
+msgstr "Connessione Brevo"
+
+#: inc/emails/providers/brevo/brevo-handler.php:286
+msgid "Enter the details below to connect with your Brevo account."
+msgstr "Inserisci i dettagli qui sotto per connetterti al tuo account Brevo."
+
+#: inc/emails/providers/brevo/brevo-handler.php:288
+msgid "Brevo (Sendinblue)"
+msgstr "Brevo (Sendinblue)"
+
+#: inc/emails/providers/brevo/brevo-handler.php:307
+#: inc/emails/providers/elastic/elastic-handler.php:478
+#: inc/emails/providers/emailit/emailit-handler.php:270
+#: inc/emails/providers/mailersend/mailersend-handler.php:238
+#: inc/emails/providers/mailgun/mailgun-handler.php:215
+#: inc/emails/providers/mailjet/mailjet-handler.php:223
+#: inc/emails/providers/netcore/netcore-handler.php:217
+#: inc/emails/providers/sendgrid/sendgrid-handler.php:262
+#: inc/emails/providers/smtp2go/smtp2go-handler.php:227
+#: inc/emails/providers/sparkpost/sparkpost-handler.php:282
+msgid "API Key"
+msgstr "Chiave API"
+
+#: inc/emails/providers/brevo/brevo-handler.php:309
+msgid "Enter your Brevo API key"
+msgstr "Inserisci la tua chiave API Brevo"
+
+#: inc/emails/providers/elastic/elastic-handler.php:121
+msgid "Elastic Email connection authenticated successfully."
+msgstr "Connessione Elastic Email autenticata con successo."
+
+#: inc/emails/providers/elastic/elastic-handler.php:184
+msgid "Email sent successfully via Elastic Email."
+msgstr "Email inviata con successo tramite Elastic Email."
+
+#: inc/emails/providers/elastic/elastic-handler.php:457
+msgid "Elastic Email Connection"
+msgstr "Connessione Elastic Email"
+
+#: inc/emails/providers/elastic/elastic-handler.php:458
+msgid "Enter the details below to connect with your Elastic Email account."
+msgstr "Inserisci i dettagli qui sotto per connetterti al tuo account Elastic Email."
+
+#: inc/emails/providers/elastic/elastic-handler.php:461
+msgid "Elastic Email"
+msgstr "Elastic Email"
+
+#: inc/emails/providers/elastic/elastic-handler.php:480
+msgid "Enter your Elastic Email API key"
+msgstr "Inserisci la tua chiave API Elastic Email"
+
+#. translators: %s: www.mailgun.com/about/regions/ URL.
+#: inc/emails/providers/elastic/elastic-handler.php:491
+#, php-format
+msgid "Select the type of email you will be sending using this connection. Choose Transactional Email for emails like password resets, order confirmations, etc. Select Marketing Email for sending bulk emails like newsletters, broadcasts, etc. %1$sLearn more%2$s"
+msgstr "Seleziona il tipo di email che invierai utilizzando questa connessione. Scegli Email transazionale per email come reset della password, conferme d'ordine, ecc. Seleziona Email di marketing per inviare email di massa come newsletter, trasmissioni, ecc. %1$sScopri di più%2$s"
+
+#: inc/emails/providers/elastic/elastic-handler.php:495
+msgid "Email Type"
+msgstr "Tipo di email"
+
+#: inc/emails/providers/elastic/elastic-handler.php:497
+msgid "Select Email Type"
+msgstr "Seleziona tipo di email"
+
+#: inc/emails/providers/elastic/elastic-handler.php:537
+msgid "Email sending failed via Elastic Email. Failed to encode email payload to JSON."
+msgstr "Invio email non riuscito tramite Elastic Email. Impossibile codificare il payload dell'email in JSON."
+
+#: inc/emails/providers/elastic/elastic-handler.php:554
+msgid "Email sending failed via Elastic Email. Unauthorized: API key invalid or insufficient permissions."
+msgstr "Invio email non riuscito tramite Elastic Email. Non autorizzato: chiave API non valida o autorizzazioni insufficienti."
+
+#: inc/emails/providers/elastic/elastic-handler.php:561
+msgid "Failed to decode JSON response from Elastic Email."
+msgstr "Impossibile decodificare la risposta JSON da Elastic Email."
+
+#. translators: 1: Error log
+#: inc/emails/providers/elastic/elastic-handler.php:569
+#, php-format
+msgid "Email sending failed via Elastic Email. Error: %1$s"
+msgstr "Invio email non riuscito tramite Elastic Email. Errore: %1$s"
+
+#: inc/emails/providers/gmail/gmail-handler.php:68
+msgid "Failed to authenticate with Gmail."
+msgstr "Impossibile autenticarsi con Gmail."
+
+#: inc/emails/providers/gmail/gmail-handler.php:98
+#: inc/emails/providers/zoho/zoho-handler.php:100
+msgid "No authorization code or refresh token provided. Please authenticate first."
+msgstr "Nessun codice di autorizzazione o token di aggiornamento fornito. Si prega di autenticarsi prima."
+
+#: inc/emails/providers/gmail/gmail-handler.php:104
+msgid "Failed to retrieve authentication tokens. Please try to re-authenticate"
+msgstr "Impossibile recuperare i token di autenticazione. Si prega di riprovare ad autenticarsi"
+
+#: inc/emails/providers/gmail/gmail-handler.php:112
+msgid "Successfully authenticated with Gmail."
+msgstr "Autenticazione avvenuta con successo con Gmail."
+
+#: inc/emails/providers/gmail/gmail-handler.php:131
+#: inc/emails/providers/gmail/gmail-handler.php:185
+msgid "Email sending failed via Gmail."
+msgstr "Invio email non riuscito tramite Gmail."
+
+#: inc/emails/providers/gmail/gmail-handler.php:155
+msgid "Email sending failed via Gmail. Failed to encode email message to JSON."
+msgstr "Invio email non riuscito tramite Gmail. Impossibile codificare il messaggio email in JSON."
+
+#: inc/emails/providers/gmail/gmail-handler.php:180
+msgid "Email sent successfully via Gmail."
+msgstr "Email inviata con successo tramite Gmail."
+
+#: inc/emails/providers/gmail/gmail-handler.php:236
+msgid "Gmail Connection"
+msgstr "Connessione Gmail"
+
+#: inc/emails/providers/gmail/gmail-handler.php:237
+msgid "Enter the details below to connect with your Gmail account."
+msgstr "Inserisci i dettagli qui sotto per connetterti al tuo account Gmail."
+
+#: inc/emails/providers/gmail/gmail-handler.php:240
+msgid "Google Workspace / Gmail"
+msgstr "Google Workspace / Gmail"
+
+#: inc/emails/providers/gmail/gmail-handler.php:272
+#: inc/emails/providers/outlook/outlook-handler.php:104
+#: inc/emails/providers/zoho/zoho-handler.php:366
+msgid "Client ID"
+msgstr "ID client"
+
+#: inc/emails/providers/gmail/gmail-handler.php:274
+msgid "Enter your Gmail Client ID"
+msgstr "Inserisci il tuo ID client Gmail"
+
+#. translators: %s: Documentation link.
+#: inc/emails/providers/gmail/gmail-handler.php:277
+#, php-format
+msgid "Get Client ID and Secret ID from Google Cloud Platform. Follow the Gmail %s"
+msgstr "Ottieni ID client e ID segreto dalla Google Cloud Platform. Segui il %s di Gmail"
+
+#: inc/emails/providers/gmail/gmail-handler.php:278
+#: inc/emails/providers/zoho/zoho-handler.php:372
+msgid "documentation."
+msgstr "documentazione."
+
+#: inc/emails/providers/gmail/gmail-handler.php:284
+#: inc/emails/providers/outlook/outlook-handler.php:112
+#: inc/emails/providers/zoho/zoho-handler.php:378
+msgid "Client Secret"
+msgstr "Client Secret"
+
+#: inc/emails/providers/gmail/gmail-handler.php:286
+msgid "Enter your Gmail Client Secret"
+msgstr "Inserisci il tuo Client Secret di Gmail"
+
+#: inc/emails/providers/gmail/gmail-handler.php:293
+#: inc/emails/providers/zoho/zoho-handler.php:387
+msgid "Paste the authorization code or refresh token here."
+msgstr "Incolla qui il codice di autorizzazione o il token di aggiornamento."
+
+#: inc/emails/providers/gmail/gmail-handler.php:300
+#: inc/emails/providers/outlook/outlook-handler.php:120
+#: inc/emails/providers/zoho/zoho-handler.php:394
+msgid "Redirect URI"
+msgstr "URI di reindirizzamento"
+
+#: inc/emails/providers/gmail/gmail-handler.php:304
+msgid "Copy the above URL and add it to the \"Authorized Redirect URIs\" section in your Google Cloud Project. Ensure the URL matches exactly."
+msgstr "Copia l'URL sopra e aggiungilo alla sezione \"URI di reindirizzamento autorizzati\" nel tuo progetto Google Cloud. Assicurati che l'URL corrisponda esattamente."
+
+#: inc/emails/providers/gmail/gmail-handler.php:311
+msgid "Authenticate with Google"
+msgstr "Autenticati con Google"
+
+#: inc/emails/providers/gmail/gmail-handler.php:312
+#: inc/emails/providers/zoho/zoho-handler.php:406
+msgid "Click here to re-authenticate"
+msgstr "Clicca qui per ri-autenticarti"
+
+#: inc/emails/providers/gmail/gmail-handler.php:327
+#: inc/emails/providers/zoho/zoho-handler.php:422
+msgid "The Return Path is where bounce messages (failed delivery notices) are sent. Enable this to receive bounce notifications at the \"From Email\" address if delivery fails."
+msgstr "Il percorso di ritorno è dove vengono inviati i messaggi di rimbalzo (notifiche di consegna non riuscita). Abilita questo per ricevere notifiche di rimbalzo all'indirizzo \"Email del mittente\" se la consegna fallisce."
+
+#: inc/emails/providers/gmail/gmail-handler.php:367
+#: inc/emails/providers/zoho/zoho-handler.php:503
+msgid "Failed to encode body to JSON."
+msgstr "Impossibile codificare il corpo in JSON."
+
+#: inc/emails/providers/gmail/gmail-handler.php:382
+msgid "Unknown error from Gmail API."
+msgstr "Errore sconosciuto dall'API di Gmail."
+
+#: inc/emails/providers/gmail/gmail-handler.php:399
+msgid "Failed to get new token from Gmail API."
+msgstr "Impossibile ottenere un nuovo token dall'API di Gmail."
+
+#. translators: %s: Error message.
+#: inc/emails/providers/gmail/gmail-handler.php:415
+#, php-format
+msgid "Email sending failed via Gmail. Failed to refresh Gmail token: %s"
+msgstr "Invio email non riuscito tramite Gmail. Impossibile aggiornare il token di Gmail: %s"
+
+#: inc/emails/providers/gmail/gmail-handler.php:431
+#: inc/emails/providers/zoho/zoho-handler.php:585
+msgid "Successfully updated tokens."
+msgstr "Token aggiornati con successo."
+
+#: inc/emails/providers/mailersend/mailersend-handler.php:72
+msgid "MailerSend connection saved successfully."
+msgstr "Connessione MailerSend salvata con successo."
+
+#: inc/emails/providers/mailersend/mailersend-handler.php:155
+msgid "Email sending failed via MailerSend. Failed to encode email body to JSON."
+msgstr "Invio email non riuscito tramite MailerSend. Impossibile codificare il corpo dell'email in JSON."
+
+#: inc/emails/providers/mailersend/mailersend-handler.php:172
+msgid "Email sending failed via MailerSend. "
+msgstr "Invio email non riuscito tramite MailerSend."
+
+#: inc/emails/providers/mailersend/mailersend-handler.php:185
+msgid "Email sent successfully via MailerSend."
+msgstr "Email inviata con successo tramite MailerSend."
+
+#. translators: %s: Error message
+#: inc/emails/providers/mailersend/mailersend-handler.php:201
+#, php-format
+msgid "Email sending failed via MailerSend. Error: %s"
+msgstr "Invio email non riuscito tramite MailerSend. Errore: %s"
+
+#: inc/emails/providers/mailersend/mailersend-handler.php:217
+msgid "MailerSend Connection"
+msgstr "Connessione MailerSend"
+
+#: inc/emails/providers/mailersend/mailersend-handler.php:218
+msgid "Enter the details below to connect with your MailerSend account."
+msgstr "Inserisci i dettagli qui sotto per connetterti al tuo account MailerSend."
+
+#: inc/emails/providers/mailersend/mailersend-handler.php:221
+msgid "MailerSend"
+msgstr "MailerSend"
+
+#: inc/emails/providers/mailersend/mailersend-handler.php:240
+msgid "Enter your MailerSend API key"
+msgstr "Inserisci la tua chiave API di MailerSend"
+
+#: inc/emails/providers/mailgun/mailgun-handler.php:61
+msgid "Mailgun connection saved successfully."
+msgstr "Connessione Mailgun salvata con successo."
+
+#: inc/emails/providers/mailgun/mailgun-handler.php:87
+msgid "Mailgun domain is missing."
+msgstr "Il dominio Mailgun è mancante."
+
+#: inc/emails/providers/mailgun/mailgun-handler.php:165
+#: inc/emails/providers/mailgun/mailgun-handler.php:180
+msgid "Mailgun send failed: "
+msgstr "Invio Mailgun non riuscito:"
+
+#: inc/emails/providers/mailgun/mailgun-handler.php:177
+msgid "Email sent successfully via Mailgun."
+msgstr "Email inviata con successo tramite Mailgun."
+
+#: inc/emails/providers/mailgun/mailgun-handler.php:194
+msgid "Mailgun Connection"
+msgstr "Connessione Mailgun"
+
+#: inc/emails/providers/mailgun/mailgun-handler.php:195
+msgid "Enter the details below to connect with your Mailgun account."
+msgstr "Inserisci i dettagli qui sotto per connetterti al tuo account Mailgun."
+
+#: inc/emails/providers/mailgun/mailgun-handler.php:198
+msgid "Mailgun"
+msgstr "Mailgun"
+
+#: inc/emails/providers/mailgun/mailgun-handler.php:217
+msgid "Enter your Mailgun API key"
+msgstr "Inserisci la tua chiave API di Mailgun"
+
+#: inc/emails/providers/mailgun/mailgun-handler.php:223
+msgid "Domain"
+msgstr "Dominio"
+
+#: inc/emails/providers/mailgun/mailgun-handler.php:225
+msgid "Enter your Mailgun domain"
+msgstr "Inserisci il tuo dominio Mailgun"
+
+#: inc/emails/providers/mailgun/mailgun-handler.php:233
+#: inc/emails/providers/sparkpost/sparkpost-handler.php:293
+msgid "US"
+msgstr "US"
+
+#: inc/emails/providers/mailgun/mailgun-handler.php:234
+#: inc/emails/providers/sparkpost/sparkpost-handler.php:294
+msgid "EU"
+msgstr "EU"
+
+#: inc/emails/providers/mailgun/mailgun-handler.php:237
+msgid "Select your Mailgun region"
+msgstr "Seleziona la tua regione Mailgun"
+
+#. translators: %s: www.mailgun.com/about/regions/ URL.
+#: inc/emails/providers/mailgun/mailgun-handler.php:239
+#, php-format
+msgid "Select the endpoint you want to use for sending messages. If you are subject to EU laws, you may need to use the EU region. %1$sLearn more at Mailgun.com%2$s"
+msgstr "Seleziona l'endpoint che desideri utilizzare per inviare messaggi. Se sei soggetto alle leggi dell'UE, potresti dover utilizzare la regione UE. %1$sScopri di più su Mailgun.com%2$s"
+
+#: inc/emails/providers/mailjet/mailjet-handler.php:70
+msgid "Authentication keys are missing."
+msgstr "Le chiavi di autenticazione sono mancanti."
+
+#: inc/emails/providers/mailjet/mailjet-handler.php:76
+msgid "Mailjet connection saved successfully."
+msgstr "Connessione Mailjet salvata con successo."
+
+#: inc/emails/providers/mailjet/mailjet-handler.php:99
+msgid "Mailjet API key and Secret key are required."
+msgstr "La chiave API di Mailjet e la chiave segreta sono richieste."
+
+#. translators: %s: Error message.
+#: inc/emails/providers/mailjet/mailjet-handler.php:168
+#: inc/emails/providers/mailjet/mailjet-handler.php:188
+#, php-format
+msgid "Email sending failed via Mailjet. %s"
+msgstr "Invio email non riuscito tramite Mailjet. %s"
+
+#: inc/emails/providers/mailjet/mailjet-handler.php:179
+msgid "Email sent successfully via Mailjet."
+msgstr "Email inviata con successo tramite Mailjet."
+
+#: inc/emails/providers/mailjet/mailjet-handler.php:202
+msgid "Mailjet Connection"
+msgstr "Connessione Mailjet"
+
+#: inc/emails/providers/mailjet/mailjet-handler.php:203
+msgid "Enter the details below to connect with your Mailjet account."
+msgstr "Inserisci i dettagli qui sotto per connetterti al tuo account Mailjet."
+
+#: inc/emails/providers/mailjet/mailjet-handler.php:206
+msgid "Mailjet"
+msgstr "Mailjet"
+
+#: inc/emails/providers/mailjet/mailjet-handler.php:225
+msgid "Enter your Mailjet API key"
+msgstr "Inserisci la tua chiave API di Mailjet"
+
+#: inc/emails/providers/mailjet/mailjet-handler.php:233
+msgid "Enter your Mailjet Secret key"
+msgstr "Inserisci la tua chiave segreta di Mailjet"
+
+#: inc/emails/providers/netcore/netcore-handler.php:72
+msgid "Netcore connection saved successfully."
+msgstr "Connessione Netcore salvata con successo."
+
+#: inc/emails/providers/netcore/netcore-handler.php:149
+msgid "Email sending failed via Netcore. Failed to encode email body to JSON."
+msgstr "Invio email non riuscito tramite Netcore. Impossibile codificare il corpo dell'email in JSON."
+
+#: inc/emails/providers/netcore/netcore-handler.php:166
+#: inc/emails/providers/netcore/netcore-handler.php:182
+msgid "Email sending failed via Netcore. "
+msgstr "Invio email non riuscito tramite Netcore."
+
+#: inc/emails/providers/netcore/netcore-handler.php:179
+msgid "Email sent successfully via Netcore."
+msgstr "Email inviata con successo tramite Netcore."
+
+#: inc/emails/providers/netcore/netcore-handler.php:196
+msgid "Netcore Connection"
+msgstr "Connessione Netcore"
+
+#: inc/emails/providers/netcore/netcore-handler.php:197
+msgid "Enter the details below to connect with your Netcore account."
+msgstr "Inserisci i dettagli qui sotto per connetterti al tuo account Netcore."
+
+#: inc/emails/providers/netcore/netcore-handler.php:200
+msgid "Netcore"
+msgstr "Netcore"
+
+#: inc/emails/providers/netcore/netcore-handler.php:219
+msgid "Enter your Netcore API key"
+msgstr "Inserisci la tua chiave API Netcore"
+
+#: inc/emails/providers/netcore/netcore-handler.php:238
+msgid "Select your Netcore region"
+msgstr "Seleziona la tua regione Netcore"
+
+#: inc/emails/providers/netcore/netcore-handler.php:239
+msgid "Select the endpoint you want to use for sending messages. If you are subject to EU laws, you may need to use the EU region."
+msgstr "Seleziona l'endpoint che desideri utilizzare per inviare messaggi. Se sei soggetto alle leggi dell'UE, potresti dover utilizzare la regione UE."
+
+#: inc/emails/providers/outlook/outlook-handler.php:54
+msgid "Outlook connection saved successfully."
+msgstr "Connessione Outlook salvata con successo."
+
+#: inc/emails/providers/outlook/outlook-handler.php:72
+msgid "Outlook sending not yet implemented."
+msgstr "Invio Outlook non ancora implementato."
+
+#: inc/emails/providers/outlook/outlook-handler.php:84
+msgid "Outlook Connection"
+msgstr "Connessione Outlook"
+
+#: inc/emails/providers/outlook/outlook-handler.php:85
+msgid "Enter the details below to connect with your Microsoft Outlook/Office 365 account."
+msgstr "Inserisci i dettagli qui sotto per connetterti al tuo account Microsoft Outlook/Office 365."
+
+#: inc/emails/providers/outlook/outlook-handler.php:88
+msgid "Microsoft Outlook/Office 365"
+msgstr "Microsoft Outlook/Office 365"
+
+#: inc/emails/providers/outlook/outlook-handler.php:106
+msgid "Enter your Outlook Client ID"
+msgstr "Inserisci il tuo ID client Outlook"
+
+#: inc/emails/providers/outlook/outlook-handler.php:114
+msgid "Enter your Outlook Client Secret"
+msgstr "Inserisci il tuo segreto client Outlook"
+
+#: inc/emails/providers/outlook/outlook-handler.php:122
+msgid "Enter your Outlook Redirect URI"
+msgstr "Inserisci il tuo URI di reindirizzamento Outlook"
+
+#: inc/emails/providers/phpmail/phpmail-handler.php:61
+msgid "From Email is missing in the connection data."
+msgstr "L'email di provenienza è mancante nei dati di connessione."
+
+#: inc/emails/providers/phpmail/phpmail-handler.php:68
+msgid "PHP Mail connection failed."
+msgstr "Connessione PHP Mail fallita."
+
+#: inc/emails/providers/phpmail/phpmail-handler.php:106
+msgid "Email sending failed via PHP Mail."
+msgstr "Invio email fallito tramite PHP Mail."
+
+#: inc/emails/providers/phpmail/phpmail-handler.php:112
+msgid "Email sent successfully via PHP Mail."
+msgstr "Email inviata con successo tramite PHP Mail."
+
+#. translators: %s: The error message.
+#: inc/emails/providers/phpmail/phpmail-handler.php:121
+#, php-format
+msgid "Email sending failed via PHP Mail: %s"
+msgstr "Invio email fallito tramite PHP Mail: %s"
+
+#: inc/emails/providers/phpmail/phpmail-handler.php:134
+msgid "PHP Mail Connection"
+msgstr "Connessione PHP Mail"
+
+#: inc/emails/providers/phpmail/phpmail-handler.php:135
+msgid "Enter the details below to connect with your PHP Mail account."
+msgstr "Inserisci i dettagli qui sotto per connetterti al tuo account PHP Mail."
+
+#: inc/emails/providers/phpmail/phpmail-handler.php:138
+msgid "PHP Mail"
+msgstr "PHP Mail"
+
+#: inc/emails/providers/postmark/postmark-handler.php:71
+msgid "Postmark connection saved successfully."
+msgstr "Connessione Postmark salvata con successo."
+
+#: inc/emails/providers/postmark/postmark-handler.php:144
+msgid "Email sending failed via Postmark. Failed to encode email payload to JSON."
+msgstr "Invio email fallito tramite Postmark. Impossibile codificare il payload dell'email in JSON."
+
+#: inc/emails/providers/postmark/postmark-handler.php:160
+#: inc/emails/providers/postmark/postmark-handler.php:176
+msgid "Email sending failed via Postmark. "
+msgstr "Invio email fallito tramite Postmark."
+
+#: inc/emails/providers/postmark/postmark-handler.php:171
+msgid "Email sent successfully via Postmark."
+msgstr "Email inviata con successo tramite Postmark."
+
+#: inc/emails/providers/postmark/postmark-handler.php:190
+msgid "Postmark Connection"
+msgstr "Connessione Postmark"
+
+#: inc/emails/providers/postmark/postmark-handler.php:191
+msgid "Enter the details below to connect with your Postmark account."
+msgstr "Inserisci i dettagli qui sotto per connetterti al tuo account Postmark."
+
+#: inc/emails/providers/postmark/postmark-handler.php:194
+msgid "Postmark"
+msgstr "Postmark"
+
+#: inc/emails/providers/postmark/postmark-handler.php:211
+msgid "Server Token"
+msgstr "Token del server"
+
+#: inc/emails/providers/postmark/postmark-handler.php:213
+msgid "Enter your Postmark Server Token"
+msgstr "Inserisci il tuo token del server Postmark"
+
+#. translators: %s: postmark URL.
+#: inc/emails/providers/postmark/postmark-handler.php:217
+#, php-format
+msgid "Obtain your API key from Postmark. You can find your API key under the API Tokens tab in your account. %1$sClick here%2$s"
+msgstr "Ottieni la tua chiave API da Postmark. Puoi trovare la tua chiave API nella scheda Token API nel tuo account. %1$sClicca qui%2$s"
+
+#: inc/emails/providers/postmark/postmark-handler.php:226
+msgid "Message Stream ID"
+msgstr "ID del flusso di messaggi"
+
+#: inc/emails/providers/postmark/postmark-handler.php:229
+msgid "The Message Stream ID is optional. If not provided, the default outbound stream (Transactional Stream) will be used."
+msgstr "L'ID del flusso di messaggi è facoltativo. Se non fornito, verrà utilizzato il flusso in uscita predefinito (Flusso transazionale)."
+
+#: inc/emails/providers/postmark/postmark-handler.php:230
+msgid "Enter your Postmark Message Stream"
+msgstr "Inserisci il tuo flusso di messaggi Postmark"
+
+#: inc/emails/providers/sendgrid/sendgrid-handler.php:81
+msgid "SendGrid connection saved successfully."
+msgstr "Connessione SendGrid salvata con successo."
+
+#: inc/emails/providers/sendgrid/sendgrid-handler.php:208
+msgid "Email sent successfully via SendGrid."
+msgstr "Email inviata con successo tramite SendGrid."
+
+#: inc/emails/providers/sendgrid/sendgrid-handler.php:240
+msgid "SendGrid Connection"
+msgstr "Connessione SendGrid"
+
+#: inc/emails/providers/sendgrid/sendgrid-handler.php:241
+msgid "Enter the details below to connect with your SendGrid account."
+msgstr "Inserisci i dettagli qui sotto per connetterti al tuo account SendGrid."
+
+#: inc/emails/providers/sendgrid/sendgrid-handler.php:243
+msgid "SendGrid"
+msgstr "SendGrid"
+
+#: inc/emails/providers/sendgrid/sendgrid-handler.php:264
+msgid "Enter your SendGrid API Key"
+msgstr "Inserisci la tua chiave API SendGrid"
+
+#: inc/emails/providers/simulator/simulation-handler.php:72
+msgid "Email sending was simulated, but no email was actually sent."
+msgstr "L'invio dell'email è stato simulato, ma nessuna email è stata effettivamente inviata."
+
+#: inc/emails/providers/smtp/smtp-handler.php:133
+msgid "SMTP Connection"
+msgstr "Connessione SMTP"
+
+#: inc/emails/providers/smtp/smtp-handler.php:134
+msgid "Enter the details below to connect with your SMTP account."
+msgstr "Inserisci i dettagli qui sotto per connetterti al tuo account SMTP."
+
+#: inc/emails/providers/smtp/smtp-handler.php:136
+msgid "Other SMTP Provider"
+msgstr "Altro fornitore SMTP"
+
+#: inc/emails/providers/smtp/smtp-handler.php:155
+msgid "Host"
+msgstr "Host"
+
+#: inc/emails/providers/smtp/smtp-handler.php:157
+msgid "Enter the SMTP host"
+msgstr "Inserisci l'host SMTP"
+
+#: inc/emails/providers/smtp/smtp-handler.php:163
+msgid "Port"
+msgstr "Porta"
+
+#: inc/emails/providers/smtp/smtp-handler.php:165
+msgid "Enter port"
+msgstr "Inserisci la porta"
+
+#: inc/emails/providers/smtp/smtp-handler.php:171
+msgid "Username"
+msgstr "Nome utente"
+
+#: inc/emails/providers/smtp/smtp-handler.php:173
+msgid "Enter SMTP username"
+msgstr "Inserisci il nome utente SMTP"
+
+#: inc/emails/providers/smtp/smtp-handler.php:179
+msgid "Password"
+msgstr "Password"
+
+#: inc/emails/providers/smtp/smtp-handler.php:181
+msgid "Enter SMTP password"
+msgstr "Inserisci la password SMTP"
+
+#: inc/emails/providers/smtp/smtp-handler.php:198
+msgid "Choose SSL for port 465, or TLS for port 25 or 587"
+msgstr "Scegli SSL per la porta 465, o TLS per la porta 25 o 587"
+
+#: inc/emails/providers/smtp/smtp-handler.php:199
+msgid "Encryption"
+msgstr "Crittografia"
+
+#: inc/emails/providers/smtp/smtp-handler.php:202
+#: build/main.js:2
+msgid "None"
+msgstr "Nessuna"
+
+#: inc/emails/providers/smtp/smtp-handler.php:203
+msgid "SSL"
+msgstr "SSL"
+
+#: inc/emails/providers/smtp/smtp-handler.php:204
+msgid "TLS"
+msgstr "TLS"
+
+#: inc/emails/providers/smtp/smtp-handler.php:211
+msgid "Enable TLS automatically if the server supports it."
+msgstr "Abilita TLS automaticamente se il server lo supporta."
+
+#: inc/emails/providers/smtp/smtp-handler.php:212
+msgid "Auto TLS"
+msgstr "Auto TLS"
+
+#: inc/emails/providers/smtp2go/smtp2go-handler.php:74
+msgid "SMTP2GO connection saved successfully."
+msgstr "Connessione SMTP2GO salvata con successo."
+
+#: inc/emails/providers/smtp2go/smtp2go-handler.php:169
+msgid "Email sent successfully via SMTP2GO."
+msgstr "Email inviato con successo tramite SMTP2GO."
+
+#: inc/emails/providers/smtp2go/smtp2go-handler.php:173
+msgid "SMTP2GO Server Error"
+msgstr "Errore del server SMTP2GO"
+
+#: inc/emails/providers/smtp2go/smtp2go-handler.php:201
+msgid "SMTP2GO Connection"
+msgstr "Connessione SMTP2GO"
+
+#: inc/emails/providers/smtp2go/smtp2go-handler.php:202
+msgid "Enter the details below to connect with your SMTP2GO account."
+msgstr "Inserisci i dettagli qui sotto per connetterti al tuo account SMTP2GO."
+
+#: inc/emails/providers/smtp2go/smtp2go-handler.php:204
+msgid "SMTP2GO"
+msgstr "SMTP2GO"
+
+#. translators: %s: https://app.smtp2go.com/login/ URL.
+#: inc/emails/providers/smtp2go/smtp2go-handler.php:223
+#, php-format
+msgid "Click on this link to generate an API Key from SMTP2GO - %1$sCreate API Key%2$s"
+msgstr "Clicca su questo link per generare una chiave API da SMTP2GO - %1$sCrea chiave API%2$s"
+
+#: inc/emails/providers/smtp2go/smtp2go-handler.php:229
+msgid "Enter your SMTP2GO API Key"
+msgstr "Inserisci la tua chiave API SMTP2GO"
+
+#: inc/emails/providers/sparkpost/sparkpost-handler.php:66
+msgid "Required fields are missing."
+msgstr "Mancano campi obbligatori."
+
+#: inc/emails/providers/sparkpost/sparkpost-handler.php:73
+msgid "The \"From Email\" is not a valid email address."
+msgstr "L'email \"Da\" non è un indirizzo email valido."
+
+#: inc/emails/providers/sparkpost/sparkpost-handler.php:79
+msgid "SparkPost connection saved successfully."
+msgstr "Connessione SparkPost salvata con successo."
+
+#: inc/emails/providers/sparkpost/sparkpost-handler.php:102
+msgid "API key is missing in the connection data."
+msgstr "La chiave API è mancante nei dati di connessione."
+
+#. translators: %s: Error message.
+#: inc/emails/providers/sparkpost/sparkpost-handler.php:177
+#, php-format
+msgid "Error: %s"
+msgstr "Errore: %s"
+
+#: inc/emails/providers/sparkpost/sparkpost-handler.php:190
+msgid "Email sent successfully via SparkPost."
+msgstr "Email inviato con successo tramite SparkPost."
+
+#: inc/emails/providers/emailit/emailit-handler.php:306
+#: inc/emails/providers/emailit/emailit-handler.php:311
+#: inc/emails/providers/sparkpost/sparkpost-handler.php:195
+msgid "Unknown error"
+msgstr "Errore sconosciuto"
+
+#. translators: %s: Error message.
+#: inc/emails/providers/sparkpost/sparkpost-handler.php:200
+#, php-format
+msgid "Email sending failed via SparkPost. Error: %s"
+msgstr "Invio email non riuscito tramite SparkPost. Errore: %s"
+
+#: inc/emails/providers/sparkpost/sparkpost-handler.php:261
+msgid "SparkPost Connection"
+msgstr "Connessione SparkPost"
+
+#: inc/emails/providers/sparkpost/sparkpost-handler.php:262
+msgid "Enter the details below to connect with your SparkPost account."
+msgstr "Inserisci i dettagli qui sotto per connetterti al tuo account SparkPost."
+
+#: inc/emails/providers/sparkpost/sparkpost-handler.php:265
+msgid "SparkPost"
+msgstr "SparkPost"
+
+#: inc/emails/providers/sparkpost/sparkpost-handler.php:284
+msgid "Enter your SparkPost API key"
+msgstr "Inserisci la tua chiave API SparkPost"
+
+#: inc/emails/providers/sparkpost/sparkpost-handler.php:297
+msgid "Select your SpartPost region"
+msgstr "Seleziona la tua regione SparkPost"
+
+#. translators: %s: www.mailgun.com/about/regions/ URL.
+#: inc/emails/providers/sparkpost/sparkpost-handler.php:299
+#, php-format
+msgid "Select the endpoint you want to use for sending messages. If you are subject to EU laws, you may need to use the EU region. %1$sLearn more at SparkPost.com%2$s"
+msgstr "Seleziona l'endpoint che desideri utilizzare per inviare messaggi. Se sei soggetto alle leggi dell'UE, potrebbe essere necessario utilizzare la regione UE. %1$sScopri di più su SparkPost.com%2$s"
+
+#: inc/nps-notice.php:89
+msgid "How likely are you to recommend SureMail to your friends or colleagues?"
+msgstr "Quanto è probabile che tu raccomandi SureMail ai tuoi amici o colleghi?"
+
+#: inc/nps-notice.php:90
+msgid "Thanks a lot for your feedback! 😍"
+msgstr "Grazie mille per il tuo feedback! 😍"
+
+#: inc/nps-notice.php:92
+msgid "Thank you for your feedback"
+msgstr "Grazie per il tuo feedback"
+
+#: inc/nps-notice.php:93
+msgid "We value your input. How can we improve your experience?"
+msgstr "Valutiamo il tuo contributo. Come possiamo migliorare la tua esperienza?"
+
+#: inc/nps-notice.php:94
+msgid "Rate SureMail"
+msgstr "Valuta SureMail"
+
+#: inc/providers.php:76
+msgid "Enter Connection Title"
+msgstr "Inserisci il titolo della connessione"
+
+#: inc/providers.php:77
+#: build/main.js:2
+msgid "Connection Title"
+msgstr "Titolo della connessione"
+
+#: inc/providers.php:83
+msgid "From Email"
+msgstr "Email da"
+
+#: inc/providers.php:85
+msgid "Enter the email address to send from"
+msgstr "Inserisci l'indirizzo email da cui inviare"
+
+#: inc/providers.php:91
+msgid "Enable this option to force all emails sent from your site to use the \"From Email\" specified in this connection, overriding any other \"From Email\" set by other plugins, themes, etc."
+msgstr "Abilita questa opzione per forzare tutte le email inviate dal tuo sito a utilizzare l'email \"Da\" specificata in questa connessione, sovrascrivendo qualsiasi altra email \"Da\" impostata da altri plugin, temi, ecc."
+
+#: inc/providers.php:92
+msgid "Force From Email"
+msgstr "Forza Email da"
+
+#: inc/providers.php:101
+msgid "From Name"
+msgstr "Nome da"
+
+#: inc/providers.php:103
+msgid "Enter the name to send from"
+msgstr "Inserisci il nome da cui inviare"
+
+#: inc/providers.php:109
+msgid "Enable this option to ensure all emails sent from your site use the \"From Name\" specified in this connection, overriding any other \"From Name\" set by other plugins, themes, etc."
+msgstr "Abilita questa opzione per garantire che tutte le email inviate dal tuo sito utilizzino il \"Nome da\" specificato in questa connessione, sovrascrivendo qualsiasi altro \"Nome da\" impostato da altri plugin, temi, ecc."
+
+#: inc/providers.php:110
+msgid "Force From Name"
+msgstr "Forza Nome da"
+
+#. translators: %s: https://suremails.com/docs/multiple-backup-connections?utm_campaign=suremails&utm_medium=suremails-dashboard URL.
+#: inc/providers.php:119
+#, php-format
+msgid "Set the order in which connections should be used to send emails. The connection for the \"From Email\" specified above and the lowest sequence number will be used first. If that connection fails, the next connection with the same \"From Email\" and the following lowest sequence number will be used. %1$sMore Information here%2$s"
+msgstr "Imposta l'ordine in cui le connessioni devono essere utilizzate per inviare email. La connessione per l'email \"Da\" specificata sopra e il numero di sequenza più basso verrà utilizzata per prima. Se quella connessione fallisce, verrà utilizzata la successiva connessione con la stessa email \"Da\" e il numero di sequenza successivo più basso. %1$sMaggiori informazioni qui%2$s"
+
+#: inc/providers.php:123
+msgid "Connection Sequence for From Email"
+msgstr "Sequenza di connessione per Email da"
+
+#: inc/providers.php:125
+msgid "Enter priority"
+msgstr "Inserisci la priorità"
+
+#: admin-notice/components/notice.js:36
+#: build/admin-notice.js:2
+msgid "Your website's emails may not be delivering! Create a connection with an SMTP service to ensure reliable email delivery."
+msgstr "Le email del tuo sito web potrebbero non essere consegnate! Crea una connessione con un servizio SMTP per garantire una consegna email affidabile."
+
+#: admin-notice/components/notice.js:53
+#: build/admin-notice.js:2
+msgid "Configure SureMail"
+msgstr "Configura SureMail"
+
+#: build/main.js:2
+msgid "No Date"
+msgstr "Nessuna data"
+
+#: build/main.js:2
+msgid "Invalid Date"
+msgstr "Data non valida"
+
+#: build/main.js:2
+msgid "Simulated"
+msgstr "Simulato"
+
+#: build/main.js:2
+msgid "Successful"
+msgstr "Riuscito"
+
+#: build/main.js:2
+msgid "Failed"
+msgstr "Fallito"
+
+#: build/main.js:2
+msgid "In Progress"
+msgstr "In corso"
+
+#: build/main.js:2
+msgid "Blocked"
+msgstr "Bloccato"
+
+#: build/main.js:2
+msgid "Unknown"
+msgstr "Sconosciuto"
+
+#: build/main.js:2
+#, js-format
+msgid "This provider isn't compatible. For help, contact us %1$shere%2$s."
+msgstr "Questo fornitore non è compatibile. Per assistenza, contattaci %1$shere%2$s."
+
+#: build/main.js:2
+msgid "This provider is coming soon!"
+msgstr "Questo fornitore arriverà presto!"
+
+#: build/main.js:2
+msgid "Invalid connection data."
+msgstr "Dati di connessione non validi."
+
+#: build/main.js:2
+msgid "There was an issue deleting the connection."
+msgstr "Si è verificato un problema durante l'eliminazione della connessione."
+
+#: build/main.js:2
+msgid "Invalid payload for testing connection."
+msgstr "Payload non valido per il test della connessione."
+
+#: build/main.js:2
+msgid "There was an issue testing the connection."
+msgstr "Si è verificato un problema durante il test della connessione."
+
+#: build/main.js:2
+msgid "Show less"
+msgstr "Mostra meno"
+
+#: build/main.js:2
+msgid "Show more"
+msgstr "Mostra di più"
+
+#: build/main.js:2
+msgid "Copied to clipboard"
+msgstr "Copiato negli appunti"
+
+#: build/main.js:2
+msgid "Copy to clipboard"
+msgstr "Copia negli appunti"
+
+#: build/main.js:2
+msgid "There was an issue getting the auth URL."
+msgstr "Si è verificato un problema durante il recupero dell'URL di autenticazione."
+
+#: build/main.js:2
+msgid "Error In Auth URL"
+msgstr "Errore nell'URL di autenticazione"
+
+#: build/main.js:2
+msgid "There was an issue generating the auth URL."
+msgstr "Si è verificato un problema durante la generazione dell'URL di autenticazione."
+
+#: build/main.js:2
+msgid "Connection Details"
+msgstr "Dettagli della connessione"
+
+#: build/main.js:2
+msgid "New Connection"
+msgstr "Nuova connessione"
+
+#: build/main.js:2
+msgid "Enter the details below to connect with your {providerName} account."
+msgstr "Inserisci i dettagli qui sotto per connetterti al tuo account {providerName}."
+
+#: build/main.js:2
+msgid "Pick an email provider to ensure your WordPress emails are delivered securely and reliably."
+msgstr "Scegli un fornitore di email per garantire che le tue email WordPress vengano consegnate in modo sicuro e affidabile."
+
+#: build/main.js:2
+msgid "Back"
+msgstr "Indietro"
+
+#: build/main.js:2
+msgid "No changes to save."
+msgstr "Nessuna modifica da salvare."
+
+#: build/main.js:2
+msgid "Verification Failed!"
+msgstr "Verifica fallita!"
+
+#: build/main.js:2
+msgid "An unexpected error occurred while testing the connection."
+msgstr "Si è verificato un errore imprevisto durante il test della connessione."
+
+#: build/main.js:2
+msgid "Testing…"
+msgstr "Test in corso…"
+
+#: build/main.js:2
+msgid "Save Changes"
+msgstr "Salva modifiche"
+
+#: build/main.js:2
+msgid "Please select a sender email"
+msgstr "Seleziona un'email del mittente"
+
+#: build/main.js:2
+msgid "Invalid sender email"
+msgstr "Email del mittente non valida"
+
+#: build/main.js:2
+msgid "Please enter a valid recipient email"
+msgstr "Inserisci un'email del destinatario valida"
+
+#: build/main.js:2
+msgid "Incomplete data for sending test email."
+msgstr "Dati incompleti per l'invio dell'email di prova."
+
+#: build/main.js:2
+msgid "There was an issue sending the test email."
+msgstr "Si è verificato un problema durante l'invio dell'email di prova."
+
+#: build/main.js:2
+msgid "Sent!"
+msgstr "Inviato!"
+
+#: build/main.js:2
+msgid "Test email sent successfully."
+msgstr "Email di prova inviata con successo."
+
+#: build/main.js:2
+msgid "Failed!"
+msgstr "Fallito!"
+
+#: build/main.js:2
+msgid "Failed to send test email."
+msgstr "Impossibile inviare l'email di prova."
+
+#: build/main.js:2
+msgid "An unexpected error occurred while sending the test email."
+msgstr "Si è verificato un errore imprevisto durante l'invio dell'email di prova."
+
+#: build/main.js:2
+msgid "Send Test Email"
+msgstr "Invia email di prova"
+
+#: build/main.js:2
+msgid "Send a test email to verify your connection."
+msgstr "Invia un'email di prova per verificare la tua connessione."
+
+#: build/main.js:2
+msgid "Email From"
+msgstr "Email da"
+
+#: build/main.js:2
+msgid "Select From Email"
+msgstr "Seleziona email da"
+
+#: build/main.js:2
+msgid "Choose the sender email for this test."
+msgstr "Scegli l'email del mittente per questo test."
+
+#: build/main.js:2
+msgid "Enter recipient email"
+msgstr "Inserisci l'email del destinatario"
+
+#: build/main.js:2
+msgid "Email Send To"
+msgstr "Email inviata a"
+
+#: build/main.js:2
+msgid "Provide the recipient email address for this test."
+msgstr "Fornisci l'indirizzo email del destinatario per questo test."
+
+#: build/main.js:2
+msgid "Cancel"
+msgstr "Annulla"
+
+#: build/main.js:2
+msgid "Connect with Amazon SES, Gmail, and more in just a few clicks."
+msgstr "Collegati con Amazon SES, Gmail e altro in pochi clic."
+
+#: build/main.js:2
+msgid "Improve email deliverability and avoid the spam folder."
+msgstr "Migliora la consegna delle email ed evita la cartella spam."
+
+#: build/main.js:2
+msgid "Ensure uninterrupted email sending with backup connections."
+msgstr "Garantisci l'invio ininterrotto delle email con connessioni di backup."
+
+#: build/main.js:2
+msgid "Keep your email credentials safe with industry-standard encryption."
+msgstr "Tieni al sicuro le tue credenziali email con crittografia standard del settore."
+
+#: build/main.js:2
+msgid "Create Your First Connection"
+msgstr "Crea la tua prima connessione"
+
+#: build/main.js:2
+msgid "It looks like you haven't set up a SMTP connection yet. Connect to a reliable SMTP provider to ensure your emails are delivered effectively and securely."
+msgstr "Sembra che tu non abbia ancora impostato una connessione SMTP. Collegati a un fornitore SMTP affidabile per garantire che le tue email vengano consegnate in modo efficace e sicuro."
+
+#: build/main.js:2
+msgid "Add Connection"
+msgstr "Aggiungi connessione"
+
+#: build/main.js:2
+msgid "delete"
+msgstr "elimina"
+
+#: build/main.js:2
+#, js-format
+msgid "Please type \"%s\" in the input box"
+msgstr "Si prega di digitare \"%s\" nella casella di input"
+
+#: build/main.js:2
+msgid "Confirm"
+msgstr "Conferma"
+
+#: build/main.js:2
+msgid "To confirm, type delete in the box below:"
+msgstr "Per confermare, digita elimina nella casella qui sotto:"
+
+#: build/main.js:2
+#, js-format
+msgid "Type \"%s\""
+msgstr "Digita \"%s\""
+
+#: build/main.js:2
+msgid "is required"
+msgstr "è richiesto"
+
+#: build/main.js:2
+msgid "Please enter a valid email address"
+msgstr "Si prega di inserire un indirizzo email valido"
+
+#: build/main.js:2
+msgid "Planned"
+msgstr "Pianificato"
+
+#: build/main.js:2
+msgid "Not Compatible"
+msgstr "Non compatibile"
+
+#: build/main.js:2
+msgid "Deleted!"
+msgstr "Eliminato!"
+
+#: build/main.js:2
+msgid "Error deleting connection"
+msgstr "Errore durante l'eliminazione della connessione"
+
+#: build/main.js:2
+msgid "Error loading connections"
+msgstr "Errore durante il caricamento delle connessioni"
+
+#: build/main.js:2
+msgid "There was an issue fetching connections."
+msgstr "C'è stato un problema nel recuperare le connessioni."
+
+#: build/main.js:2
+msgid "Connection"
+msgstr "Connessione"
+
+#: build/main.js:2
+msgid "Email"
+msgstr "Email"
+
+#: build/main.js:2
+msgid "Created On"
+msgstr "Creato il"
+
+#: build/main.js:2
+msgid "Test Email"
+msgstr "Email di prova"
+
+#: build/main.js:2
+msgid "Action"
+msgstr "Azione"
+
+#: build/main.js:2
+msgid "Email Connections"
+msgstr "Connessioni email"
+
+#: build/main.js:2
+msgid "Edit"
+msgstr "Modifica"
+
+#: build/main.js:2
+msgid "Delete"
+msgstr "Elimina"
+
+#: build/main.js:2
+msgid "Confirm Deletion"
+msgstr "Conferma eliminazione"
+
+#: build/main.js:2
+msgid "Are you sure you want to delete this connection? This action cannot be undone."
+msgstr "Sei sicuro di voler eliminare questa connessione? Questa azione non può essere annullata."
+
+#: build/main.js:2
+msgid "View delivery status, timestamps, and more for each sent email."
+msgstr "Visualizza lo stato di consegna, i timestamp e altro per ogni email inviata."
+
+#: build/main.js:2
+msgid "Quickly resend any email directly from the logs if needed."
+msgstr "Reinvia rapidamente qualsiasi email direttamente dai log se necessario."
+
+#: build/main.js:2
+msgid "Get insights into your email performance, including success and failure rates."
+msgstr "Ottieni informazioni sulle prestazioni delle tue email, inclusi tassi di successo e di fallimento."
+
+#: build/main.js:2
+msgid "Easily identify and resolve any issues with failed email deliveries."
+msgstr "Identifica e risolvi facilmente eventuali problemi con le consegne di email non riuscite."
+
+#: build/main.js:2
+msgid "No Email Logs Available"
+msgstr "Nessun log email disponibile"
+
+#: build/main.js:2
+msgid "Once your emails start sending, you'll see detailed logs here to help you monitor and manage your email activity."
+msgstr "Una volta che le tue email iniziano a essere inviate, vedrai log dettagliati qui per aiutarti a monitorare e gestire la tua attività email."
+
+#: build/main.js:2
+msgid "Subject"
+msgstr "Oggetto"
+
+#: build/main.js:2
+msgid "Status"
+msgstr "Stato"
+
+#: build/main.js:2
+msgid "Email To"
+msgstr "Email a"
+
+#: build/main.js:2
+msgid "Date & Time"
+msgstr "Data e ora"
+
+#: build/main.js:2
+msgid "Actions"
+msgstr "Azioni"
+
+#: build/main.js:2
+msgid "No Logs Available for the selected filters"
+msgstr "Nessun log disponibile per i filtri selezionati"
+
+#: build/main.js:2
+msgid "No logs selected for deletion."
+msgstr "Nessun log selezionato per l'eliminazione."
+
+#: build/main.js:2
+msgid "There was an issue deleting logs."
+msgstr "C'è stato un problema nell'eliminazione dei log."
+
+#: build/main.js:2
+msgid "No logs selected for resending."
+msgstr "Nessun log selezionato per il reinvio."
+
+#: build/main.js:2
+msgid "There was an issue resending the email(s)."
+msgstr "C'è stato un problema nel reinviare l'email/i."
+
+#: build/main.js:2
+msgid "Reputation Shield Checks"
+msgstr "Controlli della reputazione"
+
+#: build/main.js:2
+msgid "Pass"
+msgstr "Passato"
+
+#: build/main.js:2
+msgid "Fail"
+msgstr "Fallito"
+
+#: build/main.js:2
+msgid "Attachment"
+msgstr "Allegato"
+
+#: build/main.js:2
+msgid "Download"
+msgstr "Scarica"
+
+#: build/main.js:2
+msgid "Sent by:"
+msgstr "Inviato da:"
+
+#: build/main.js:2
+msgid "Sent to:"
+msgstr "Inviato a:"
+
+#: build/main.js:2
+msgid "Subject:"
+msgstr "Oggetto:"
+
+#: build/main.js:2
+msgid "Resent:"
+msgstr "Reinviato:"
+
+#: build/main.js:2
+msgid "Retries:"
+msgstr "Riprova:"
+
+#: build/main.js:2
+msgid "Email Body"
+msgstr "Corpo dell'email"
+
+#: build/main.js:2
+msgid "No email body available."
+msgstr "Nessun corpo email disponibile."
+
+#: build/main.js:2
+msgid "Server Response"
+msgstr "Risposta del server"
+
+#: build/main.js:2
+msgid "Message:"
+msgstr "Messaggio:"
+
+#: build/main.js:2
+msgid "Connection:"
+msgstr "Connessione:"
+
+#: build/main.js:2
+msgid "No server response available."
+msgstr "Nessuna risposta del server disponibile."
+
+#: build/main.js:2
+msgid "Email Headers"
+msgstr "Intestazioni email"
+
+#: build/main.js:2
+msgid "From:"
+msgstr "Da:"
+
+#: build/main.js:2
+msgid "Reply-To:"
+msgstr "Rispondi a:"
+
+#: build/main.js:2
+msgid "CC:"
+msgstr "CC:"
+
+#: build/main.js:2
+msgid "BCC:"
+msgstr "BCC:"
+
+#: build/main.js:2
+msgid "Content-Type:"
+msgstr "Tipo di contenuto:"
+
+#: build/main.js:2
+msgid "X-Mailer:"
+msgstr "X-Mailer:"
+
+#: build/main.js:2
+#, js-format
+msgid "Attachments (%d)"
+msgstr "Allegati (%d)"
+
+#: inc/api/resend-email.php:122
+#: build/main.js:2
+msgid "Email resent successfully."
+msgstr "Email reinviata con successo."
+
+#: build/main.js:2
+msgid "Failed to resend the email."
+msgstr "Impossibile reinviare l'email."
+
+#: build/main.js:2
+msgid "There was an issue resending emails."
+msgstr "C'è stato un problema nel reinviare le email."
+
+#: build/main.js:2
+msgid "Email Log"
+msgstr "Log email"
+
+#: build/main.js:2
+msgid "Confirm Resend"
+msgstr "Conferma reinvio"
+
+#: build/main.js:2
+msgid "Are you sure you want to resend this email?"
+msgstr "Sei sicuro di voler reinviare questa email?"
+
+#: build/main.js:2
+msgid "Resend"
+msgstr "Reinvia"
+
+#: build/main.js:2
+msgid "There was an issue fetching logs."
+msgstr "C'è stato un problema nel recuperare i log."
+
+#: build/main.js:2
+msgid "Logs deleted successfully."
+msgstr "Log eliminati con successo."
+
+#: build/main.js:2
+msgid "Failed to delete logs."
+msgstr "Impossibile eliminare i log."
+
+#: build/main.js:2
+msgid "Email(s) resent successfully."
+msgstr "Email/i reinviati con successo."
+
+#: build/main.js:2
+msgid "Failed to resend the email(s)."
+msgstr "Impossibile reinviare l'email/i."
+
+#: build/main.js:2
+msgid "Failed to fetch logs."
+msgstr "Impossibile recuperare i log."
+
+#: build/main.js:2
+msgid "Resend Email"
+msgstr "Reinvia email"
+
+#: build/main.js:2
+msgid "Delete Log"
+msgstr "Elimina log"
+
+#: build/main.js:2
+msgid "View Details"
+msgstr "Visualizza dettagli"
+
+#: build/main.js:2
+msgid "Page"
+msgstr "Pagina"
+
+#: build/main.js:2
+msgid "out of"
+msgstr "di"
+
+#: build/main.js:2
+msgid "Are you sure you want to delete the selected log(s)? This action cannot be undone."
+msgstr "Sei sicuro di voler eliminare il/i log selezionato/i? Questa azione non può essere annullata."
+
+#: build/main.js:2
+msgid "Are you sure you want to resend the selected email(s)?"
+msgstr "Sei sicuro di voler reinviare il/i email selezionato/i?"
+
+#: inc/admin/plugin.php:379
+#: build/main.js:2
+msgid "Email Logs"
+msgstr "Log email"
+
+#: build/main.js:2
+msgid "Resend Emails"
+msgstr "Reinvia email"
+
+#: build/main.js:2
+msgid "Clear Filters"
+msgstr "Cancella filtri"
+
+#: build/main.js:2
+msgid "Search…"
+msgstr "Cerca…"
+
+#: build/main.js:2
+msgid "Select Status"
+msgstr "Seleziona stato"
+
+#: build/main.js:2
+msgid "mm/dd/yyyy - mm/dd/yyyy"
+msgstr "mm/dd/yyyy - mm/dd/yyyy"
+
+#: build/main.js:2
+msgid "Apply"
+msgstr "Applica"
+
+#: build/main.js:2
+msgid "Overview"
+msgstr "Panoramica"
+
+#: build/main.js:2
+msgid "Select Date Range"
+msgstr "Seleziona intervallo di date"
+
+#: build/main.js:2
+msgid "No Email Stats Available"
+msgstr "Nessuna statistica email disponibile"
+
+#: build/main.js:2
+msgid "Once your emails start sending, you’ll see detailed stats here to help you monitor and manage your email activity."
+msgstr "Una volta che le tue email iniziano a essere inviate, vedrai statistiche dettagliate qui per aiutarti a monitorare e gestire la tua attività email."
+
+#: build/main.js:2
+msgid "Email Sent"
+msgstr "Email inviata"
+
+#: build/main.js:2
+msgid "Email Failed"
+msgstr "Email fallita"
+
+#: build/main.js:2
+msgid "Invalid data received from server."
+msgstr "Dati non validi ricevuti dal server."
+
+#: build/main.js:2
+msgid "Failed to fetch installed plugins."
+msgstr "Impossibile recuperare i plugin installati."
+
+#: build/main.js:2
+msgid "Free"
+msgstr "Gratuito"
+
+#: build/main.js:2
+msgid "SureForms"
+msgstr "SureForms"
+
+#: build/main.js:2
+msgid "A powerful no-code form builder for WordPress, enabling users to create custom forms easily."
+msgstr "Un potente costruttore di moduli senza codice per WordPress, che consente agli utenti di creare facilmente moduli personalizzati."
+
+#: build/main.js:2
+msgid "Best no code WordPress form builder."
+msgstr "Il miglior costruttore di moduli WordPress senza codice."
+
+#: build/main.js:2
+msgid "Spectra"
+msgstr "Spectra"
+
+#: build/main.js:2
+msgid "A feature-rich Gutenberg block editor plugin that adds advanced design tools to WordPress."
+msgstr "Un plugin editor di blocchi Gutenberg ricco di funzionalità che aggiunge strumenti di design avanzati a WordPress."
+
+#: build/main.js:2
+msgid "Free WordPress Page Builder."
+msgstr "Costruttore di pagine WordPress gratuito."
+
+#: build/main.js:2
+msgid "SureDash"
+msgstr "SureDash"
+
+#: build/main.js:2
+msgid "An all-in-one business dashboard for WordPress to manage customers, communities, and courses."
+msgstr "Un dashboard aziendale tutto-in-uno per WordPress per gestire clienti, comunità e corsi."
+
+#: build/main.js:2
+msgid "Manage your business with SureDash."
+msgstr "Gestisci la tua attività con SureDash."
+
+#: build/main.js:2
+msgid "SureFeedback"
+msgstr "SureFeedback"
+
+#: build/main.js:2
+msgid "Collect user feedback directly on your site to improve design, content, and user experience."
+msgstr "Raccogli feedback degli utenti direttamente sul tuo sito per migliorare design, contenuti e esperienza utente."
+
+#: build/main.js:2
+msgid "Control user access with SureMembers."
+msgstr "Controlla l'accesso degli utenti con SureMembers."
+
+#: build/main.js:2
+msgid "A sales funnel builder for WordPress to boost conversions and optimize checkout flows."
+msgstr "Un costruttore di funnel di vendita per WordPress per aumentare le conversioni e ottimizzare i flussi di checkout."
+
+#: build/main.js:2
+msgid "SureCart"
+msgstr "SureCart"
+
+#: build/main.js:2
+msgid "A modern eCommerce plugin for WordPress, offering a flexible and smooth checkout system."
+msgstr "Un plugin eCommerce moderno per WordPress, che offre un sistema di checkout flessibile e fluido."
+
+#: build/main.js:2
+msgid "The new way to sell on WordPress."
+msgstr "Il nuovo modo di vendere su WordPress."
+
+#: build/main.js:2
+msgid "OttoKit"
+msgstr "OttoKit"
+
+#: build/main.js:2
+msgid "A no-code automation platform for WordPress to build workflows and connect your tools."
+msgstr "Una piattaforma di automazione senza codice per WordPress per costruire flussi di lavoro e connettere i tuoi strumenti."
+
+#: build/main.js:2
+msgid "Automate your WordPress setup."
+msgstr "Automatizza la tua configurazione di WordPress."
+
+#: build/main.js:2
+msgid "Starter Templates"
+msgstr "Modelli di partenza"
+
+#: build/main.js:2
+msgid "A collection of ready-to-use website templates for WordPress to help launch sites quickly."
+msgstr "Una collezione di modelli di siti web pronti all'uso per WordPress per aiutarti a lanciare rapidamente i siti."
+
+#: build/main.js:2
+msgid "Launch sites quickly with Starter Templates."
+msgstr "Lancia rapidamente i siti con i modelli di partenza."
+
+#: build/main.js:2
+msgid "Presto Player"
+msgstr "Presto Player"
+
+#: build/main.js:2
+msgid "An advanced media player plugin that improves video delivery with customization and analytics."
+msgstr "Un plugin avanzato per lettori multimediali che migliora la consegna dei video con personalizzazione e analisi."
+
+#: build/main.js:2
+msgid "Enhance video delivery with Presto Player."
+msgstr "Migliora la consegna dei video con Presto Player."
+
+#: build/main.js:2
+msgid "Astra"
+msgstr "Astra"
+
+#: build/main.js:2
+msgid "A fast, lightweight, and customizable WordPress theme,built for performance and flexibility."
+msgstr "Un tema WordPress veloce, leggero e personalizzabile, progettato per prestazioni e flessibilità."
+
+#: build/main.js:2
+msgid "A fast and customizable WordPress theme."
+msgstr "Un tema WordPress veloce e personalizzabile."
+
+#: build/main.js:2
+msgid "Spectra One"
+msgstr "Spectra One"
+
+#: build/main.js:2
+msgid "A modern block-based WordPress theme, designed for speed, style, and full- site editing."
+msgstr "Un tema WordPress moderno basato su blocchi, progettato per velocità, stile e editing completo del sito."
+
+#: build/main.js:2
+msgid "A modern block-based WordPress theme."
+msgstr "Un tema WordPress moderno basato su blocchi."
+
+#: build/main.js:2
+msgid "WordPress updates API not available."
+msgstr "API degli aggiornamenti di WordPress non disponibile."
+
+#: build/main.js:2
+msgid "Operation failed."
+msgstr "Operazione fallita."
+
+#: build/main.js:2
+msgid "Theme"
+msgstr "Tema"
+
+#: build/main.js:2
+msgid "Plugin"
+msgstr "Plugin"
+
+#: build/main.js:2
+#, js-format
+msgid "%s is already installed."
+msgstr "%s è già installato."
+
+#: build/main.js:2
+#, js-format
+msgid "Another %s operation is in progress. Please wait."
+msgstr "Un'altra operazione %s è in corso. Attendere prego."
+
+#: build/main.js:2
+#, js-format
+msgid "%s installed successfully."
+msgstr "%s installato con successo."
+
+#: build/main.js:2
+#, js-format
+msgid "Failed to install %s."
+msgstr "Impossibile installare %s."
+
+#: build/main.js:2
+#, js-format
+msgid "%s is already activated."
+msgstr "%s è già attivato."
+
+#: build/main.js:2
+#, js-format
+msgid "%s activated successfully."
+msgstr "%s attivato con successo."
+
+#: build/main.js:2
+#, js-format
+msgid "Failed to activate %s."
+msgstr "Impossibile attivare %s."
+
+#: build/main.js:2
+msgid "Extend Your Website"
+msgstr "Estendi il tuo sito web"
+
+#: build/main.js:2
+msgid "Activate"
+msgstr "Attiva"
+
+#: build/main.js:2
+msgid "Activated"
+msgstr "Attivato"
+
+#: build/main.js:2
+msgid "Install & Activate"
+msgstr "Installa e attiva"
+
+#: build/main.js:2
+msgid "Help Center"
+msgstr "Centro assistenza"
+
+#: build/main.js:2
+msgid "Join the Community"
+msgstr "Unisciti alla comunità"
+
+#: build/main.js:2
+msgid "Rate Us"
+msgstr "Valutaci"
+
+#: build/main.js:2
+msgid "Quick Access"
+msgstr "Accesso rapido"
+
+#: build/main.js:2
+msgid "Recent Email Logs"
+msgstr "Log email recenti"
+
+#: build/main.js:2
+msgid "View all"
+msgstr "Visualizza tutto"
+
+#: build/main.js:2
+msgid "Date"
+msgstr "Data"
+
+#: build/main.js:2
+msgid "Authorization Failed"
+msgstr "Autorizzazione fallita"
+
+#: build/main.js:2
+msgid "Invalid state parameter. Please try again."
+msgstr "Parametro di stato non valido. Riprova."
+
+#: build/main.js:2
+msgid "We could not receive the auth code. Please try again."
+msgstr "Non siamo riusciti a ricevere il codice di autorizzazione. Riprova."
+
+#: build/main.js:2
+msgid "Welcome to SureMail"
+msgstr "Benvenuto in SureMail"
+
+#: build/main.js:2
+msgid "Let’s Get Your First Connection Set Up!"
+msgstr "Impostiamo la tua prima connessione!"
+
+#: build/main.js:2
+msgid "Connect to a trusted SMTP provider to ensure secure and reliable email delivery."
+msgstr "Collegati a un provider SMTP fidato per garantire una consegna delle email sicura e affidabile."
+
+#: build/main.js:2
+msgid "Connect with SMTP Provider"
+msgstr "Collegati con il provider SMTP"
+
+#: build/main.js:2
+msgid "Install and Activate"
+msgstr "Installa e attiva"
+
+#: build/main.js:2
+msgid "Activate OttoKit"
+msgstr "Attiva OttoKit"
+
+#: build/main.js:2
+msgid "Connect OttoKit"
+msgstr "Collega OttoKit"
+
+#: build/main.js:2
+msgid "Active"
+msgstr "Attivo"
+
+#: build/main.js:2
+msgid "Setup Notifications via OttoKit"
+msgstr "Imposta le notifiche tramite OttoKit"
+
+#: build/main.js:2
+msgid "OttoKit integrates with SureMail, enabling real-time alerts and seamless app connections."
+msgstr "OttoKit si integra con SureMail, abilitando avvisi in tempo reale e connessioni fluide tra le app."
+
+#: build/main.js:2
+msgid "Instantly receive notifications when an email fails."
+msgstr "Ricevi istantaneamente notifiche quando un'email fallisce."
+
+#: build/main.js:2
+msgid "Connect with your favorite tools like Slack, Telegram, etc."
+msgstr "Collegati ai tuoi strumenti preferiti come Slack, Telegram, ecc."
+
+#: build/main.js:2
+msgid "Automatically resend failed emails or alert your team."
+msgstr "Reinvia automaticamente le email fallite o avvisa il tuo team."
+
+#: build/main.js:2
+msgid "Loading"
+msgstr "Caricamento"
+
+#: build/main.js:2
+msgid "Connecting…"
+msgstr "Collegamento…"
+
+#: build/main.js:2
+msgid "Error loading notifications."
+msgstr "Errore nel caricamento delle notifiche."
+
+#: build/main.js:2
+msgid "There was an issue fetching notifications."
+msgstr "C'è stato un problema nel recupero delle notifiche."
+
+#: inc/admin/plugin.php:383
+#: build/main.js:2
+msgid "Notifications"
+msgstr "Notifiche"
+
+#: build/main.js:2
+msgid "Error activating Reputation Shield"
+msgstr "Errore nell'attivazione del Reputation Shield"
+
+#: build/main.js:2
+msgid "First Name"
+msgstr "Nome"
+
+#: build/main.js:2
+msgid "Last Name"
+msgstr "Cognome"
+
+#: build/main.js:2
+msgid "Email Address"
+msgstr "Indirizzo email"
+
+#: build/main.js:2
+msgid "Better Email Deliverability – Avoid getting flagged by SMTP service providers."
+msgstr "Migliore consegna delle email – Evita di essere contrassegnato dai provider di servizi SMTP."
+
+#: build/main.js:2
+msgid "Protect Your Sender Reputation – Maintain a high sender score and keep your emails trusted."
+msgstr "Proteggi la tua reputazione di mittente – Mantieni un punteggio di mittente elevato e fai in modo che le tue email siano fidate."
+
+#: build/main.js:2
+msgid "Stay Compliant – Prevent emails getting blacklists and avoid policy violations."
+msgstr "Rimani conforme – Previeni che le email finiscano nelle liste nere e evita violazioni delle politiche."
+
+#: build/main.js:2
+msgid "Please enter first name"
+msgstr "Inserisci il nome"
+
+#: build/main.js:2
+msgid "Please enter last name"
+msgstr "Inserisci il cognome"
+
+#: build/main.js:2
+msgid "Safeguard Your Email with Reputation Shield"
+msgstr "Proteggi la tua email con Reputation Shield"
+
+#: build/main.js:2
+msgid "Reputation Shield validates your emails with AI for harmful and inappropriate content before they are processed. If an email contains problematic material, it is blocked before it reaches your SMTP provider."
+msgstr "Reputation Shield convalida le tue email con l'IA per contenuti dannosi e inappropriati prima che vengano elaborate. Se un'email contiene materiale problematico, viene bloccata prima di raggiungere il tuo provider SMTP."
+
+#: build/main.js:2
+msgid "Activate Reputation Shield and Protect Your Emails"
+msgstr "Attiva Reputation Shield e proteggi le tue email"
+
+#: build/main.js:2
+msgid "Activate Reputation Shield to safeguard your emails. Optionally, share your email address to receive valuable tips for optimising your email delivery."
+msgstr "Attiva Reputation Shield per proteggere le tue email. Facoltativamente, condividi il tuo indirizzo email per ricevere suggerimenti preziosi per ottimizzare la consegna delle tue email."
+
+#: build/main.js:2
+msgid "Activate Reputation Shield"
+msgstr "Attiva Reputation Shield"
+
+#: build/main.js:2
+msgid "Skip & Activate"
+msgstr "Salta e attiva"
+
+#: build/main.js:2
+#, js-format
+msgid "By activating you agree to our %1$s and %2$s."
+msgstr "Attivando accetti i nostri %1$s e %2$s."
+
+#: build/main.js:2
+msgid "Terms"
+msgstr "Termini"
+
+#: build/main.js:2
+msgid "Privacy Policy"
+msgstr "Informativa sulla privacy"
+
+#: build/main.js:2
+msgid "Reputation Shield identifies potentially problematic content in your emails and blocks them from being sent to your SMTP service."
+msgstr "Reputation Shield identifica contenuti potenzialmente problematici nelle tue email e li blocca prima che vengano inviati al tuo servizio SMTP."
+
+#: build/main.js:2
+#, js-format
+msgid "Reputation Shield %s successfully"
+msgstr "Reputation Shield %s attivato con successo"
+
+#: build/main.js:2
+msgid "activated"
+msgstr "attivato"
+
+#: build/main.js:2
+msgid "deactivated"
+msgstr "disattivato"
+
+#: build/main.js:2
+msgid "Error authenticating Reputation Shield"
+msgstr "Errore nell'autenticazione di Reputation Shield"
+
+#: build/main.js:2
+msgid "Connection successful"
+msgstr "Connessione riuscita"
+
+#: build/main.js:2
+msgid "Reputation Shield is now active!"
+msgstr "Reputation Shield è ora attivo!"
+
+#: build/main.js:2
+msgid "Error Activating Reputation Shield"
+msgstr "Errore nell'attivazione di Reputation Shield"
+
+#: build/main.js:2
+msgid "Settings saved successfully"
+msgstr "Impostazioni salvate con successo"
+
+#: build/main.js:2
+msgid "Your changes have been saved."
+msgstr "Le tue modifiche sono state salvate."
+
+#: build/main.js:2
+msgid "Error saving settings"
+msgstr "Errore nel salvataggio delle impostazioni"
+
+#: build/main.js:2
+msgid "There was an issue saving the settings."
+msgstr "C'è stato un problema nel salvataggio delle impostazioni."
+
+#: build/main.js:2
+msgid "Delete after 1 day"
+msgstr "Elimina dopo 1 giorno"
+
+#: build/main.js:2
+msgid "Delete after 7 days"
+msgstr "Elimina dopo 7 giorni"
+
+#: build/main.js:2
+msgid "Delete after 30 days"
+msgstr "Elimina dopo 30 giorni"
+
+#: build/main.js:2
+msgid "Delete after 60 days"
+msgstr "Elimina dopo 60 giorni"
+
+#: build/main.js:2
+msgid "Delete after 90 days"
+msgstr "Elimina dopo 90 giorni"
+
+#: build/main.js:2
+msgid "Never"
+msgstr "Mai"
+
+#: build/main.js:2
+msgid "General Settings"
+msgstr "Impostazioni generali"
+
+#: build/main.js:2
+msgid "Saving…"
+msgstr "Salvataggio…"
+
+#: build/main.js:2
+msgid "Save"
+msgstr "Salva"
+
+#: build/main.js:2
+msgid "Log Emails"
+msgstr "Registra email"
+
+#: build/main.js:2
+msgid "Enable to log all outgoing emails for reference."
+msgstr "Abilita per registrare tutte le email in uscita per riferimento."
+
+#: build/main.js:2
+msgid "Delete Logs"
+msgstr "Elimina registri"
+
+#: build/main.js:2
+msgid "Email logs stored in the database will be deleted after the selected duration automatically."
+msgstr "I registri delle email memorizzati nel database verranno eliminati automaticamente dopo la durata selezionata."
+
+#: build/main.js:2
+msgid "Logs will be automatically deleted after the chosen duration."
+msgstr "I registri verranno eliminati automaticamente dopo la durata scelta."
+
+#: build/main.js:2
+msgid "Default Connection"
+msgstr "Connessione predefinita"
+
+#: build/main.js:2
+msgid "This connection will be used by default unless a specific \"from email\" address is provided in the email headers."
+msgstr "Questa connessione verrà utilizzata per impostazione predefinita, a meno che non venga fornito un indirizzo email specifico \"da\" nelle intestazioni delle email."
+
+#: build/main.js:2
+msgid "Email Simulation"
+msgstr "Simulazione email"
+
+#: build/main.js:2
+msgid "Disable sending all emails. If you enable this, no email will be sent but the email logs will be recorded here."
+msgstr "Disabilita l'invio di tutte le email. Se abiliti questa opzione, nessuna email verrà inviata, ma i registri delle email verranno registrati qui."
+
+#: build/main.js:2
+msgid "Exit Guided Setup"
+msgstr "Esci dalla configurazione guidata"
+
+#: build/main.js:2
+msgid "Reduce the chances of your emails getting lost in spam"
+msgstr "Riduci le possibilità che le tue email vengano perse nello spam"
+
+#: build/main.js:2
+msgid "Quick and easy setup, no technical skills needed"
+msgstr "Configurazione rapida e semplice, nessuna competenza tecnica necessaria"
+
+#: build/main.js:2
+msgid "Track, log, and resend emails with ease"
+msgstr "Traccia, registra e reinvia email con facilità"
+
+#: build/main.js:2
+msgid "Connect to multiple email providers"
+msgstr "Collegati a più fornitori di email"
+
+#: build/main.js:2
+msgid "Auto-retry failed emails"
+msgstr "Ritenta automaticamente le email non riuscite"
+
+#: build/main.js:2
+msgid "Fail-Proof Email Delivery!"
+msgstr "Consegna email a prova di errore!"
+
+#: build/main.js:2
+msgid "Continue Setup"
+msgstr "Continua la configurazione"
+
+#: build/main.js:2
+msgid "Skip"
+msgstr "Salta"
+
+#: build/main.js:2
+#, js-format
+msgid "Now, Let's Connect With %s"
+msgstr "Ora, connettiamoci con %s"
+
+#: build/main.js:2
+#, js-format
+msgid "Enter the details below to connect with your %s account."
+msgstr "Inserisci i dettagli qui sotto per connetterti al tuo account %s."
+
+#: build/main.js:2
+msgid "Select Your Primary Email Sending Service"
+msgstr "Seleziona il tuo servizio di invio email principale"
+
+#: build/main.js:2
+msgid "First name"
+msgstr "Nome"
+
+#: build/main.js:2
+msgid "Last name"
+msgstr "Cognome"
+
+#: build/main.js:2
+msgid "Enter Email Address"
+msgstr "Inserisci indirizzo email"
+
+#: build/main.js:2
+msgid "Reputation Shield activated"
+msgstr "Scudo reputazione attivato"
+
+#: build/main.js:2
+msgid "Reputation Shield activated successfully"
+msgstr "Scudo reputazione attivato con successo"
+
+#: build/main.js:2
+msgid "Add More Power to Your Website"
+msgstr "Aggiungi più potenza al tuo sito web"
+
+#: build/main.js:2
+msgid "These tools can help you build your website faster and easier. Try them out and see how they can help your website grow."
+msgstr "Questi strumenti possono aiutarti a costruire il tuo sito web più velocemente e facilmente. Provali e scopri come possono aiutare la crescita del tuo sito."
+
+#: build/main.js:2
+msgid "Install"
+msgstr "Installa"
+
+#: build/main.js:2
+msgid "Invalid JSON response"
+msgstr "Risposta JSON non valida"
+
+#: build/main.js:2
+msgid "Error setting onboarding completion status"
+msgstr "Errore nell'impostazione dello stato di completamento dell'onboarding"
+
+#: build/main.js:2
+msgid "Something went wrong"
+msgstr "Qualcosa è andato storto"
+
+#: build/main.js:2
+msgid "An error occurred while setting the onboarding status."
+msgstr "Si è verificato un errore durante l'impostazione dello stato di onboarding."
+
+#: build/main.js:2
+msgid "Inbox-ready emails:"
+msgstr "Email pronte per la posta in arrivo:"
+
+#: build/main.js:2
+msgid "Reduce the chances of email getting lost in spam!"
+msgstr "Riduci le possibilità che l'email venga persa nello spam!"
+
+#: build/main.js:2
+msgid "Easy tracking:"
+msgstr "Tracciamento facile:"
+
+#: build/main.js:2
+msgid "See every email you send in one place"
+msgstr "Vedi ogni email che invii in un unico posto"
+
+#: build/main.js:2
+msgid "Peace of mind:"
+msgstr "Tranquillità:"
+
+#: build/main.js:2
+msgid "If sending fails, SureMail will automatically retry"
+msgstr "Se l'invio fallisce, SureMail riproverà automaticamente"
+
+#: build/main.js:2
+msgid "You're Good to Go! 🚀"
+msgstr "Sei pronto per partire! 🚀"
+
+#: build/main.js:2
+msgid "You’ve successfully set up SureMail, and your site is ready to send emails without a hitch! Now you can focus on your business and let us handle the rest."
+msgstr "Hai configurato con successo SureMail e il tuo sito è pronto per inviare email senza intoppi! Ora puoi concentrarti sulla tua attività e lasciare che ci occupiamo del resto."
+
+#: build/main.js:2
+msgid "Here’s What SureMail Will Do for You Now:"
+msgstr "Ecco cosa farà SureMail per te ora:"
+
+#: build/main.js:2
+msgid "Go To Dashboard"
+msgstr "Vai alla dashboard"
+
+#: build/main.js:2
+msgid "Documentation"
+msgstr "Documentazione"
+
+#: build/main.js:2
+msgid "Add-ons"
+msgstr "Componenti aggiuntivi"
+
+#: build/main.js:2
+msgid "Recommended Plugins"
+msgstr "Plugin consigliati"
+
+#: build/main.js:2
+msgid "Recommended Themes"
+msgstr "Temi consigliati"
+
+#: build/main.js:2
+msgid "What's New?"
+msgstr "Novità?"
+
+#: build/main.js:2
+msgid "Email Simulation Active"
+msgstr "Simulazione email attiva"
+
+#: inc/api/auth.php:73
+msgid "Unsupported provider."
+msgstr "Fornitore non supportato."
+
+#: inc/emails/providers/gmail/gmail-handler.php:206
+#: inc/emails/providers/zoho/zoho-handler.php:259
+msgid "Client ID and Client Secret are required."
+msgstr "Client ID e Client Secret sono richiesti."
+
+#: inc/api/delete-logs.php:93
+msgid "Failed to retrieve logs to delete."
+msgstr "Impossibile recuperare i log da eliminare."
+
+#: inc/api/delete-logs.php:141
+msgid "Failed to delete the provided log IDs."
+msgstr "Impossibile eliminare gli ID log forniti."
+
+#. Translators: %d is the number of logs deleted.
+#: inc/api/delete-logs.php:151
+#, php-format
+msgid "%d log(s) deleted successfully."
+msgstr "%d log eliminati con successo."
+
+#. Translators: %1$d is the number of logs deleted, %2$d is the number of logs that could not be deleted.
+#: inc/api/delete-logs.php:158
+#, php-format
+msgid "%1$d log(s) deleted successfully. %2$d log(s) could not be deleted."
+msgstr "%1$d log eliminati con successo. %2$d log non possono essere eliminati."
+
+#: inc/api/logs.php:157
+msgid "Failed to retrieve email logs."
+msgstr "Impossibile recuperare i log email."
+
+#: inc/api/resend-email.php:75
+msgid "Invalid log IDs provided."
+msgstr "ID log forniti non validi."
+
+#: inc/api/resend-email.php:97
+msgid "Log not found."
+msgstr "Log non trovato."
+
+#: inc/api/resend-email.php:128
+msgid "Failed to resend email."
+msgstr "Impossibile reinviare l'email."
+
+#: inc/api/send-test-email.php:129
+msgid "Failed to get email template."
+msgstr "Impossibile ottenere il modello di email."
+
+#: inc/api/set-settings.php:64
+msgid "Settings data to update."
+msgstr "Dati delle impostazioni da aggiornare."
+
+#. translators: %s is the error message.
+#: inc/controller/content-guard.php:354
+#: inc/emails/handler/mail-handler.php:310
+#, php-format
+msgid "Failed to log email: %s"
+msgstr "Impossibile registrare l'email: %s"
+
+#: inc/controller/logger.php:529
+msgid "Failed to insert email log. Database error."
+msgstr "Impossibile inserire il log email. Errore del database."
+
+#: inc/controller/logger.php:537
+msgid "An exception occurred: "
+msgstr "Si è verificata un'eccezione:"
+
+#. translators: 1: Log ID, 2: Exception message.
+#: inc/controller/logger.php:568
+#, php-format
+msgid "Exception while updating log ID %1$d: %2$s"
+msgstr "Eccezione durante l'aggiornamento dell'ID log %1$d: %2$s"
+
+#. translators: %s: Exception message.
+#: inc/controller/logger.php:570
+#: inc/db/email-log.php:373
+#, php-format
+msgid "An exception occurred: %s"
+msgstr "Si è verificata un'eccezione: %s"
+
+#: inc/controller/logger.php:582
+msgid "Invalid log ID provided."
+msgstr "ID log fornito non valido."
+
+#. translators: %d: Log ID.
+#: inc/controller/logger.php:596
+#: inc/controller/logger.php:598
+#: inc/db/email-log.php:400
+#: inc/db/email-log.php:402
+#, php-format
+msgid "Failed to retrieve log ID %d."
+msgstr "Impossibile recuperare l'ID log %d."
+
+#. translators: %s: Database error message.
+#: inc/db/email-log.php:147
+#: inc/db/email-log.php:234
+msgid "Database error: "
+msgstr "Errore del database:"
+
+#. translators: %s: Error message.
+#: inc/db/email-log.php:152
+#: inc/db/email-log.php:154
+#, php-format
+msgid "Error creating email log table: %s"
+msgstr "Errore nella creazione della tabella dei log email: %s"
+
+#. translators: %s: The name of the missing required field.
+#: inc/db/email-log.php:193
+#, php-format
+msgid "Missing required field: %s"
+msgstr "Campo richiesto mancante: %s"
+
+#. translators: %s: Error message.
+#: inc/db/email-log.php:239
+#, php-format
+msgid "Error inserting email log: %s"
+msgstr "Errore nell'inserimento del log email: %s"
+
+#. translators: %s: Database error message.
+#: inc/db/email-log.php:316
+#, php-format
+msgid "Error retrieving email logs: %s"
+msgstr "Errore nel recupero dei log email: %s"
+
+#. translators: %s: Error message for invalid ID or data.
+#: inc/db/email-log.php:341
+msgid "Invalid ID or data provided for update."
+msgstr "ID o dati forniti non validi per l'aggiornamento."
+
+#. translators: %d: Log ID, %s: Database error message.
+#: inc/db/email-log.php:364
+#, php-format
+msgid "Error updating email log ID %1$d: %2$s"
+msgstr "Errore nell'aggiornamento dell'ID log email %1$d: %2$s"
+
+#. translators: %s: Exception message.
+#: inc/db/email-log.php:371
+#, php-format
+msgid "Exception updating email log: %s"
+msgstr "Eccezione durante l'aggiornamento del log email: %s"
+
+#. translators: %s: Provided log ID.
+#: inc/db/email-log.php:386
+#, php-format
+msgid "Invalid log ID provided: %s"
+msgstr "ID log fornito non valido: %s"
+
+#. translators: %s: Database error message.
+#: inc/db/email-log.php:494
+#, php-format
+msgid "Database error: %s"
+msgstr "Errore del database: %s"
+
+#. translators: %s: Error message.
+#: inc/db/email-log.php:501
+#, php-format
+msgid "Error deleting email logs: %s"
+msgstr "Errore nell'eliminazione dei log email: %s"
+
+#: inc/emails/handler/mail-handler.php:154
+msgid "Sent using Default WordPress Handler"
+msgstr "Inviato utilizzando il gestore predefinito di WordPress"
+
+#: inc/emails/handler/mail-handler.php:157
+msgid "Failed to send email using Default WordPress Handler"
+msgstr "Impossibile inviare l'email utilizzando il gestore predefinito di WordPress"
+
+#. translators: %s is the error message.
+#: inc/emails/handler/process-email-data.php:623
+#, php-format
+msgid "PHPMailer Exception: %s"
+msgstr "Eccezione PHPMailer: %s"
+
+#. translators: %s: AWS SES error message
+#: inc/emails/providers/aws/aws-handler.php:76
+#, php-format
+msgid "AWS SES authentication failed: %s"
+msgstr "Autenticazione AWS SES fallita: %s"
+
+#: inc/emails/providers/aws/aws-handler.php:157
+msgid "Failed to send email. No MessageId returned."
+msgstr "Impossibile inviare l'email. Nessun MessageId restituito."
+
+#. translators: %s: AWS SES error message
+#: inc/emails/providers/aws/aws-handler.php:162
+#, php-format
+msgid "Email sending failed via AWS SES: %s"
+msgstr "Invio email fallito tramite AWS SES: %s"
+
+#. translators: %s: Error message from Brevo API
+#. translators: %s: Exception message
+#: inc/emails/providers/brevo/brevo-handler.php:241
+#: inc/emails/providers/brevo/brevo-handler.php:261
+#: inc/emails/providers/brevo/brevo-handler.php:269
+#, php-format
+msgid "Email sending failed via Brevo. Error: %s"
+msgstr "Invio email fallito tramite Brevo. Errore: %s"
+
+#. translators: %s: Error message from Elastic Email
+#: inc/emails/providers/elastic/elastic-handler.php:175
+#: inc/emails/providers/elastic/elastic-handler.php:192
+#, php-format
+msgid "Email sending failed via Elastic Email. Error: %s"
+msgstr "Invio email fallito tramite Elastic Email. Errore: %s"
+
+#: inc/emails/providers/elastic/elastic-handler.php:485
+#: inc/emails/providers/elastic/elastic-handler.php:500
+msgid "Transactional Email"
+msgstr "Email Transazionale"
+
+#: inc/emails/providers/elastic/elastic-handler.php:504
+msgid "Marketing Email"
+msgstr "Email di Marketing"
+
+#. translators: %s: Error message from SendGrid
+#. translators: %s: Exception message
+#: inc/emails/providers/sendgrid/sendgrid-handler.php:197
+#: inc/emails/providers/sendgrid/sendgrid-handler.php:216
+#: inc/emails/providers/sendgrid/sendgrid-handler.php:224
+#, php-format
+msgid "Email sending failed via SendGrid. Error: %s"
+msgstr "Invio email fallito tramite SendGrid. Errore: %s"
+
+#: inc/emails/providers/smtp/smtp-handler.php:104
+msgid "Email sent successfully via SMTP."
+msgstr "Email inviata con successo tramite SMTP."
+
+#. translators: %s: The error message from PHPMailer.
+#. translators: %s: The error message.
+#: inc/emails/providers/smtp/smtp-handler.php:109
+#: inc/emails/providers/smtp/smtp-handler.php:118
+#, php-format
+msgid "Email sending failed via SMTP: %s"
+msgstr "Invio email fallito tramite SMTP: %s"
+
+#. translators: %s: Error message from SMTP2GO
+#. translators: %s: Exception message
+#: inc/emails/providers/smtp2go/smtp2go-handler.php:157
+#: inc/emails/providers/smtp2go/smtp2go-handler.php:176
+#: inc/emails/providers/smtp2go/smtp2go-handler.php:185
+#, php-format
+msgid "Email sending failed via SMTP2GO. Error: %s"
+msgstr "Invio email fallito tramite SMTP2GO. Errore: %s"
+
+#: inc/admin/plugin.php:367
+#: build/main.js:2
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: inc/admin/plugin.php:375
+#: build/main.js:2
+msgid "Connections"
+msgstr "Connessioni"
+
+#: inc/api/notice.php:69
+msgid "Notice disabled for 15 days."
+msgstr "Notifica disabilitata per 15 giorni."
+
+#: build/main.js:2
+msgid "Let's get started"
+msgstr "Iniziamo"
+
+#: inc/admin/plugin.php:193
+msgid "SureMail SMTP"
+msgstr "SureMail SMTP"
+
+#: inc/admin/plugin.php:316
+msgid "Setup Wizard"
+msgstr "Procedura guidata di configurazione"
+
+#: build/main.js:2
+msgid "Enable Anonymous Analytics"
+msgstr "Abilita analisi anonime"
+
+#: build/main.js:2
+msgid "Collect non-sensitive information from your website, such as the PHP version and features used, to help us fix bugs faster, make smarter decisions, and build features that actually matter to you. "
+msgstr "Raccogli informazioni non sensibili dal tuo sito web, come la versione di PHP e le funzionalità utilizzate, per aiutarci a correggere i bug più rapidamente, prendere decisioni più intelligenti e creare funzionalità che contano davvero per te."
+
+#: build/main.js:2
+msgid "Learn More"
+msgstr "Per saperne di più"
+
+#: build/main.js:2
+msgid "Complete previous steps first"
+msgstr "Completa prima i passaggi precedenti"
+
+#: build/main.js:2
+msgid "You need to complete the previous steps before accessing this step."
+msgstr "Devi completare i passaggi precedenti prima di accedere a questo passaggio."
+
+#: inc/controller/weekly-summary.php:143
+msgid "Weekly Summary"
+msgstr "Riepilogo settimanale"
+
+#: inc/controller/weekly-summary.php:150
+#: inc/controller/weekly-summary.php:442
+msgid "SureMail Logo"
+msgstr "Logo SureMail"
+
+#: inc/controller/weekly-summary.php:184
+msgid "Hey There,"
+msgstr "Ciao,"
+
+#: inc/controller/weekly-summary.php:209
+msgid "View Email Logs"
+msgstr "Visualizza i log delle email"
+
+#: inc/controller/weekly-summary.php:225
+msgid "Emails Sent Successfully"
+msgstr "Email inviate con successo"
+
+#: inc/controller/weekly-summary.php:226
+msgid "Emails Failed to Send"
+msgstr "Email non inviate"
+
+#: inc/controller/weekly-summary.php:227
+msgid "Emails Blocked by Reputation Shield"
+msgstr "Email bloccate da Reputation Shield"
+
+#: inc/controller/weekly-summary.php:238
+msgid "Emails"
+msgstr "Email"
+
+#: inc/controller/weekly-summary.php:242
+msgid "Last Week"
+msgstr "Settimana scorsa"
+
+#. translators: %s: Product name.
+#: inc/controller/weekly-summary.php:396
+#, php-format
+msgid "%s logo"
+msgstr "Logo %s"
+
+#: inc/controller/weekly-summary.php:435
+msgid "Manage Email Summaries from your website settings"
+msgstr "Gestisci i riepiloghi email dalle impostazioni del tuo sito"
+
+#: inc/emails/providers/emailit/emailit-handler.php:200
+#: inc/emails/providers/emailit/emailit-handler.php:228
+msgid "Emailit send failed: "
+msgstr "Invio Emailit fallito:"
+
+#: inc/emails/providers/emailit/emailit-handler.php:210
+msgid "Email sent successfully via Emailit."
+msgstr "Email inviata con successo tramite Emailit."
+
+#. translators: %s is the error message from Emailit API.
+#: inc/emails/providers/emailit/emailit-handler.php:223
+#, php-format
+msgid "Email sending failed via Emailit: %s"
+msgstr "Invio email fallito tramite Emailit: %s"
+
+#: inc/emails/providers/emailit/emailit-handler.php:243
+msgid "Emailit Connection"
+msgstr "Connessione Emailit"
+
+#: inc/emails/providers/emailit/emailit-handler.php:244
+msgid "Enter the details below to connect with your Emailit account. Important: Your sending domain must be verified in Emailit before you can send emails."
+msgstr "Inserisci i dettagli qui sotto per connetterti al tuo account Emailit. Importante: Il tuo dominio di invio deve essere verificato in Emailit prima di poter inviare email."
+
+#: inc/emails/providers/emailit/emailit-handler.php:246
+msgid "Emailit"
+msgstr "Emailit"
+
+#. translators: %1$s: API key link, %2$s: domain verification link.
+#: inc/emails/providers/emailit/emailit-handler.php:266
+#, php-format
+msgid "Get your API key from your Emailit dashboard. %1$s. Important: Before sending emails, you must %2$s in your Emailit account."
+msgstr "Ottieni la tua chiave API dalla dashboard di Emailit. %1$s. Importante: Prima di inviare email, devi %2$s nel tuo account Emailit."
+
+#: inc/emails/providers/emailit/emailit-handler.php:267
+msgid "Get API Key"
+msgstr "Ottieni chiave API"
+
+#: inc/emails/providers/emailit/emailit-handler.php:268
+msgid "verify your sending domain"
+msgstr "verificare il tuo dominio di invio"
+
+#: inc/emails/providers/emailit/emailit-handler.php:272
+msgid "Enter your Emailit API Key"
+msgstr "Inserisci la tua chiave API Emailit"
+
+#: inc/emails/providers/emailit/emailit-handler.php:318
+msgid "Bad request. Please check your email data."
+msgstr "Richiesta errata. Controlla i dati della tua email."
+
+#: inc/emails/providers/emailit/emailit-handler.php:320
+msgid "Unauthorized. Please check your API key."
+msgstr "Non autorizzato. Controlla la tua chiave API."
+
+#: inc/emails/providers/emailit/emailit-handler.php:322
+msgid "Forbidden. Access denied."
+msgstr "Vietato. Accesso negato."
+
+#: inc/emails/providers/emailit/emailit-handler.php:324
+msgid "Not found. Please check the API endpoint."
+msgstr "Non trovato. Controlla l'endpoint API."
+
+#: inc/emails/providers/emailit/emailit-handler.php:326
+msgid "Domain verification required. Your sending domain must be verified in Emailit before you can send emails. Please verify your domain in your Emailit dashboard at https://app.emailit.com/domains"
+msgstr "Verifica del dominio richiesta. Il tuo dominio di invio deve essere verificato in Emailit prima di poter inviare email. Verifica il tuo dominio nella dashboard di Emailit su https://app.emailit.com/domains"
+
+#: inc/emails/providers/emailit/emailit-handler.php:328
+msgid "Rate limit exceeded. Please try again later."
+msgstr "Limite di velocità superato. Riprova più tardi."
+
+#: inc/emails/providers/emailit/emailit-handler.php:330
+msgid "Internal server error. Please try again later."
+msgstr "Errore interno del server. Riprova più tardi."
+
+#. translators: %d is the HTTP error code.
+#: inc/emails/providers/emailit/emailit-handler.php:333
+#, php-format
+msgid "HTTP error %d occurred."
+msgstr "Si è verificato un errore HTTP %d."
+
+#: build/main.js:2
+msgid "CartFlows"
+msgstr "CartFlows"
+
+#: build/main.js:2
+msgid "Boost conversions with CartFlows."
+msgstr "Aumenta le conversioni con CartFlows."
+
+#: build/main.js:2
+msgid "Cart Abandonment Recovery"
+msgstr "Recupero abbandono carrello"
+
+#: build/main.js:2
+msgid "Recover lost sales by automatically emailing customers who abandon their carts. Set up takes less than 10 minutes - no coding required."
+msgstr "Recupera le vendite perse inviando automaticamente email ai clienti che abbandonano il carrello. La configurazione richiede meno di 10 minuti - nessuna programmazione necessaria."
+
+#: build/main.js:2
+msgid "Recover lost sales with automated abandoned cart emails - no coding needed."
+msgstr "Recupera le vendite perse con email automatiche per carrelli abbandonati - nessuna programmazione necessaria."
+
+#: build/main.js:2
+msgid "Monday"
+msgstr "Lunedì"
+
+#: build/main.js:2
+msgid "Tuesday"
+msgstr "Martedì"
+
+#: build/main.js:2
+msgid "Wednesday"
+msgstr "Mercoledì"
+
+#: build/main.js:2
+msgid "Thursday"
+msgstr "Giovedì"
+
+#: build/main.js:2
+msgid "Friday"
+msgstr "Venerdì"
+
+#: build/main.js:2
+msgid "Saturday"
+msgstr "Sabato"
+
+#: build/main.js:2
+msgid "Sunday"
+msgstr "Domenica"
+
+#: build/main.js:2
+msgid "Enable Email Summary"
+msgstr "Abilita riepilogo email"
+
+#: build/main.js:2
+msgid "Get a weekly summary of emails sent from your site."
+msgstr "Ricevi un riepilogo settimanale delle email inviate dal tuo sito."
+
+#: build/main.js:2
+msgid "Schedule Reports"
+msgstr "Programma report"
+
+#: build/main.js:2
+msgid "Choose the day of the week to receive your summary email."
+msgstr "Scegli il giorno della settimana per ricevere il tuo riepilogo email."
+
+#: inc/controller/weekly-summary.php:94
+msgid "Your Website"
+msgstr "Il tuo sito web"
+
+#. translators: 1: Website name, 2: From date, 3: To date
+#: inc/controller/weekly-summary.php:103
+#, php-format
+msgid "Email Summary of last week - %1$s - %2$s to %3$s"
+msgstr "Riepilogo email della settimana scorsa - %1$s - %2$s a %3$s"
+
+#. translators: 1: From date, 2: To date
+#: inc/controller/weekly-summary.php:111
+#, php-format
+msgid "Email Summary of last week - %1$s to %2$s"
+msgstr "Riepilogo email della settimana scorsa - %1$s a %2$s"
+
+#. translators: %s: Website name or URL link
+#: inc/controller/weekly-summary.php:199
+#, php-format
+msgid "Here is your SureMail report for the last 7 days of %s"
+msgstr "Ecco il tuo rapporto SureMail per gli ultimi 7 giorni di %s"
+
+#: inc/controller/weekly-summary.php:288
+msgid "Build Faster with Astra"
+msgstr "Costruisci più velocemente con Astra"
+
+#: inc/controller/weekly-summary.php:289
+msgid "Fast, lightweight & customizable WordPress theme for website builders."
+msgstr "Tema WordPress leggero, veloce e personalizzabile per costruttori di siti web."
+
+#: inc/controller/weekly-summary.php:295
+msgid "Boost Sales with SureCart"
+msgstr "Aumenta le vendite con SureCart"
+
+#: inc/controller/weekly-summary.php:296
+msgid "Powerful WordPress e-commerce plugin for selling digital and physical products."
+msgstr "Plugin e-commerce potente per WordPress per vendere prodotti digitali e fisici."
+
+#: inc/controller/weekly-summary.php:302
+msgid "Grow Your List with SureForms"
+msgstr "Amplia la tua lista con SureForms"
+
+#: inc/controller/weekly-summary.php:303
+msgid "Creating beautiful, functional forms has never been easier with this AI form builder."
+msgstr "Creare moduli belli e funzionali non è mai stato così facile con questo costruttore di moduli AI."
+
+#: inc/controller/weekly-summary.php:309
+msgid "Engage Viewers with Presto Player"
+msgstr "Coinvolgi gli spettatori con Presto Player"
+
+#: inc/controller/weekly-summary.php:310
+msgid "The best video player plugin for WordPress with modern video experience."
+msgstr "Il miglior plugin per lettore video per WordPress con esperienza video moderna."
+
+#: inc/controller/weekly-summary.php:316
+msgid "Impress Clients with SureDash"
+msgstr "Impressiona i clienti con SureDash"
+
+#: inc/controller/weekly-summary.php:317
+msgid "All-in-one solution to connect, engage, grow, and scale your community."
+msgstr "Soluzione tutto-in-uno per connettere, coinvolgere, crescere e scalare la tua comunità."
+
+#: inc/controller/weekly-summary.php:323
+msgid "Increase Conversions with CartFlows"
+msgstr "Aumenta le conversioni con CartFlows"
+
+#: inc/controller/weekly-summary.php:324
+msgid "One click sales funnel builder for WordPress with conversion optimized templates."
+msgstr "Costruttore di funnel di vendita con un clic per WordPress con modelli ottimizzati per le conversioni."
+
+#: inc/controller/weekly-summary.php:330
+msgid "Monetize Content with SureMembers"
+msgstr "Monetizza i contenuti con SureMembers"
+
+#: inc/controller/weekly-summary.php:331
+msgid "Top-rated WordPress membership plugin for managing member access and content."
+msgstr "Plugin di membership WordPress di alta qualità per gestire l'accesso e i contenuti dei membri."
+
+#: inc/controller/weekly-summary.php:337
+msgid "Launch Sites with Starter Templates"
+msgstr "Lancia siti con modelli starter"
+
+#: inc/controller/weekly-summary.php:338
+msgid "Build beautiful websites in minutes with 600+ AI-powered templates for Elementor and Gutenberg."
+msgstr "Costruisci siti web belli in pochi minuti con oltre 600 modelli alimentati da AI per Elementor e Gutenberg."
+
+#: inc/controller/weekly-summary.php:344
+msgid "Create Sites Instantly with ZipWP"
+msgstr "Crea siti istantaneamente con ZipWP"
+
+#: inc/controller/weekly-summary.php:345
+msgid "Plan, build, and host stunning WordPress websites instantly. No setup. No mess."
+msgstr "Pianifica, costruisci e ospita siti WordPress sorprendenti in modo istantaneo. Nessuna configurazione. Niente confusione."
+
+#: inc/controller/weekly-summary.php:351
+msgid "Work Smarter with OttoKit"
+msgstr "Lavora in modo più intelligente con OttoKit"
+
+#: inc/controller/weekly-summary.php:352
+msgid "No-code AI automation tool for creating automated workflows without technical skills."
+msgstr "Strumento di automazione AI senza codice per creare flussi di lavoro automatizzati senza competenze tecniche."
+
+#: inc/controller/weekly-summary.php:358
+msgid "Collaborate Better with SureFeedback"
+msgstr "Collabora meglio con SureFeedback"
+
+#: inc/controller/weekly-summary.php:359
+msgid "Get design feedback and client approval using WordPress with visual collaboration."
+msgstr "Ottieni feedback sul design e approvazione del cliente usando WordPress con collaborazione visiva."
+
+#: inc/controller/weekly-summary.php:365
+msgid "Rank Higher with SureRank"
+msgstr "Posizionati più in alto con SureRank"
+
+#: inc/controller/weekly-summary.php:366
+msgid "Modern SEO without the bloat - simple, lightweight SEO assistant for better rankings."
+msgstr "SEO moderno senza ingombro - assistente SEO semplice e leggero per migliori posizionamenti."
+
+#. translators: %s: Product name
+#: inc/controller/weekly-summary.php:419
+#, php-format
+msgid "Explore %s →"
+msgstr "Esplora %s →"
+
+#: inc/emails/providers/zoho/zoho-handler.php:63
+msgid "Failed to authenticate with Zoho Mail."
+msgstr "Impossibile autenticarsi con Zoho Mail."
+
+#: inc/emails/providers/zoho/zoho-handler.php:87
+msgid "Zoho OAuth Error: "
+msgstr "Errore OAuth di Zoho:"
+
+#: inc/emails/providers/zoho/zoho-handler.php:95
+msgid "Failed to authenticate with Zoho Mail. "
+msgstr "Autenticazione con Zoho Mail fallita."
+
+#: inc/emails/providers/zoho/zoho-handler.php:106
+msgid "Failed to retrieve authentication tokens. Please try to re-authenticate."
+msgstr "Impossibile recuperare i token di autenticazione. Per favore riprova ad autenticarti."
+
+#: inc/emails/providers/zoho/zoho-handler.php:114
+msgid "Successfully authenticated with Zoho Mail."
+msgstr "Autenticato con successo con Zoho Mail."
+
+#: inc/emails/providers/zoho/zoho-handler.php:120
+#: inc/emails/providers/zoho/zoho-handler.php:151
+msgid "Failed to get Zoho account details."
+msgstr "Impossibile ottenere i dettagli dell'account Zoho."
+
+#: inc/emails/providers/zoho/zoho-handler.php:201
+msgid "Email sending failed via Zoho Mail. Failed to encode email message to JSON."
+msgstr "Invio email fallito tramite Zoho Mail. Impossibile codificare il messaggio email in JSON."
+
+#: inc/emails/providers/zoho/zoho-handler.php:232
+msgid "Email sent successfully via Zoho Mail."
+msgstr "Email inviata con successo tramite Zoho Mail."
+
+#: inc/emails/providers/zoho/zoho-handler.php:237
+msgid "Email sending failed via Zoho Mail."
+msgstr "Invio email fallito tramite Zoho Mail."
+
+#: inc/emails/providers/zoho/zoho-handler.php:288
+msgid "Zoho Connection"
+msgstr "Connessione Zoho"
+
+#: inc/emails/providers/zoho/zoho-handler.php:289
+msgid "Enter the details below to connect with your Zoho Mail account."
+msgstr "Inserisci i dettagli qui sotto per connetterti al tuo account Zoho Mail."
+
+#: inc/emails/providers/zoho/zoho-handler.php:292
+msgid "Zoho Mail"
+msgstr "Zoho Mail"
+
+#: inc/emails/providers/zoho/zoho-handler.php:310
+msgid "The 'From Email' must match your Zoho Mail account address. SureMail will automatically use 'from_email' set in Zoho account."
+msgstr "L'indirizzo 'From Email' deve corrispondere all'indirizzo del tuo account Zoho Mail. SureMail utilizzerà automaticamente 'from_email' impostato nell'account Zoho."
+
+#: inc/emails/providers/zoho/zoho-handler.php:328
+msgid "Zoho Region"
+msgstr "Regione Zoho"
+
+#: inc/emails/providers/zoho/zoho-handler.php:334
+msgid "United States - com"
+msgstr "Stati Uniti - com"
+
+#: inc/emails/providers/zoho/zoho-handler.php:338
+msgid "India - in"
+msgstr "India - in"
+
+#: inc/emails/providers/zoho/zoho-handler.php:342
+msgid "Europe - eu"
+msgstr "Europa - eu"
+
+#: inc/emails/providers/zoho/zoho-handler.php:346
+msgid "Australia - com.au"
+msgstr "Australia - com.au"
+
+#: inc/emails/providers/zoho/zoho-handler.php:350
+msgid "Japan - jp"
+msgstr "Giappone - jp"
+
+#: inc/emails/providers/zoho/zoho-handler.php:354
+msgid "Canada - ca"
+msgstr "Canada - ca"
+
+#: inc/emails/providers/zoho/zoho-handler.php:358
+msgid "China - com.cn"
+msgstr "Cina - com.cn"
+
+#: inc/emails/providers/zoho/zoho-handler.php:361
+msgid "Select your Zoho region. This should match the region where you created your Zoho account."
+msgstr "Seleziona la tua regione Zoho. Dovrebbe corrispondere alla regione in cui hai creato il tuo account Zoho."
+
+#: inc/emails/providers/zoho/zoho-handler.php:368
+msgid "Enter your Zoho Client ID"
+msgstr "Inserisci il tuo Client ID Zoho"
+
+#. translators: %s: Documentation link.
+#: inc/emails/providers/zoho/zoho-handler.php:371
+#, php-format
+msgid "Get Client ID and Secret ID from Zoho Developer Console. Follow the Zoho Mail %s"
+msgstr "Ottieni Client ID e Secret ID dalla Zoho Developer Console. Segui il %s di Zoho Mail"
+
+#: inc/emails/providers/zoho/zoho-handler.php:380
+msgid "Enter your Zoho Client Secret"
+msgstr "Inserisci il tuo Secret Client Zoho"
+
+#: inc/emails/providers/zoho/zoho-handler.php:398
+msgid "Copy the above URL and add it to the \"Authorized Redirect URIs\" section in your Zoho Developer Console. Ensure the URL matches exactly."
+msgstr "Copia l'URL sopra e aggiungilo alla sezione \"URI di reindirizzamento autorizzati\" nella tua Zoho Developer Console. Assicurati che l'URL corrisponda esattamente."
+
+#: inc/emails/providers/zoho/zoho-handler.php:405
+msgid "Authenticate with Zoho"
+msgstr "Autentica con Zoho"
+
+#: inc/emails/providers/zoho/zoho-handler.php:524
+msgid "OAuth error occurred"
+msgstr "Si è verificato un errore OAuth"
+
+#. translators: %1$d: HTTP response code, %2$s: response body
+#: inc/emails/providers/zoho/zoho-handler.php:527
+#, php-format
+msgid "HTTP %1$d: %2$s"
+msgstr "HTTP %1$d: %2$s"
+
+#: inc/emails/providers/zoho/zoho-handler.php:529
+msgid "Unknown error from Zoho API."
+msgstr "Errore sconosciuto dall'API di Zoho."
+
+#: inc/emails/providers/zoho/zoho-handler.php:548
+msgid "Failed to get new token from Zoho API."
+msgstr "Impossibile ottenere un nuovo token dall'API di Zoho."
+
+#. translators: %s: Error message.
+#: inc/emails/providers/zoho/zoho-handler.php:564
+#, php-format
+msgid "Email sending failed via Zoho Mail. Failed to refresh Zoho token: %s"
+msgstr "Invio email fallito tramite Zoho Mail. Impossibile aggiornare il token Zoho: %s"
+
+#: inc/emails/providers/zoho/zoho-handler.php:571
+msgid "Failed to refresh Zoho token. Invalid token response received."
+msgstr "Impossibile aggiornare il token Zoho. Risposta del token non valida ricevuta."
+
+#: inc/emails/providers/zoho/zoho-handler.php:615
+msgid "Refresh token not found."
+msgstr "Token di aggiornamento non trovato."
+
+#: build/main.js:2
+msgid "Saved successfully!"
+msgstr "Salvato con successo!"
+
+#: build/main.js:2
+msgid "Connection details saved successfully!"
+msgstr "Dettagli di connessione salvati con successo!"
+
+#: build/main.js:2
+msgid "Ultimate Addons for Elementor"
+msgstr "Ultimate Addons for Elementor"
+
+#: build/main.js:2
+msgid "Build modern websites with elementor addons."
+msgstr "Crea siti web moderni con addon per Elementor."
+
+#: build/main.js:2
+msgid "SureRank"
+msgstr "SureRank"
+
+#: build/main.js:2
+msgid "Optimize your website for search engines with SureRank, an all-in-one SEO plugin for WordPress."
+msgstr "Ottimizza il tuo sito web per i motori di ricerca con SureRank, un plugin SEO tutto-in-uno per WordPress."
+
+#: build/main.js:2
+msgid "Optimize your website for search engines with SureRank."
+msgstr "Ottimizza il tuo sito web per i motori di ricerca con SureRank."

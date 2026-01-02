@@ -1,0 +1,111 @@
+<div ng-controller="schedules" class="jb-list-backups-container jb-grey-0">
+
+    <div class="row" navigation active="menuItem"></div>
+
+    <div class="row rounded-4 jb-white-0 jb-panel-row shadow-lg">
+        <div class="jb-main-title rounded-3">
+            {{ lang.t("Schedules") }}
+        </div>
+        <div class="jb-title-description">
+            <p>{{ lang.t("Set up recurring schedules to run your backup jobs automatically at regular intervals. Assign schedules to jobs from the Backup Jobs tab to ensure consistent and reliable backups.") }}</p>
+        </div>
+
+        <div class="row jb-table-row">
+            <div class="table-responsive">
+
+                <div class="row mb-10">
+                    <div class="col-md-4 d-flex pt-2">
+                        <search placeholder="{{ lang.t('Search here...') }}" ng-model="metaData.filterValue" ng-change="fetch()"></search>
+                    </div>
+                    <div class="col-md-8 d-flex justify-content-end">
+                        <a ng-click="manageSchedule()" class="jb-action-button">
+                            <i class="fa-sharp fa-solid fa-plus"></i> {{ lang.t('Create New Schedule') }}
+                        </a>
+                    </div>
+                </div>
+                <div class="snake-line" ng-class="{ 'loading': loading }"></div>
+                <table class="jb-table table table-hover">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th scope="col">
+                            <button sort-by sort-meta="meta" sort-field="name" onSort="fetch()" title="{{ lang.t('Sort by %s.', lang.t('Name')) }}">{{ lang.t("Name") }}</button>
+                        </th>
+
+                        <th scope="col">
+                            <button >{{ lang.t("Type") }}</button>
+                        </th>
+
+                        <th scope="col">
+                            <button>{{ lang.t("Jobs Assigned") }}</button>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr ng-if="initialLoading">
+                        <td colspan="8" class="text-center jb-loading-row">
+                            <div class="jb-loading-screen">
+                                <p class="jb-loading-text">
+                                    Loading<span class="jb-dots"><span></span><span></span><span></span></span>
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr ng-show="!initialLoading && !schedules.length && !loading">
+                        <td><p>{{ lang.t("No Schedules are found.") }}</p></td>
+                    </tr>
+
+                    <tr ng-repeat-start="schedule in schedules"
+                        class="jb-table-tr schedules"
+                        ng-click="toggleDetail($index)"
+                        ng-class="{'jb-table-tr-selected': isDetailVisible($index)}">
+
+                        <!-- Default Marker Column -->
+                        <td class="text-center" title="{{ schedule.default ? lang.t('This is a system default schedule.') : '' }}">
+                            <i class="fa fa-star" ng-class="{'text-warning': schedule.default, 'text-muted': !schedule.default}" aria-hidden="true"></i>
+                        </td>
+
+                        <td>{{schedule.name}}</td>
+                        <td>{{schedule.type_name}}</td>
+                        <td>
+                            <span ng-repeat="job_name in schedule.job_names">
+                                {{job_name}}{{$last ? '' : ', '}}
+                            </span>
+                        </td>
+                    </tr>
+                    <tr ng-repeat-end ng-show="isDetailVisible($index)"
+                        ng-class="{'jb-table-tr-selected': isDetailVisible($index)}">
+                        <td colspan="4" class="jb-table-elements">
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                                <div class="row g-2">
+
+                                    <!-- buttons start -->
+                                    <div class="col-12 col-md-auto" ng-repeat="action in actions">
+                                        <button ng-click="performAction(schedule._id, action.name)"
+                                                id="jbid_{{schedule._id}}_{{action.name}}"
+                                                name="{{action.name}}"
+                                                ng-class="{'jb-red-button': action.name === 'delete'}"
+                                                class="btn btn-primary jb-full-restore-button w-100"
+                                                type="button">
+                                        <span class="icon">
+                                            <i class="fa-sharp fa-light {{action.icon}}"></i>
+                                        </span>
+                                            {{ lang.t(action.label) }}
+                                        </button>
+                                    </div>
+                                    <!-- buttons end -->
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+                <pagination fetch="fetch" meta="meta"></pagination>
+
+            </div> <!-- table row -->
+        </div>
+    </div>
+</div>

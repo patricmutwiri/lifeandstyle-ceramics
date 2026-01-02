@@ -1,0 +1,49 @@
+<div class="modal-header">
+    <div class="modal-main-title">
+        <h1 class="modal-title fs-5" id="extractBackupLabel">{{ lang.t("Extract Backup") }}</h1>
+    </div>
+    <button type="button" class="btn-close" ng-click="$dismiss()" aria-label="Close"></button>
+</div>
+
+<div class="modal-body">
+    <p ng-bind-html="lang.t('This action will extract the backup into a temporary folder within our working directory <strong>(this is not a restore operation)</strong>. <br /> This is an extraction to allow you to access and review the backup contents without affecting the current system state. <br /> <strong>Once the extraction is completed, the path will be available in the queue page under the extract item.</strong>')"></p>
+
+    <!-- Destination selection (shown only if there are multiple destinations) -->
+    <div class="row mt-4" ng-if="backupObject.destinations.length > 1">
+        <div class="col-md-12 mx-auto text-start fs-13">
+            <label class="form-label">{{ lang.t("This backup exists on multiple destinations. Please select the destination you want to extract from.") }}</label>
+            <div class="list-group">
+                <label ng-repeat="dest in backupObject.destinations">
+                    <input type="radio"
+                           name="destinationRadio"
+                           ng-model="selectedDestinationId"
+                           ng-value="dest.id"
+                           ng-change="selectDestination(dest.id)">
+                    {{ lang.t(dest.name || 'Unknown') }}
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Single destination message -->
+    <div class="row mt-4" ng-if="backupObject.destinations.length === 1">
+        <div class="col-md-5 mx-auto text-start">
+            <p>
+                {{ lang.t("This backup has only one destination:") }}
+                <strong>{{ backupObject.destinations[0].name }}</strong>
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-secondary cancel_btn" type="button" ng-click="$dismiss()">
+        {{ lang.t("Cancel") }}
+    </button>
+    <button class="btn btn-primary" type="button"
+            ng-click="queueHandler()"
+            ng-disabled="(backupObject.destinations.length > 1 && !selectedDestinationId)">
+        {{ lang.t("Extract") }}
+    </button>
+</div>

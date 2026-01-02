@@ -1,0 +1,88 @@
+<div ng-controller="alerts" class="jb-list-backups-container jb-grey-0">
+
+    <div class="row" navigation active="menuItem"></div>
+
+    <div class="row rounded-4 jb-white-0 jb-panel-row shadow-lg">
+        <div class="jb-main-title rounded-3">
+            {{ lang.t("Alerts") }}
+        </div>
+        <div class="jb-title-description">
+            <p>{{ lang.t("Track three alert types - 'Info' for general updates, 'Warning' for non-critical issues needing attention, and 'Error' for urgent problems requiring immediate action to prevent data loss or disruptions.") }}</p>
+        </div>
+
+            <div class="row jb-table-row">
+            <div class="table-responsive">
+
+                <div class="row mb-10">
+                    <div class="col-md-4 d-flex pt-2">
+                        <search placeholder="{{ lang.t('Search here...') }}" ng-model="metaData.filterValue" ng-change="fetch()"></search>
+                    </div>
+                    <div class="col-md-8 d-flex justify-content-end">
+                        <a ng-click="clearAlerts()" class="jb-action-button jb-orange-button">
+                            <i class="fa-sharp fa-solid fa-broom"></i>{{ lang.t("Clear Alerts") }}
+                        </a>
+                    </div>
+                </div>
+
+                <div class="snake-line" ng-class="{ 'loading': loading }"></div>
+                <table class="jb-table table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">
+                            <button sort-by sort-meta="meta" sort-field="created" onSort="fetch()" title="{{ lang.t('Sort by %s.', lang.t('Created')) }}">{{ lang.t("Created") }}</button>
+                        </th>
+                        <th scope="col">
+                            <button sort-by sort-meta="meta" sort-field="title" onSort="fetch()" title="{{ lang.t('Sort by %s.', lang.t('Title')) }}">{{ lang.t("Title") }}</button>
+                        </th>
+                        <th scope="col">
+                            <button sort-by sort-meta="meta" sort-field="message" onSort="fetch()" title="{{ lang.t('Sort by %s.', lang.t('Message')) }}">{{ lang.t("Message") }}</button>
+                        </th>
+                        <th scope="col">
+                            <button sort-by sort-meta="meta" sort-field="engine" onSort="fetch()" title="{{ lang.t('Sort by %s.', lang.t('Source')) }}">{{ lang.t("Source") }}</button>
+                        </th>
+                        <th scope="col">
+                            <button sort-by sort-meta="meta" sort-field="level" onSort="fetch()" title="{{ lang.t('Sort by %s.', lang.t('Level')) }}">{{ lang.t("Level") }}</button>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="alert in alerts" class="jb-table-tr alerts">
+                        <td>{{ lang.d(alert.created)}}</td>
+                        <td>{{alert.title}}</td>
+                        <td>{{alert.message}}</td>
+                        <td>
+                            <svg ng-show="alert.engine == 1" size="20" width="20" fill="#000000" version="1.1" id="Capa_1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 96.24 96.24" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M48.122,0C21.587,0,0.001,21.585,0.001,48.118c0,26.535,21.587,48.122,48.12,48.122c26.532,0,48.117-21.587,48.117-48.122 C96.239,21.586,74.654,0,48.122,0z M4.857,48.118c0-6.271,1.345-12.227,3.746-17.606l20.638,56.544 C14.81,80.042,4.857,65.243,4.857,48.118z M48.122,91.385c-4.247,0-8.346-0.623-12.222-1.763L48.88,51.903l13.301,36.433 c0.086,0.215,0.191,0.411,0.308,0.596C57.992,90.514,53.16,91.385,48.122,91.385z M54.083,27.834 c2.604-0.137,4.953-0.412,4.953-0.412c2.33-0.276,2.057-3.701-0.277-3.564c0,0-7.007,0.549-11.532,0.549 c-4.25,0-11.396-0.549-11.396-0.549c-2.332-0.137-2.604,3.427-0.273,3.564c0,0,2.208,0.275,4.537,0.412l6.74,18.469l-9.468,28.395 L21.615,27.835c2.608-0.136,4.952-0.412,4.952-0.412c2.33-0.275,2.055-3.702-0.278-3.562c0,0-7.004,0.549-11.53,0.549 c-0.813,0-1.77-0.021-2.784-0.052C19.709,12.611,33.008,4.856,48.122,4.856c11.265,0,21.519,4.306,29.215,11.357 c-0.187-0.01-0.368-0.035-0.562-0.035c-4.248,0-7.264,3.702-7.264,7.679c0,3.564,2.055,6.582,4.248,10.146 c1.647,2.882,3.567,6.585,3.567,11.932c0,3.704-1.422,8-3.293,13.986l-4.315,14.421L54.083,27.834z M69.871,85.516l13.215-38.208 c2.471-6.171,3.29-11.106,3.29-15.497c0-1.591-0.104-3.07-0.292-4.449c3.38,6.163,5.303,13.236,5.301,20.758 C91.384,64.08,82.732,78.016,69.871,85.516z"></path> </g> </g></svg>
+                            <svg ng-show="alert.engine == 2" xmlns:dc="https://purl.org/dc/elements/1.1/" xmlns:cc="https://creativecommons.org/ns#" xmlns:rdf="https://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="https://www.w3.org/2000/svg" xmlns:sodipodi="https://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="https://www.inkscape.org/namespaces/inkscape" version="1.1" id="svg4747" width="20" height="20" viewBox="0 0 18 18" sodipodi:docname="eddie-white_18x18.svg" inkscape:export-filename="Eddie-White_100x100.png" inkscape:export-xdpi="54.860001" inkscape:export-ydpi="54.860001" inkscape:version="0.92.4 (5da689c313, 2019-01-14)"> <metadata id="metadata4753"> <rdf:RDF> <cc:Work rdf:about=""> <dc:format>image/svg+xml</dc:format> <dc:type rdf:resource="https://purl.org/dc/dcmitype/StillImage" /> <dc:title></dc:title> </cc:Work> </rdf:RDF> </metadata> <defs id="defs4751" /> <sodipodi:namedview pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-width="1920" inkscape:window-height="1017" id="namedview4749" showgrid="false" inkscape:zoom="22.627417" inkscape:cx="2.3561347" inkscape:cy="14.574794" inkscape:window-x="1912" inkscape:window-y="-8" inkscape:window-maximized="1" inkscape:current-layer="svg4747" /> <path inkscape:connector-curvature="0" id="path6964" d="M 7.3194535,0.04617566 C 7.0127929,0.12934144 7.8650324,1.5919323 7.1629118,2.8537007 6.9434623,3.047503 6.6161972,3.2211098 6.3231399,3.1278742 5.4738924,2.824033 4.7084371,2.3039888 3.8247516,2.0897488 2.4120918,1.9725107 4.0751768,2.6356331 3.9603724,4.5838824 3.7431047,5.1904974 3.5786142,5.6673992 3.46486,6.0659814 2.7720161,7.6250243 0.6888604,13.377312 0.26231409,14.958529 c -0.40482212,1.500621 -0.27003887,2.310226 0.42767054,2.787947 0.19464061,0.133412 2.22847727,0.205431 6.33729707,0.208872 h 6.0556403 l 0.47987,-1.305808 0.464236,-1.240547 0.01551,-0.01942 c 0.0028,-0.0035 -0.0028,-0.01942 0,-0.02608 0.130599,-0.274881 0.44029,-1.058591 0.417255,-1.66488 -0.644098,0.24581 -1.205888,0.929701 -1.356143,1.214354 -0.01368,-0.226168 0.178461,-0.847465 0.09395,-1.149135 -0.432458,0.359299 -0.907945,1.063591 -1.03797,1.345011 -0.01552,-0.221203 0.175754,-0.837548 0.0938,-1.129476 -0.308897,0.256587 -0.750388,0.864386 -0.897141,1.083767 -0.02083,-0.198101 0.164115,-0.787407 0.0938,-1.038112 -0.378804,0.314784 -0.844132,0.977338 -0.985759,1.233987 H 10.224405 C 8.7662394,15.224561 6.5732527,15.941204 6.1716544,12.6931 5.6628407,8.5777843 7.6941655,10.612793 9.9166595,11.400386 c -0.072366,0.253368 -0.3774632,1.025636 -0.3703053,1.44942 0.5140488,-0.177947 1.1019668,-0.841224 1.2935528,-1.064223 -0.05642,0.239005 -0.340145,0.96764 -0.333833,1.338451 0.521919,-0.180421 1.10323,-0.850813 1.29352,-1.077274 0.03879,0.01145 0.08165,0.02892 0.119957,0.03919 -0.04365,0.132461 -0.348624,0.706592 -0.385933,0.868361 0.822078,0.03392 1.555775,-0.59984 1.773369,-0.868361 2.485654,-1.609594 4.264118,-4.967046 4.642166,-6.8163388 C 18.039313,4.2671626 17.72573,3.6593603 17.00506,3.4088713 16.539485,3.247096 13.448656,3.2075309 10.443491,3.2585179 c -0.8499128,0 -2.1415955,-2.35063269 -3.0930276,-3.21231383 -0.012179,0 -0.021446,-0.0034931 -0.031301,0 z M 11.987708,5.8178633 C 15.202231,5.8123128 14.0732,12.75477 9.4162336,6.8951515 10.464743,6.1183907 11.320481,5.8191944 11.987708,5.8178633 Z" style="fill:#FF6C2C;fill-opacity:1;stroke:none;stroke-width:0.18674102" inkscape:export-filename="" inkscape:export-xdpi="90" inkscape:export-ydpi="90" /> </svg>
+                        </td>
+                        <td>
+                            <span ng-show="alert.level == 1" data-toggle="tooltip" class="icon alertstable" title="Information"><i style="color: yellowgreen;" class="fa-solid fa-circle-info"></i></span>
+                            <span ng-show="alert.level == 2" data-toggle="tooltip" class="icon alertstable" title="Warning"><i style="color: darkorange;" class="fa-solid fa-triangle-exclamation"></i></span>
+                            <span ng-show="alert.level == 4" data-toggle="tooltip" class="icon alertstable" title="Error"><i style="color: red;" class="fa-solid fa-triangle-exclamation"></i></span>
+                        </td>
+                    </tr>
+                    <tr ng-show="!alerts.length && !loading">
+                        <td colspan="6">
+                            {{ lang.t('No %s were found.', lang.t("Alerts")) }}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <pagination fetch="fetch" meta="meta"></pagination>
+                
+            </div> <!-- table row -->
+            <div class="row d-flex justify-content-center">
+
+                <div class="col-sm-5 d-flex justify-content-center">
+                    <span class="svg-icons"><svg size="20" width="20" fill="#000000" version="1.1" id="Capa_1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 96.24 96.24" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M48.122,0C21.587,0,0.001,21.585,0.001,48.118c0,26.535,21.587,48.122,48.12,48.122c26.532,0,48.117-21.587,48.117-48.122 C96.239,21.586,74.654,0,48.122,0z M4.857,48.118c0-6.271,1.345-12.227,3.746-17.606l20.638,56.544 C14.81,80.042,4.857,65.243,4.857,48.118z M48.122,91.385c-4.247,0-8.346-0.623-12.222-1.763L48.88,51.903l13.301,36.433 c0.086,0.215,0.191,0.411,0.308,0.596C57.992,90.514,53.16,91.385,48.122,91.385z M54.083,27.834 c2.604-0.137,4.953-0.412,4.953-0.412c2.33-0.276,2.057-3.701-0.277-3.564c0,0-7.007,0.549-11.532,0.549 c-4.25,0-11.396-0.549-11.396-0.549c-2.332-0.137-2.604,3.427-0.273,3.564c0,0,2.208,0.275,4.537,0.412l6.74,18.469l-9.468,28.395 L21.615,27.835c2.608-0.136,4.952-0.412,4.952-0.412c2.33-0.275,2.055-3.702-0.278-3.562c0,0-7.004,0.549-11.53,0.549 c-0.813,0-1.77-0.021-2.784-0.052C19.709,12.611,33.008,4.856,48.122,4.856c11.265,0,21.519,4.306,29.215,11.357 c-0.187-0.01-0.368-0.035-0.562-0.035c-4.248,0-7.264,3.702-7.264,7.679c0,3.564,2.055,6.582,4.248,10.146 c1.647,2.882,3.567,6.585,3.567,11.932c0,3.704-1.422,8-3.293,13.986l-4.315,14.421L54.083,27.834z M69.871,85.516l13.215-38.208 c2.471-6.171,3.29-11.106,3.29-15.497c0-1.591-0.104-3.07-0.292-4.449c3.38,6.163,5.303,13.236,5.301,20.758 C91.384,64.08,82.732,78.016,69.871,85.516z"></path> </g> </g></svg></span>
+                    <span style="margin-top: 6px; font-size: 12px">{{ lang.t("Generated By WordPress Plugin") }}</span>
+                </div>
+
+                <div class="col-sm-5 d-flex justify-content-center">
+                    <span class="svg-icons"><svg xmlns:dc="https://purl.org/dc/elements/1.1/" xmlns:cc="https://creativecommons.org/ns#" xmlns:rdf="https://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="https://www.w3.org/2000/svg" xmlns:sodipodi="https://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="https://www.inkscape.org/namespaces/inkscape" version="1.1" id="svg4747" width="20" height="20" viewBox="0 0 18 18" sodipodi:docname="eddie-white_18x18.svg" inkscape:export-filename="Eddie-White_100x100.png" inkscape:export-xdpi="54.860001" inkscape:export-ydpi="54.860001" inkscape:version="0.92.4 (5da689c313, 2019-01-14)"> <metadata id="metadata4753"> <rdf:RDF> <cc:Work rdf:about=""> <dc:format>image/svg+xml</dc:format> <dc:type rdf:resource="https://purl.org/dc/dcmitype/StillImage" /> <dc:title></dc:title> </cc:Work> </rdf:RDF> </metadata> <defs id="defs4751" /> <sodipodi:namedview pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-width="1920" inkscape:window-height="1017" id="namedview4749" showgrid="false" inkscape:zoom="22.627417" inkscape:cx="2.3561347" inkscape:cy="14.574794" inkscape:window-x="1912" inkscape:window-y="-8" inkscape:window-maximized="1" inkscape:current-layer="svg4747" /> <path inkscape:connector-curvature="0" id="path6964" d="M 7.3194535,0.04617566 C 7.0127929,0.12934144 7.8650324,1.5919323 7.1629118,2.8537007 6.9434623,3.047503 6.6161972,3.2211098 6.3231399,3.1278742 5.4738924,2.824033 4.7084371,2.3039888 3.8247516,2.0897488 2.4120918,1.9725107 4.0751768,2.6356331 3.9603724,4.5838824 3.7431047,5.1904974 3.5786142,5.6673992 3.46486,6.0659814 2.7720161,7.6250243 0.6888604,13.377312 0.26231409,14.958529 c -0.40482212,1.500621 -0.27003887,2.310226 0.42767054,2.787947 0.19464061,0.133412 2.22847727,0.205431 6.33729707,0.208872 h 6.0556403 l 0.47987,-1.305808 0.464236,-1.240547 0.01551,-0.01942 c 0.0028,-0.0035 -0.0028,-0.01942 0,-0.02608 0.130599,-0.274881 0.44029,-1.058591 0.417255,-1.66488 -0.644098,0.24581 -1.205888,0.929701 -1.356143,1.214354 -0.01368,-0.226168 0.178461,-0.847465 0.09395,-1.149135 -0.432458,0.359299 -0.907945,1.063591 -1.03797,1.345011 -0.01552,-0.221203 0.175754,-0.837548 0.0938,-1.129476 -0.308897,0.256587 -0.750388,0.864386 -0.897141,1.083767 -0.02083,-0.198101 0.164115,-0.787407 0.0938,-1.038112 -0.378804,0.314784 -0.844132,0.977338 -0.985759,1.233987 H 10.224405 C 8.7662394,15.224561 6.5732527,15.941204 6.1716544,12.6931 5.6628407,8.5777843 7.6941655,10.612793 9.9166595,11.400386 c -0.072366,0.253368 -0.3774632,1.025636 -0.3703053,1.44942 0.5140488,-0.177947 1.1019668,-0.841224 1.2935528,-1.064223 -0.05642,0.239005 -0.340145,0.96764 -0.333833,1.338451 0.521919,-0.180421 1.10323,-0.850813 1.29352,-1.077274 0.03879,0.01145 0.08165,0.02892 0.119957,0.03919 -0.04365,0.132461 -0.348624,0.706592 -0.385933,0.868361 0.822078,0.03392 1.555775,-0.59984 1.773369,-0.868361 2.485654,-1.609594 4.264118,-4.967046 4.642166,-6.8163388 C 18.039313,4.2671626 17.72573,3.6593603 17.00506,3.4088713 16.539485,3.247096 13.448656,3.2075309 10.443491,3.2585179 c -0.8499128,0 -2.1415955,-2.35063269 -3.0930276,-3.21231383 -0.012179,0 -0.021446,-0.0034931 -0.031301,0 z M 11.987708,5.8178633 C 15.202231,5.8123128 14.0732,12.75477 9.4162336,6.8951515 10.464743,6.1183907 11.320481,5.8191944 11.987708,5.8178633 Z" style="fill:#FF6C2C;fill-opacity:1;stroke:none;stroke-width:0.18674102" inkscape:export-filename="" inkscape:export-xdpi="90" inkscape:export-ydpi="90" /> </svg></span>
+                    <span style="margin-top: 6px; font-size: 12px;">{{ lang.t("Generated By Hosting Provider") }}</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

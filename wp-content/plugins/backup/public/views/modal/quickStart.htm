@@ -1,0 +1,41 @@
+
+<div class="modal-header">
+	<div class="modal-main-title">
+		<h1 class="modal-title fs-5" id="quickStart">{{ lang.t("Quick Start: JetBackup for WordPress") }}</h1>
+	</div>
+	<button type="button" class="btn-close" ng-click="cancel()" aria-label="Close"></button>
+</div>
+
+<div class="modal-body">
+
+	<p class="mb-3 text-center fw">
+		{{ lang.t("Here is a quick 54 seconds video to get started with the basics: Backup & Restore!") }}
+	</p>
+
+	<div class="d-flex justify-content-center align-items-center my-4">
+		<div class="ratio ratio-16x9" style="width: 100%; max-width: 800px;">
+			<iframe
+					src="https://www.youtube.com/embed/4uq8XqyJWaE?autoplay=1&mute=1&rel=0&loop=1&playlist=4uq8XqyJWaE"
+					title="JetBackup for WordPress Quick Start Guide YouTube video"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen
+					loading="lazy">
+			</iframe>
+
+		</div>
+	</div>
+</div>
+
+<div class="modal-footer">
+	<div class="form-check">
+		<input
+				class="form-check-input"
+				type="checkbox"
+				id="dontShowAgain"
+				ng-change="disableQuickStart()"
+				ng-model="dontShowVideoAgain">
+		<label class="form-check-label fw-bold" for="dontShowAgain">
+			{{ lang.t("Don't show this again") }}
+		</label>
+	</div>
+</div>

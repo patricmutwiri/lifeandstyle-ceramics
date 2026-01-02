@@ -1,0 +1,84 @@
+<div  class="pd-20 settings">
+
+    <div class="form-group row">
+        <label for="MFA_ENABLED" class="col-sm-3 col-form-label jb-label">{{ lang.t('MFA Authentication') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 switch-main">
+                <label class="switch">
+                    <input id="MFA_ENABLED"
+                    type="checkbox"
+                    ng-model="saveData.MFA_ENABLED"
+                    ng-true-value=1
+                    ng-false-value=0>
+                    <span class="slider round"></span>
+                    <input type="hidden" name="MFA_ENABLED" ng-value="saveData.MFA_ENABLED">
+                </label>
+                <p class="pd-3">{{ lang.t('Enhance your account\'s security by activating Two-Factor Authentication, It\'s a simple way to prevent unauthorized access and safeguard your data against potential threats.') }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="MFA_ALLOW_CLI" class="col-sm-3 col-form-label jb-label">{{ lang.t('Allow CLI Access When MFA is Enabled') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 switch-main">
+                <label class="switch">
+                    <input id="MFA_ALLOW_CLI"
+                           type="checkbox"
+                           ng-model="saveData.MFA_ALLOW_CLI"
+                           ng-true-value=1
+                           ng-false-value=0>
+                    <span class="slider round"></span>
+                    <input type="hidden" name="MFA_ALLOW_CLI" ng-value="saveData.MFA_ALLOW_CLI">
+                </label>
+                <p class="pd-3">
+                {{ lang.t('Enabling this will allow command-line operations even when Multi-Factor Authentication is enabled. This may pose a security risk, as it could permit disabling MFA through CLI without additional verification.') }}
+                </p>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="datadir_location" class="col-sm-3 col-form-label jb-label">{{ lang.t('Alternate Data Directory') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 jobs">
+                <input type="text"
+                       ng-style="datadir_public ? {'border-color': 'red'} : {}"
+                       ng-attr-placeholder="{{saveData.SECURITY_DATADIR_RECOMMENDED ? saveData.SECURITY_DATADIR_RECOMMENDED : ''}}"
+                       id="datadir_location"
+                       class="form-control"
+                       name="ALTERNATE_DATA_FOLDER"
+                       ng-model="saveData.ALTERNATE_DATA_FOLDER"
+                       ng-init="isReadOnly = !!saveData.ALTERNATE_DATA_FOLDER && saveData.ALTERNATE_DATA_FOLDER.length > 0"
+                       ng-readonly="isReadOnly">
+                <p class="pd-3">
+                    {{ lang.t('Data Directory is used to store configuration and valuable data related to your backups.') }} <br />
+                    <span ng-if="!saveData.SECURITY_DATADIR_SECURED" style="color: red;">
+                    {{ lang.t('Placing JetBackup\'s data directory within the public WordPress directory exposes it to potential security threats.') }} <br />
+                    {{ lang.t('For optimal safety, please assign \'data directory\' to a private, non-public location.') }} <br />
+                    <span ng-if="saveData.SECURITY_DATADIR_RECOMMENDED">{{ lang.t('Recommended path:') }} {{saveData.SECURITY_DATADIR_RECOMMENDED}}</span>
+                </span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="DAILY_CHECKSUM_CHECK" class="col-sm-3 col-form-label jb-label">{{ lang.t('Daily WordPress Core Files Check') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 switch-main">
+                <label class="switch">
+                    <input id="DAILY_CHECKSUM_CHECK"
+                           type="checkbox"
+                           ng-model="saveData.DAILY_CHECKSUM_CHECK"
+                           ng-true-value=1
+                           ng-false-value=0>
+                    <span class="slider round"></span>
+                    <input type="hidden" name="DAILY_CHECKSUM_CHECK" ng-value="saveData.DAILY_CHECKSUM_CHECK">
+                </label>
+                <p class="pd-3">{{ lang.t('Automatically checks your WordPress core files daily against official checksums to detect unauthorized changes or security issues. You\'ll receive an email notification if any discrepancies are found. Keep your site secure with minimal effort.') }}</p>
+            </div>
+        </div>
+    </div>
+
+
+</div>

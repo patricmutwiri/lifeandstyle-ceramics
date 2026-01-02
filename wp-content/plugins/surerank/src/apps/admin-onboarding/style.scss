@@ -1,0 +1,16 @@
+html.wp-toolbar,
+#wpcontent,
+#wpbody {
+	@apply p-0 m-0;
+}
+
+#wpadminbar,
+#adminmenuwrap,
+#adminmenuback,
+#wpadminbar {
+	@apply hidden;
+}
+
+#wpwrap:has( #surerank-root ) {
+	@apply bg-background-secondary;
+}

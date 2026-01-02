@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Admin notice wrapper overrides for WordPress admin */
+#surerank-admin-notice.notice {
+	position: relative;
+	padding: 0;
+	margin: 16px 0 16px 0;
+	border: none;
+	border-left: 4px solid #4330d2;
+	background: transparent;
+}

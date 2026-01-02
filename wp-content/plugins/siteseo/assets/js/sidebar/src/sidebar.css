@@ -1,0 +1,61 @@
+.siteseo-sidebar-active-tab{
+    border-bottom: 1.5px solid #00308F;
+}
+
+.siteseo-sidebar-tabs{
+    display:flex;
+    justify-content: center;
+    width:100%;
+}
+
+.siteseo-sidebar-tabs > button {
+    width: 100%;
+}
+
+.preview-block{
+    width: 100%;
+    background-color: #fff;
+}
+
+.preview-url{
+    overflow: hidden;
+    width: 100%;
+    white-space: nowrap;
+    max-width: 600px;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    line-height: 16px;
+    margin: 3px 0 5px;
+    padding: 10px 5px 0 0;
+    color: #202124;
+}
+
+.preview-title{
+    overflow: hidden;
+    width: 100%;
+    white-space: nowrap;
+    max-width: 600px;
+    text-overflow: ellipsis;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.5;
+    margin-bottom: 3px;
+    padding-bottom: 0;
+    color: #1a0dab;
+}
+
+.preview-description{
+    line-height: 1.4;
+    white-space: normal;
+    word-wrap: break-word;
+    color: #555d66;
+    text-overflow: ellipsis;
+}
+
+.siteseo-gut-title-fields{
+    margin-top: 15px;
+}
+
+.siteseo-gut-title-field{
+    margin-bottom: 10px;
+}

@@ -1,0 +1,6 @@
+[2026-01-02 13:15:54] [197.158.240.185] Starting snapshots retention cleanup
+[2026-01-02 13:15:54] [197.158.240.185] [_markManualSnapshots] Manual Backups retention disabled, skipping
+[2026-01-02 13:15:54] [197.158.240.185] [_deleteSnapshots] Execution time: 0
+[2026-01-02 13:15:54] [197.158.240.185] [_deleteSnapshots] TTL time: 0
+[2026-01-02 13:15:54] [197.158.240.185] Completed!
+[2026-01-02 13:15:54] [197.158.240.185] Total time: 0

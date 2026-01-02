@@ -1,0 +1,187 @@
+<div class="modal-header">
+    <div class="modal-main-title">
+        <h1 class="modal-title fs-5" id="destinationManageLabel">
+            {{ destinationID ? lang.t("Edit Destination") : lang.t("Create New Destination") }}
+        </h1>
+
+    </div>
+    <button type="button" class="btn-close" ng-click="cancel()" aria-label="{{ lang.t('Close') }}"></button>
+</div>
+
+<div class="modal-body">
+    <div id="destination-form-wrapper">
+
+        <div class="jb-loading-screen" ng-show="!loaded">
+            <p class="jb-loading-text">
+                Loading<span class="jb-dots"><span></span><span></span><span></span></span>
+            </p>
+        </div>
+
+
+        <div ng-show="!saveData._id && loaded && !hasActiveJetStorage" class="alert d-flex align-items-start p-4 rounded shadow-sm position-relative" style="background-color: #fff5ee;">
+            <div class="me-3">
+                <i class="bi bi-hdd-network-fill fs-2 text-primary"></i>
+            </div>
+            <div>
+                <h5 class="mb-1">{{ lang.t("Use our premium cloud storage solution for remote backups!") }}</h5>
+                <p class="mb-2">
+                    {{ lang.t("JetBackup Premium Cloud Storage is designed to work efficiently with JetBackup, providing secure and reliable backups with lightning-fast performance.") }}
+                </p>
+                <button  ng-click="openJetBackupStoragePopup()" target="_blank" class="btn btn-sm" style="background-color: #FF6C2C; color: white;">
+                    {{ lang.t("Claim your 2GB of free storage now >>") }}
+                </button>
+            </div>
+
+            <div class="jetstorage-logo jetbackup-jetstorage-dest-color"></div>
+        </div>
+
+
+
+        <!-- Destination Type Select -->
+        <div class="form-group row" id="destination_type_row" ng-show="!saveData._id && loaded">
+
+
+
+            <label class="col-sm-3 col-form-label jb-label">{{ lang.t("Destination Type") }}</label>
+            <div class="col-sm-3">
+                <div class="jetbackup-dropdown" role="button" tabindex="0">
+                    <button class="dropdown-toggle btn btn-secondary destination_type_dropdown jb-background-grey border-0"
+                            type="button"
+                            aria-expanded="{{isOpen}}"
+                            ng-click="isOpen = !isOpen">
+                        <span>{{ selectedDestinationType }}</span>
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="jetbackup-dropdown-menu col-3 mt-10" ng-show="isOpen" aria-hidden="{{!isOpen}}">
+                        <li class="d-flex"
+                            ng-repeat="(key, value) in destinationTypes"
+                            ng-click="selectDestinationType(key); isOpen = false;">
+                            <span class="jetbackup-cloud-icon" ng-class="value.iconClass"></span>
+                            <a href="#"
+                               class="dropdown-item destination_type {{ key }}"
+                               data-destination-type="{{ key }}"
+                               ng-click="$event.preventDefault();">
+                                {{ value.display }}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row" ng-show="!saveData._id && selectedDestinationType === 'JetBackup Storage'">
+            <label for="simple_mode" class="col-sm-3 col-form-label jb-label">{{ lang.t('Enable Simple Mode') }}</label>
+            <div class="col-sm-9">
+                <div class="pd-3 switch-main">
+                    <label class="switch">
+                        <input id="simple_mode"
+                               type="checkbox"
+                               ng-model="saveData.simpleMode"
+                               ng-checked="saveData.simpleMode == 1"
+                               ng-click="toggleState(saveData.simpleMode)">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <p class="pd-3">
+                    {{ lang.t("When using simple mode, use the quick access code to setup your storage") }}
+                </p>
+            </div>
+        </div>
+
+        <div id="generic_params_wrapper" ng-show="selectedDestinationType !== 'Select' && !saveData.simpleMode">
+
+            <div class="form-group row">
+                <label for="destination_name" class="col-sm-3 col-form-label jb-label">{{ lang.t("Name") }}</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control jb-input jb-grey-0" id="destination_name" name="destination_name" ng-model="saveData.name">
+                    <p>{{ lang.t("Display name for your destination") }}</p>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="destination_notes" class="col-sm-3 col-form-label jb-label">{{ lang.t("Notes") }}</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control jb-input jb-grey-0" id="destination_notes" name="destination_notes" ng-model="saveData.notes">
+                    <p>{{ lang.t("Add internal notes to help identify or describe this destination.") }}</p>
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <label for="destination_read_only" class="col-sm-3 col-form-label jb-label">{{ lang.t("Read Only") }}</label>
+                <div class="col-sm-7">
+                    <span class="switch-main">
+                        <label class="switch">
+                            <input id="destination_read_only"
+                                   type="checkbox"
+                                   ng-model="saveData.read_only"
+                                   ng-checked="saveData.read_only == 1"
+                                   ng-click="toggleState(saveData.read_only)">
+                            <span class="slider round"></span>
+                        </label>
+                    </span>
+                    <p>{{ lang.t("This destination will only allow restore and download actions. Use it for migration scenarios or when write access isn’t required.") }}</p>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="chunkSize" class="col-sm-3 col-form-label jb-label">{{ lang.t('Chunk Size') }}</label>
+                <div class="col-sm-9">
+                    <div class="pd-3">
+                        <select id="chunkSize" class="form-select" aria-label="chunk_size" name="chunk_size"
+                                ng-model="saveData.chunk_size"
+                                ng-options="value as key for (key, value) in chunks_list">
+                        </select>
+                        <p class="pd-3">{{ lang.t('Set the default read/write chunk size. Smaller chunks suit small files or slow connections, while larger chunks are better for big files on fast, stable networks.') }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row" ng-show="isDiskSpaceSupported()">
+                <label for="free_disk" class="col-sm-3 col-form-label jb-label">{{ lang.t('Free Disk Limit') }}</label>
+                <div class="col-sm-9">
+                    <div class="pd-3">
+                        <select id="free_disk" class="form-select" aria-label="free_disk" name="free_disk"
+                                ng-model="saveData.free_disk"
+                                ng-options="value as key for (key, value) in disk_space_options">
+                        </select>
+                        <p class="pd-3">{{ lang.t('This option will check if destination disk space reached the specified limit before it performs the backup. If you enable this option and available disk space is less than the amount specified, the system will not perform the backup.') }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row" ng-show="!saveData.simpleMode">
+                <label for="destination_path" class="col-sm-3 col-form-label jb-label">{{ lang.t("Backup Directory") }}</label>
+                <div class="col-sm-7">
+                    <input type="text"
+                           class="form-control jb-input jb-grey-0"
+                           id="destination_path"
+                           name="destination_path"
+                           ng-model="saveData.path"
+                           ng-disabled="!!saveData._id"
+                           title="{{ saveData._id ? lang.t('This field cannot be modified for active destination') : '' }}">
+                    <p class="pd-3">{{ lang.t("Define the directory path on the remote server for storing backups. Make sure it’s writable and uniquely identifies the domain (e.g., /backups/domain.com/).") }}</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div ng-include="destinationTemplate"></div>
+
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-secondary cancel_btn" type="button" ng-click="cancel()">
+        {{ lang.t("Cancel") }}
+    </button>
+    <button
+            class="btn btn-primary create_new_destination apply_btn"
+            type="button"
+            ng-click="ok()"
+            ng-disabled="selectedDestinationType === 'Select' || loading">
+        <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true" ng-show="loading"></span>
+        {{ lang.t("Save") }}
+    </button>
+
+</div>

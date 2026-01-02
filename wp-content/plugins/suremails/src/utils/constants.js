@@ -1,0 +1,15 @@
+export const CONTENT_GUARD_CATEGORIES = {
+	harassment: false,
+	'harassment/threatening': false,
+	sexual: false,
+	hate: false,
+	'hate/threatening': false,
+	illicit: false,
+	'illicit/violent': false,
+	'self-harm/intent': false,
+	'self-harm/instructions': false,
+	'self-harm': false,
+	'sexual/minors': false,
+	violence: false,
+	'violence/graphic': false,
+};

@@ -1,0 +1,83 @@
+<div class="pd-20 settings" ng-if="currentSection._id === 'integrations'">
+
+    <div class="form-group row">
+        <p class="col-12">{{ lang.t('Enable post-restore actions for supported integrations. These settings ensure proper functionality after a restore operation.') }}</p>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label jb-label">{{ lang.t('Elementor') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 switch-main">
+                <label class="switch">
+                    <input type="checkbox"
+                           ng-checked="saveData.integrations.includes('Elementor')"
+                           ng-click="toggleIntegration('Elementor')">
+                    <span class="slider round"></span>
+                </label>
+                <p class="pd-3">{{ lang.t('Automatically regenerate Elementor CSS after a restore') }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label jb-label">{{ lang.t('WP Super Cache') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 switch-main">
+                <label class="switch">
+                    <input type="checkbox"
+                           ng-checked="saveData.integrations.includes('Supercache')"
+                           ng-click="toggleIntegration('Supercache')">
+                    <span class="slider round"></span>
+                </label>
+                <p class="pd-3">{{ lang.t('Clear WP Super Cache automatically after a restore') }}</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label jb-label">{{ lang.t('WooCommerce') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 switch-main">
+                <label class="switch">
+                    <input type="checkbox"
+                           ng-checked="saveData.integrations.includes('Woocommerce')"
+                           ng-click="toggleIntegration('Woocommerce')">
+                    <span class="slider round"></span>
+                </label>
+                <p class="pd-3">{{ lang.t('Clear temporary data & Ensure WooCommerce data integrity after a restore') }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label jb-label">{{ lang.t('W3 Total Cache') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 switch-main">
+                <label class="switch">
+                    <input type="checkbox"
+                           ng-checked="saveData.integrations.includes('W3TotalCache')"
+                           ng-click="toggleIntegration('W3TotalCache')">
+                    <span class="slider round"></span>
+                </label>
+                <p class="pd-3">{{ lang.t('Purge W3 Total Cache automatically after a restore') }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label jb-label">{{ lang.t('Autoptimize') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 switch-main">
+                <label class="switch">
+                    <input type="checkbox"
+                           ng-checked="saveData.integrations.includes('Autoptimize')"
+                           ng-click="toggleIntegration('Autoptimize')">
+                    <span class="slider round"></span>
+                </label>
+                <p class="pd-3">{{ lang.t('Clear Autoptimize cache automatically after a restore') }}</p>
+            </div>
+        </div>
+    </div>
+
+</div>

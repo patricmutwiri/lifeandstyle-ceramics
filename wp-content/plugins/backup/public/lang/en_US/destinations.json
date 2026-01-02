@@ -1,0 +1,27 @@
+
+{
+    "* Destinations are limited to Local and <a href=&quot;https:\/\/www.jetbackup.com\/jetbackup-storage&quot; target=&quot;_blank&quot;>JetBackup Cloud Storage<\/a> without a Pro License. Already have a license and want to back up to other remote destinations? Make sure you\u2019ve saved it in <a href=&quot;#!\/settings\/general&quot; aria-label=&quot;General settings&quot;>Settings<\/a>.": "* Destinations are limited to Local and <a href=&quot;https:\/\/www.jetbackup.com\/jetbackup-storage&quot; target=&quot;_blank&quot;>JetBackup Cloud Storage<\/a> without a Pro License. Already have a license and want to back up to other remote destinations? Make sure you\u2019ve saved it in <a href=&quot;#!\/settings\/general&quot; aria-label=&quot;General settings&quot;>Settings<\/a>.",
+    "Cannot delete the default destination.": "Cannot delete the default destination.",
+    "Cannot delete this destination because it has assigned backup jobs.": "Cannot delete this destination because it has assigned backup jobs.",
+    "Create new destination": "Create new destination",
+    "Destinations": "Destinations",
+    "Enable": "Enable",
+    "Export Config": "Export Config",
+    "Get Free Storage": "Get Free Storage",
+    "Jobs Assigned": "Jobs Assigned",
+    "Name": "Name",
+    "No": "No",
+    "No Destinations found.": "No Destinations found.",
+    "Notes": "Notes",
+    "Read Only": "Read Only",
+    "Search here...": "Search here...",
+    "Set up and manage where your backups are stored. We recommend using remote\/off-site destinations for disaster recovery. Use the Export Config option to store a lightweight version of your plugin settings.": "Set up and manage where your backups are stored. We recommend using remote\/off-site destinations for disaster recovery. Use the Export Config option to store a lightweight version of your plugin settings.",
+    "Sort by Enable": "Sort by Enable",
+    "Sort by Export Config": "Sort by Export Config",
+    "Sort by Name": "Sort by Name",
+    "Sort by Notes": "Sort by Notes",
+    "Sort by Read Only": "Sort by Read Only",
+    "This is the default destination.": "This is the default destination.",
+    "Type": "Type",
+    "Yes": "Yes"
+}

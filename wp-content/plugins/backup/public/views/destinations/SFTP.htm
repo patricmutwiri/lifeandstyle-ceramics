@@ -1,0 +1,51 @@
+<div ng-controller="destinationSFTP">
+
+    <div class="form-group row">
+        <label for="sftp_remote_host" class="col-sm-3 col-form-label jb-label">{{ lang.t("Remote Host") }}</label>
+        <div class="col-sm-7">
+            <input type="text" class="form-control jb-input jb-grey-0" id="sftp_remote_host" name="sftp_remote_host" ng-model="saveData.options.host">
+            <p class="pd-3">{{ lang.t("Enter the hostname or IP address of the SFTP server you wish to connect to for backup storage. Example: FTP.example.com or 192.0.2.1") }}</p>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="sftp_port" class="col-sm-3 col-form-label jb-label">{{ lang.t("Port") }}</label>
+        <div class="col-sm-7">
+            <input type="number" class="form-control jb-input jb-grey-0" id="sftp_port" name="sftp_port" ng-model="saveData.options.port">
+            <p class="pd-3">{{ lang.t("Specify the port number used to connect to the SFTP server. The default SFTP port is 21, but this may differ if your server uses a custom configuration.") }}</p>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="sftp_username" class="col-sm-3 col-form-label jb-label">{{ lang.t("Remote Username") }}</label>
+        <div class="col-sm-7">
+            <input type="text" class="form-control jb-input jb-grey-0" id="sftp_username" name="sftp_username" ng-model="saveData.options.username">
+            <p class="pd-3">{{ lang.t("Enter the username for authentication with the SFTP server. This user must have the necessary permissions to access and write to the specified backup directory.") }}</p>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="sftp_password" class="col-sm-3 col-form-label jb-label">{{ lang.t("Remote Password") }}</label>
+        <div class="col-sm-7">
+            <input type="password" class="form-control jb-input jb-grey-0" id="sftp_password" name="sftp_password" ng-model="saveData.options.password" value="{{$saveData.options.password}}">
+            <p class="pd-3">{{ lang.t("Provide the password for the specified username. Ensure this password is kept secure to prevent unauthorized access to your backups.") }}</p>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="sftp_timeout" class="col-sm-3 col-form-label jb-label">{{ lang.t("Connection Timeout") }}</label>
+        <div class="col-sm-7">
+            <input type="number" class="form-control jb-input jb-grey-0" id="sftp_timeout" name="sftp_timeout" ng-model="saveData.options.timeout">
+            <p class="pd-3">{{ lang.t("Set the maximum time (in seconds) the system should wait for a connection to the SFTP server before timing out. Increase this if you experience connection issues, especially over slow networks.") }}</p>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="sftp_retries" class="col-sm-3 col-form-label jb-label">{{ lang.t("Connection Retries") }}</label>
+        <div class="col-sm-7">
+            <input type="number" min="0" max="10" class="form-control jb-input jb-grey-0" id="sftp_retries" name="sftp_retries" ng-model="saveData.options.retries">
+            <p class="pd-3">{{ lang.t("Specify the number of times the system should attempt to reconnect to the SFTP server if the initial connection fails. A higher number of retries can be useful in unstable network conditions.") }}</p>
+        </div>
+    </div>
+
+</div>

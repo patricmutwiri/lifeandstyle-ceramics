@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="227" height="297" viewBox="0 0 227 297">
+    <g fill="none" fill-rule="evenodd">
+        <g fill-rule="nonzero" opacity=".609">
+            <path fill="#FFF" stroke="#5BCF9C" stroke-width="2" d="M42 40h178.008a3 3 0 0 1 3 3v250a3 3 0 0 1-3 3H42a3 3 0 0 1-3-3V43a3 3 0 0 1 3-3z"/>
+            <path fill="#91D8B8" d="M50.968 99.883h172.04V296H50.968z"/>
+            <path fill="#D0F4DC" d="M49.472 99.883h142.12V296H49.472z"/>
+            <path fill="#97EBC6" stroke="#86DAB5" stroke-width="2" d="M56.96 48.982H223a3 3 0 0 1 3 3V98.38a3 3 0 0 1-3 3H56.96a3 3 0 0 1-3-3V51.982a3 3 0 0 1 3-3zM56.96 113.357H223a3 3 0 0 1 3 3v46.397a3 3 0 0 1-3 3H56.96a3 3 0 0 1-3-3v-46.397a3 3 0 0 1 3-3zM56.96 180.725H223a3 3 0 0 1 3 3v46.398a3 3 0 0 1-3 3H56.96a3 3 0 0 1-3-3v-46.398a3 3 0 0 1 3-3zM56.96 243.602H223a3 3 0 0 1 3 3V293a3 3 0 0 1-3 3H56.96a3 3 0 0 1-3-3v-46.398a3 3 0 0 1 3-3z"/>
+            <g transform="translate(50.968 48.982)">
+                <path fill="#D0F4DC" stroke="#5BCF9C" stroke-width="2" d="M0 63.914h152.584a3 3 0 0 1 3 3v45.821a3 3 0 0 1-3 3H0V63.914z"/>
+                <ellipse cx="127.06" cy="90.688" fill="#FFF" stroke="#5BCF9C" stroke-width="2" rx="11.237" ry="11.228"/>
+                <path fill="#5BCF9C" d="M20.745 89.825h81.249v3.454h-81.25z"/>
+                <path fill="#D0F4DC" stroke="#5BCF9C" stroke-width="2" d="M0 0h152.584a3 3 0 0 1 3 3v45.822a3 3 0 0 1-3 3H0V0z"/>
+                <ellipse cx="127.06" cy="26.775" fill="#FFF" stroke="#5BCF9C" stroke-width="2" rx="11.237" ry="11.228"/>
+                <path fill="#5BCF9C" d="M20.745 25.91h81.249v3.456h-81.25z"/>
+                <path fill="#D0F4DC" stroke="#5BCF9C" stroke-width="2" d="M0 195.196h152.584a3 3 0 0 1 3 3v45.822a3 3 0 0 1-3 3H0v-51.822z"/>
+                <ellipse cx="127.06" cy="221.97" fill="#FFF" stroke="#5BCF9C" stroke-width="2" rx="11.237" ry="11.228"/>
+                <path fill="#5BCF9C" d="M20.745 221.107h81.249v3.455H20.745z"/>
+                <path fill="#D0F4DC" stroke="#5BCF9C" stroke-width="2" d="M0 131.282h152.584a3 3 0 0 1 3 3v45.822a3 3 0 0 1-3 3H0v-51.822z"/>
+                <ellipse cx="127.06" cy="158.057" fill="#FFF" stroke="#5BCF9C" stroke-width="2" rx="11.237" ry="11.228"/>
+                <path fill="#5BCF9C" d="M20.745 157.193h81.249v3.455h-81.25z"/>
+            </g>
+        </g>
+        <circle cx="60" cy="60" r="60" fill="#69F0AE"/>
+        <path fill="#FFF" d="M34.375 50.397l22.497 20.744L88.744 24 100 33.43 56.872 90 25 54.173z"/>
+    </g>
+</svg>

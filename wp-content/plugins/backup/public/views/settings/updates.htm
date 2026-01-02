@@ -1,0 +1,28 @@
+<div class="pd-20 settings">
+
+    <div class="form-group row">
+        <label for="UPDATE_TIER" class="col-sm-3 col-form-label jb-label">{{ lang.t('Update Tier') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3">
+                <!-- Update Tier Select Dropdown -->
+                <select id="UPDATE_TIER" class="form-select" aria-label="UpdateTier" name="UPDATE_TIER" ng-model="saveData.UPDATE_TIER">
+                    <option ng-repeat="(key, tier) in saveData.UPDATE_TIERS_LIST" value="{{key}}" ng-selected="saveData.UPDATE_TIER == key">
+                        {{ key == 'rc' ? 'Release Candidate' : tier }}
+                    </option>
+                </select>
+
+                <!-- Description for the different update tiers -->
+                <p class="pd-3">
+                <ul style="padding-left: 0;">
+                    <li><strong>{{ lang.t('Release') }}:</strong> {{ lang.t('Receives well-tested updates directly from the WordPress repository, ensuring high reliability and minimal risk. Ideal for production environments where stability is paramount.') }}</li>
+                    <li><strong>{{ lang.t('Release Candidate (RC)') }}:</strong> {{ lang.t('Pre-release versions that are close to the final stable release, with updates from our repository servers. These versions are intended for final testing before the official release. Recommended for users who wish to test the upcoming stable version and provide feedback.') }}</li>
+                    <li><strong>{{ lang.t('Edge') }}:</strong> {{ lang.t('Cutting-edge updates with the latest features and improvements, provided from our repository servers. More stable than Alpha but still may contain bugs. Great for users who prefer to stay at the forefront of development.') }}</li>
+                    <li><strong>{{ lang.t('Alpha') }}:</strong> {{ lang.t('Early access to features still in development, sourced from our repository servers. Expect frequent updates and potential instability. Suitable for developers and testers who want to explore new features.') }}</li>
+                </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+</div>

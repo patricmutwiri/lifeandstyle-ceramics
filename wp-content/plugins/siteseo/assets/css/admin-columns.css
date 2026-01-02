@@ -1,0 +1,19 @@
+.column-seo_title,
+.column-meta_description,
+.column-redirect_url,
+.column-canonical_url{ 
+width: 15%; 
+}
+
+.column-redirect_enabled,
+.column-noindex,
+.column-nofollow,
+.column-word_count,
+.column-seo_score{ 
+width: 8%; 
+text-align: center; 
+}
+
+.column-target_keyword{ 
+width: 12%; 
+}

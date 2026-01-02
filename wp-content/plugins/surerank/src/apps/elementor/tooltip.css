@@ -1,0 +1,17 @@
+/* SureRank Elementor Tooltip Styles */
+
+.surerank-tooltip {
+	font-family: Roboto, Helvetica, Arial, sans-serif;
+	letter-spacing: 0.02857em;
+	transform: translateX( -50% ) scale( 0.8 );
+	transition: opacity 0.15s cubic-bezier( 0.4, 0, 0.2, 1 ) 0ms, transform 0.15s cubic-bezier( 0.4, 0, 0.2, 1 ) 0ms;
+	transform-origin: center top;
+}
+
+.surerank-tooltip--visible {
+	transform: translateX( -50% ) scale( 1 );
+}
+
+.surerank-tooltip--hidden {
+	transform: translateX( -50% ) scale( 0.8 );
+}

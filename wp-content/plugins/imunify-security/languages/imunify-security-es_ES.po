@@ -1,0 +1,145 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Imunify Security 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/imunify-security\n"
+"Last-Translator: CloudLinux\n"
+"Language-Team: Spanish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-01-21T09:14:34+00:00\n"
+"PO-Revision-Date: 2025-01-21T09:14:34+00:00\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: imunify-security\n"
+
+#. Plugin Name of the plugin
+msgid "Imunify Security"
+msgstr "Imunify Security"
+
+#. Description of the plugin
+msgid "Imunify Security WordPress plugin is a comprehensive tool offering malware scanning, firewall protection, and intrusion detection for WordPress websites."
+msgstr "El plugin Imunify Security para WordPress es una herramienta completa que ofrece escaneo de malware, protección de firewall y detección de intrusiones para sitios web WordPress."
+
+#. Author of the plugin
+msgid "CloudLinux"
+msgstr "CloudLinux"
+
+#. Author URI of the plugin
+msgid "https://www.cloudlinux.com"
+msgstr "https://www.cloudlinux.com"
+
+msgctxt "scan date format"
+msgid "j M"
+msgstr "j M"
+
+msgctxt "scan time format"
+msgid "g:i A"
+msgstr "H:i"
+
+#. translators: 1: Date (e.g. "25 Dec"), 2: Time (e.g. "8:00 PM")
+#, php-format
+msgctxt "scan time"
+msgid "%1$s at %2$s"
+msgstr "%1$s a las %2$s"
+
+msgctxt "detection date format"
+msgid "M j"
+msgstr "j M"
+
+msgid "Malware Scanning"
+msgstr "Escaneo de Malware"
+
+msgid "Enabled"
+msgstr "Activado"
+
+msgid "Proactive Defence"
+msgstr "Defensa Proactiva"
+
+msgid "Not protected"
+msgstr "No protegido"
+
+msgid "Imunify Software is not installed"
+msgstr "El software Imunify no está instalado"
+
+msgid "Get Imunify360"
+msgstr "Obtener Imunify360"
+
+msgid "Protected"
+msgstr "Protegido"
+
+msgid "Last scan:"
+msgstr "Último escaneo:"
+
+msgid "Next scan:"
+msgstr "Próximo escaneo:"
+
+msgid "No malware found"
+msgstr "No se encontró malware"
+
+msgid "Show more results"
+msgstr "Mostrar más resultados"
+
+msgid "Hide notifications"
+msgstr "Ocultar notificaciones"
+
+msgid "Snooze for:"
+msgstr "Posponer por:"
+
+#. translators: %d: number of weeks
+#, php-format
+msgid "%d week"
+msgid_plural "%d weeks"
+msgstr[0] "%d semana"
+msgstr[1] "%d semanas"
+
+msgid "Snooze"
+msgstr "Posponer"
+
+msgid "never"
+msgstr "nunca"
+
+msgid "not scheduled"
+msgstr "no programado"
+
+#. Plugin URI of the plugin
+msgid "https://imunify360.com/imunify-security-wp-plugin/"
+msgstr "https://imunify360.com/imunify-security-wp-plugin/"
+
+msgid "Disabled"
+msgstr "Desactivado"
+
+msgid "Malware Cleanup"
+msgstr "Limpieza de Malware"
+
+msgid "Invalid snooze duration"
+msgstr "Duración de posposición no válida"
+
+#. translators: %d: number of malware items found
+#, php-format
+msgid "%d malware found"
+msgid_plural "%d malware found"
+msgstr[0] "%d malware encontrado"
+msgstr[1] "%d malware encontrados"
+
+msgid "Cleaned"
+msgstr "Limpio"
+
+msgid "Content removed"
+msgstr "Contenido eliminado"
+
+msgid "Cleanup in progress"
+msgstr "Limpieza en progreso"
+
+msgid "Infected"
+msgstr "Infectado"
+
+msgid "Quarantined"
+msgstr "En cuarentena"
+
+msgid "Unknown"
+msgstr "Desconocido"
+
+msgid "Get protected"
+msgstr ""

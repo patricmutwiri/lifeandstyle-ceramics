@@ -1,0 +1,98 @@
+<div class="modal-header">
+    <div class="modal-main-title">
+        <h1 class="modal-title fs-5" id="fileManager" ng-bind="destination_id ? lang.t('Browse Destination') : lang.t('Select files')"></h1>
+    </div>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-xs-12">
+            <div style="padding: 0 20px;">
+                <div class="alert alert-danger" role="alert" ng-show="errorMessage">
+                    {{ errorMessage }}
+                </div>
+                <h3>{{ lang.t("Backup files") }}</h3>
+                <div style="direction: ltr;">{{ lang.t("Current Path") }}: <a class="jb-breadcrumbs" href="" ng-repeat="file in breadcrumbs track by $index" ng-click="fetch(file, true)">{{ file.name }}/</a></div>
+                <div style="margin-top: 20px;">
+                    <table class="jb-table table table-hover jb-file-manager">
+                        <thead>
+                        <tr>
+                            <th ng-hide="destination_id" style="width: 10px;">
+                                <div class="filemanager pretty p-default p-curve p-smooth" ng-hide="hideCheckAll()">
+                                    <input ng-checked="checkedAll" ng-click="toggleCheckAll()" type="checkbox" />
+                                    <div class="state p-danger"><label></label></div>
+                                </div>
+                            </th>
+                            <th class="col-sm-4 col-md-4 col-lg-4">
+                                <button sort-by sort-meta="meta" sort-field="name" onSort="fetch()" title="{{ lang.t('Sort by %s.', lang.t('File Name')) }}">{{ lang.t("File Name") }}</button>
+                            </th>
+                            <th class="col-sm-2 col-md-2 col-lg-2">
+                                <button sort-by sort-meta="meta" sort-field="size" onSort="fetch()" title="{{ lang.t('Sort by %s.', lang.t('Size')) }}">{{ lang.t("Size") }}</button>
+                            </th>
+                            <th class="col-sm-2 col-md-2 col-lg-2">
+                                <button sort-by sort-meta="meta" sort-field="type" onSort="fetch()" title="{{ lang.t('Sort by %s.', lang.t('Type')) }}">{{ lang.t("Type") }}</button>
+                            </th>
+                            <th class="col-sm-4 col-md-4 col-lg-4">
+                                <button sort-by sort-meta="meta" sort-field="created" onSort="fetch()" title="{{ lang.t('Sort by %s.', lang.t('Created')) }}">{{ lang.t("Created") }}</button>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="file in files track by $index" ng-show="!file.hidden || showhidden" id="file_row_{{$index}}" ng-class="{ 'row-checked': isChecked(file), 'row-fade': file.type != 'File' && file.type != 'Directory' && file.type != 'Link' }">
+                            <td ng-hide="destination_id">
+                                <div class="filemanager pretty p-default p-curve p-smooth" ng-class="{'p-children-selected': isChildrenChecked(file)}" ng-hide="file.type != 'File' && file.type != 'Directory' && file.type != 'Link'">
+                                    <input ng-disabled="isDisabled(file)" ng-checked="isChecked(file)" ng-model="file.checked" ng-change="toggleFile(file)" type="checkbox" />
+                                    <div class="state p-danger" ng-class="{'p-success': isChildrenChecked(file) }"><label></label></div>
+                                </div>
+                            </td>
+                            <td data-title="{{ lang.t('File Name') }}" style="direction: ltr;">
+                                <a class="jb-folder" ng-if="file.type == 'Directory'" href="" ng-click="fetch(file, true)">{{ file.name }}<span ng-show="file.link"> -> {{file.link}}</span></a>
+                                <span ng-if="file.type != 'Directory'">{{ file.name }}<span ng-show="file.link"> -> {{file.link}}</span></span>
+                            </td>
+                            <td data-title="{{ lang.t('Size') }}">
+                                {{ file.size }}
+                            </td>
+                            <td data-title="{{ lang.t('Type') }}">
+                                <span class="fas" ng-class="{'fa-folder': file.icon == 'dir','fa-file':file.icon == 'file'}"></span>&nbsp;
+                                {{ file.type }}
+                            </td>
+                            <td data-title="{{ lang.t('Created') }}">
+                                {{file.created}}
+                            </td>
+                        </tr>
+                        <tr ng-hide="!loadingFiles">
+                            <td colspan="5">
+                                <loading-box ng-switch="!!destination_id">
+                                    <span ng-switch-when="false">{{ lang.t("Fetching Files From Hosting Provider...") }}</span>
+                                    <span ng-switch-when="true">{{ lang.t("Fetching Files From Destination...") }}</span>
+                                </loading-box>
+
+                            </td>
+                        </tr>
+                        <tr ng-hide="files.length > 0 || loadingFiles">
+                            <td colspan="5">
+                                <span>{{ lang.t("No Files Found") }}</span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <pagination fetch="fetch" meta="meta"></pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-secondary cancel_btn" type="button" ng-click="cancel()">
+        <span class="icon">
+            <i class="fa-regular fa-ban"></i>
+        </span>
+        {{ lang.t("Cancel") }}
+    </button>
+    <button ng-if="!destination_id" class="btn btn-primary jb_button" type="button" ng-click="ok()"
+            ng-disabled="loadingFiles || errorMessage">
+          <span class="icon">
+              <i class="fas fa-file-import"></i>
+        </span>
+        {{ lang.t("Select Files") }}
+    </button>
+</div>

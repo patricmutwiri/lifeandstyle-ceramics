@@ -1,0 +1,180 @@
+.loginizer-social-wrapper{
+display:flex;
+flex-direction:row;
+gap:20px;
+flex-wrap:wrap;
+position:relative;
+width:100%;
+cursor: drag;
+}
+
+.loginizer-social-provider{
+width:30%;
+height:220px;
+border-radius:5px;
+}
+
+.loginizer-social-logo{
+position:relative;
+height: 75%;
+background:red;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius: 5px 5px 0 0;
+}
+
+.loginizer-social-grip{
+position:absolute;
+top: 8px;
+left: 8px;
+cursor:move;
+}
+
+.loginizer-social-logo img{
+border-radius:5px;
+}
+
+.loginizer-social-provider-action{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 10px;
+height:25%;
+background-color: #FFF;
+border-radius: 0 0 5px 5px;
+}
+
+.loginizer-social-wrapper .loginizer-sortable-placeholder {
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius: 5px 5px 0 0;
+border: 2px dashed #e0e0e0;
+box-shadow:none;
+width:30%;
+background-color: #FAFAFA;
+}
+
+.loginizer-social-wrapper .loginizer-sortable-placeholder::before {
+content: "Drop Here";
+position:absolute;
+font-family:monospace;
+left: 50%;
+transform: translateX(-50%);
+color:#CFCFCF;
+}
+
+.loginizer-general-settings label{
+margin-right:20px;
+}
+
+.loginizer-social-provider-state{
+position:absolute;
+top:8px;
+right:0px;
+background-color: #FFF;
+color: #000;
+border-radius: 20px 0 0 20px;
+padding: 2px 6px;
+line-height:1.2;
+vertical-align: middle;
+text-align:center;
+font-weight:500;
+box-shadow: -1px 1px 1px 1px #3b3b3b36;
+}
+
+.loginizer-social-provider-state::before{
+content: '';
+display:inline-flex;
+width:10px;
+height:10px;
+border-radius:20px;
+margin-right:3px;
+}
+
+.loginizer-social-provider-state-enabled::before{
+background-color:#3cff3c;
+}
+
+.loginizer-social-provider-state-pending::before{
+background-color:#FFAAAA;
+}
+
+.loginizer-social-provider-state-disabled::before{
+background-color:#f53333;
+}
+
+.loginizer-social-saving-order{
+position:absolute;
+bottom:8px;
+left:10px;
+display:none;
+color:#FFF;
+font-weight:500;
+}
+
+.loginizer-social-login-settings{
+display:flex;
+flex-direction:row;
+}
+
+.loginizer-v-tab{
+display:flex;
+flex-direction:column;
+width:20%;
+}
+
+.loginizer-v-tab label{
+position:relative;
+padding: 20px;
+color: black;
+user-select:none;
+text-decoration:none;
+}
+
+.loginizer-v-tab label input{
+position:absolute;
+display:none;
+}
+
+.loginizer-v-tab label:has(input:checked){
+background-color:white;
+}
+
+.loginizer-v-tab label:has(input:not(:checked)){
+cursor:pointer;
+}
+
+.lz-v-tab-content{
+width:100%;
+background-color:white;
+padding: 0 10px 20px 20px;
+}
+
+.lz-v-tab-content #lz-social-general-settings,
+.lz-v-tab-content #lz-social-login-settings,
+.lz-v-tab-content #lz-social-woocommerce-settings,
+.lz-v-tab-content #lz-social-comment-settings,
+.lz-v-tab-content #lz-social-ultimate-member-settings{
+display:none;
+}
+
+.loginizer-v-tab:has(label > input[value="general"]:checked) ~ .lz-v-tab-content #lz-social-general-settings,
+.loginizer-v-tab:has(label > input[value="login"]:checked) ~ .lz-v-tab-content #lz-social-login-settings,
+.loginizer-v-tab:has(label > input[value="woocommerce"]:checked) ~ .lz-v-tab-content #lz-social-woocommerce-settings,
+.loginizer-v-tab:has(label > input[value="comment"]:checked) ~ .lz-v-tab-content #lz-social-comment-settings,
+.loginizer-v-tab:has(label > input[value="ultimate-member"]:checked) ~ .lz-v-tab-content #lz-social-ultimate-member-settings{
+display:block;
+}
+
+.loginizer-social-test-alert{
+background-color:#fff3cd;
+color:#664d03;
+border: 2px solid #ffe69c;
+padding:0 20px 20px 20px;
+border-radius:6px;
+width:500px;
+margin:10px 0;
+}

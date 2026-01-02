@@ -1,0 +1,68 @@
+<div class="modal-header">
+    <div class="modal-main-title">
+        <h1 class="modal-title fs-5" id="deleteBackupLabel">{{ lang.t("Delete Backup") }}</h1>
+    </div>
+    <button type="button" class="btn-close" ng-click="cancel()" aria-label="Close"></button>
+</div>
+
+<div class="modal-body">
+    <!-- Message explaining the purpose -->
+    <p ng-bind-html="lang.t('This action allows you to mark or unmark a backup for deletion for a selected destination. Marking for deletion does not immediately delete the backup but flags it for future removal.')"></p>
+
+    <!-- Destination selection (shown only if there are multiple destinations) -->
+    <div class="row mt-4" ng-if="backup.destinations.length > 1">
+        <div class="col-md-12 mx-auto text-start fs-13">
+            <label class="form-label">
+                {{ lang.t("This backup exists on multiple destinations. Please select the destination you want to mark or unmark for deletion.") }}
+            </label>
+            <div>
+                <label ng-repeat="dest in backup.destinations"
+                       class="list-group-item"
+                       ng-show="!selectedDestination || selectedDestination === dest.id">
+                    <input type="radio"
+                           name="destinationRadio"
+                           ng-model="selectedDestination"
+                           ng-value="dest.id"
+                           ng-change="updateDeletionStatus(dest)">
+                    {{ lang.t(dest.name || 'Unknown') }}
+                    <span class="badge" ng-class="dest.deleted === 1 ? 'bg-danger' : 'bg-success'">
+                        {{ dest.deleted === 1 ? lang.t('Marked For Deletion') : lang.t('Active') }}
+                    </span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Single destination message -->
+    <div class="row mt-4" ng-if="backup.destinations.length === 1">
+        <div class="col-md-12 text-start">
+            <p>
+                {{ lang.t("This backup has only one destination:") }}
+                <strong>{{ backup.destinations[0].name }}</strong>
+            </p>
+        </div>
+    </div>
+
+    <!-- Display deletion status after selecting a destination -->
+    <div class="row mt-4" ng-if="selectedDestination">
+        <div class="col-md-12 text-start">
+            <p>
+                {{ lang.t("Current Status:") }}
+                <span class="badge" ng-class="currentDeletionStatus ? 'bg-danger' : 'bg-success'">
+                {{ currentDeletionStatus ? lang.t('Marked for Deletion') : lang.t('Active') }}
+                </span>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-secondary cancel_btn" type="button" ng-click="cancel()">
+        {{ lang.t("Cancel") }}
+    </button>
+    <button class="btn btn-primary" type="button"
+            ng-click="ok()"
+            ng-disabled="!selectedDestination">
+        {{ currentDeletionStatus ? lang.t("Unmark for Deletion") : lang.t("Mark for Deletion") }}
+    </button>
+</div>

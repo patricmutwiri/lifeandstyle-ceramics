@@ -1,0 +1,56 @@
+<div ng-controller="settings" class="jb-list-backups-container jb-grey-0">
+
+    <div class="row" navigation active="menuItem"></div>
+
+    <div class="row rounded-4 jb-white-0 jb-panel-row shadow-lg">
+
+        <div class="jb-main-title rounded-3">
+            {{ lang.t("Settings") }}
+        </div>
+        <div class="jb-title-description">
+            <p> {{ lang.t("Customize your JetBackup Settings and Preferences to fit your needs and polices. Adjust configurations to optimize performance and ensure your backup process runs smoothly.") }}</p>
+        </div>
+
+        <h2 class="nav-tab-wrapper">
+        <ul>
+            <li class="nav-tab" ng-repeat="section in sections" ng-class="{ 'tab-current': currentSection._id == section._id }">
+                <a href="" ng-click="changeSection(section)">
+                    <span>{{ section.name }}</span>
+                </a>
+            </li>
+        </ul>
+        </h2>
+
+        <div class="snake-line" ng-class="{ 'loading': isLoadingSection }"></div>
+
+        <!-- Section content -->
+        <div ng-if="!isLoadingSection">
+            <div ng-include="sectionPage"></div>
+        </div>
+
+        <div ng-if="isLoadingSection" class="jb-loading-screen">
+            <p class="jb-loading-text">
+                Loading<span class="jb-dots"><span></span><span></span><span></span></span>
+            </p>
+        </div>
+
+
+        <hr />
+        <div class="d-flex justify-content-center mt-3">
+            <div class="d-flex justify-content-center mt-3">
+                <button
+                        id="settings_save"
+                        type="submit"
+                        class="btn btn-primary apply_btn"
+                        ng-click="ok()"
+                        ng-show="!isLoadingSection"
+                        ng-disabled="loading">
+                    <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true" ng-show="loading"></span>
+                    {{ lang.t("Save") }}
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+</div>

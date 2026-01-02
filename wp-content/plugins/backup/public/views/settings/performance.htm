@@ -1,0 +1,156 @@
+<div class="pd-20 settings">
+
+    <div class="form-group row">
+        <label for="chunkSize" class="col-sm-3 col-form-label jb-label">{{ lang.t('Chunk Size') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3">
+                <select id="chunkSize" class="form-select" aria-label="chunk_size" name="READ_CHUNK_SIZE"
+                        ng-model="saveData.READ_CHUNK_SIZE"
+                        ng-options="value as key for (key, value) in chunks_list">
+                </select>
+                <p class="pd-3">{{ lang.t('Chunk size refers to the size of each piece of data processed during file operations, such as archiving or reading files. It determines how data is broken into manageable parts for efficient handling. For operations involving remote destinations, the chunk size is managed separately within each destination\'s settings. Smaller chunks are ideal for handling smaller files or systems with limited resources, while larger chunks are better suited for processing large files efficiently, provided the system has sufficient capacity and stable performance.') }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="executionTime" class="col-sm-3 col-form-label jb-label">{{ lang.t('Execution Time') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3">
+                <select id="executionTime" class="form-select" aria-label="chunk_size" name="PERFORMANCE_EXECUTION_TIME"
+                        ng-model="saveData.PERFORMANCE_EXECUTION_TIME"
+                        ng-options="value as key for (key, value) in execution_time_list">
+                </select>
+                <p class="pd-3">{{ lang.t('Defines the maximum time a queued task runs before being aborted. Applies to web-based tasks and cannot exceed the server\'s PHP execution limit. CLI tasks have no time restrictions.') }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="SQL_CLEANUP_REVISIONS" class="col-sm-3 col-form-label jb-label">{{ lang.t('Cleanup Revisions') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 switch-main">
+                <label class="switch">
+                    <input id="SQL_CLEANUP_REVISIONS"
+                           type="checkbox"
+                           ng-model="saveData.SQL_CLEANUP_REVISIONS"
+                           ng-true-value=1
+                           ng-false-value=0>
+                    <span class="slider round"></span>
+                </label>
+                <p class="pd-3">{{ lang.t('Clean up revisions before dumping databases to reduce backup size and improve performance by removing old edits of posts and pages. Use at your own risk, as this may lead to irreversible data loss.') }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="USE_DEFAULT_EXCLUDES" class="col-sm-3 col-form-label jb-label">{{ lang.t('Use Common Folder Excludes') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 switch-main">
+                <label class="switch">
+                    <input id="USE_DEFAULT_EXCLUDES"
+                           type="checkbox"
+                           ng-model="saveData.USE_DEFAULT_EXCLUDES"
+                           ng-true-value=1
+                           ng-false-value=0>
+                    <span class="slider round"></span>
+                </label>
+                <div style="font-size: 13px;" class="pd-3">{{ lang.t('Activate') }}
+                    <div class="popover-trigger" style="font-style: oblique; border-bottom: dotted 1px; cursor: pointer;">
+                    {{ lang.t('Common Folders Exclude List') }}
+                    <div class="popover-content">
+                        <strong>{{ lang.t('Exclude List') }}</strong>
+                        <ul>
+                            <li ng-repeat="exclude in saveData.DEFAULT_EXCLUDES">{{ exclude }}</li>
+                        </ul>
+                    </div>
+                </div>
+                    {{ lang.t('to skip temporary files from known plugins. This keeps backups efficient and focused on essential data, enhancing speed and storage management.') }}
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="EXCLUDE_NESTED_SITES" class="col-sm-3 col-form-label jb-label">{{ lang.t('Excluded Nested WordPress Sites') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 switch-main">
+                <label class="switch">
+                    <input id="EXCLUDE_NESTED_SITES"
+                           type="checkbox"
+                           ng-model="saveData.EXCLUDE_NESTED_SITES"
+                           ng-true-value=1
+                           ng-false-value=0>
+                    <span class="slider round"></span>
+                </label>
+                <p class="pd-3">{{ lang.t('This feature identifies and excludes WordPress installations found directly within the first subdirectory level of the main site. It streamlines backups by ignoring nested sites only one level deep, ensuring a focus on your primary WordPress content.') }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="USE_DEFAULT_DB_EXCLUDES" class="col-sm-3 col-form-label jb-label">{{ lang.t('Use Common Database Excludes') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 switch-main">
+                <label class="switch">
+                    <input id="USE_DEFAULT_DB_EXCLUDES"
+                           type="checkbox"
+                           ng-model="saveData.USE_DEFAULT_DB_EXCLUDES"
+                           ng-true-value=1
+                           ng-false-value=0>
+                    <span class="slider round"></span>
+                </label>
+                <div style="font-size: 13px;" class="pd-3">{{ lang.t('Activate') }}
+                <div class="popover-trigger" style="font-style: oblique; border-bottom: dotted 1px; cursor: pointer;">
+                    {{ lang.t('Common Database Exclude List') }}
+                    <div class="popover-content">
+                        <strong>{{ lang.t('Database Exclude List') }}</strong>
+                        <ul>
+                            <li ng-repeat="exclude in saveData.DEFAULT_DB_EXCLUDES">{{ exclude }}</li>
+                        </ul>
+                    </div>
+                </div>
+                {{ lang.t('to exclude known temporary tables to enhance performance and efficiency of database operations by ignoring temporary or non-essential data. Table structure will be saved without the data.') }}
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="GZIP_COMPRESS_ARCHIVE" class="col-sm-3 col-form-label jb-label">{{ lang.t('GZip Compress Archive') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 switch-main">
+                <label class="switch">
+                    <input id="GZIP_COMPRESS_ARCHIVE"
+                           type="checkbox"
+                           ng-model="saveData.GZIP_COMPRESS_ARCHIVE"
+                           ng-true-value=1
+                           ng-false-value=0>
+                    <span class="slider round"></span>
+                </label>
+                <p class="pd-3">{{ lang.t('Toggle to reduce file size and save space at the cost of increased CPU usage, or disable for faster processing with larger file sizes.') }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="GZIP_COMPRESS_DB" class="col-sm-3 col-form-label jb-label">{{ lang.t('GZip Compress Database') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 switch-main">
+                <label class="switch">
+                    <input id="GZIP_COMPRESS_DB"
+                           type="checkbox"
+                           ng-model="saveData.GZIP_COMPRESS_DB"
+                           ng-true-value=1
+                           ng-false-value=0>
+                    <span class="slider round"></span>
+                </label>
+                <p class="pd-3">{{ lang.t('Toggle to reduce file size and save space at the cost of increased CPU usage, or disable for faster processing with larger file sizes.') }}</p>
+            </div>
+        </div>
+    </div>
+
+
+</div>

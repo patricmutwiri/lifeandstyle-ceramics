@@ -1,0 +1,45 @@
+# Copyright (C) 2023 JetBackup
+# This file is distributed under the same license as the JetBackup package.
+msgid ""
+msgstr ""
+"Project-Id-Version: JetBackup 2.0.8.7\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/backup\n"
+"POT-Creation-Date: 2023-11-23 13:52:48+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Hindi <LL@li.org>\n"
+"X-Generator: Poedit 3.0\n"
+
+#: plugins
+msgid "JetBackup"
+msgstr ""
+
+msgid "Backups"
+msgstr ""
+
+msgid "Backup Jobs"
+msgstr ""
+
+msgid "Destinations"
+msgstr ""
+
+msgid "Schedules"
+msgstr ""
+
+msgid "Queue"
+msgstr ""
+
+msgid "Downloads"
+msgstr ""
+
+msgid "Alerts"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "System Info"
+msgstr ""

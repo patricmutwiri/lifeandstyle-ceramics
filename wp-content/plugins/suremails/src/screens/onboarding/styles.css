@@ -1,0 +1,23 @@
+/* onboarding-styles.css */
+/* Only remove padding-top on <html> when <body class="suremails-onboarding-page"> is present */
+html:has( > body.suremails-onboarding-page ).wp-toolbar {
+	padding-top: 0 !important;
+	box-sizing: border-box;
+}
+
+/* Then keep your other “onboarding” rules below */
+body.suremails-onboarding-page #wpcontent,
+body.suremails-onboarding-page #wpbody {
+	@apply p-0 m-0;
+}
+
+body.suremails-onboarding-page #wpadminbar,
+body.suremails-onboarding-page #adminmenuwrap,
+body.suremails-onboarding-page #adminmenuback,
+body.suremails-onboarding-page #wpadminbar {
+	@apply hidden;
+}
+
+#wpwrap:has( #suremails-root-app ) {
+	@apply bg-background-primary;
+}

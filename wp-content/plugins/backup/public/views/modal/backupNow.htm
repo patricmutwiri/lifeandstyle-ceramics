@@ -1,0 +1,78 @@
+<div class="modal-header" id="test">
+    <div class="modal-main-title">
+        <h1 class="modal-title fs-5" id="lockBackupLabel">{{ lang.t("Choose a backup job") }}</h1>
+    </div>
+    <button type="button" class="btn-close" ng-click="cancel()" aria-label="Close"></button>
+</div>
+
+<div class="modal-body">
+
+    <table class="jb-table table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">
+                <button title="{{ lang.t('Sort by %s.', lang.t('Name')) }}">{{ lang.t('Name') }}</button>
+            </th>
+            <th scope="col">
+                <button title="{{ lang.t('Sort by %s.', lang.t('Destination')) }}">{{ lang.t('Destination') }}</button>
+            </th>
+            <th scope="col">
+                <button title="{{ lang.t('Sort by %s.', lang.t('Type')) }}">{{ lang.t('Type') }}</button>
+            </th>
+            <th scope="col">
+                <button title="{{ lang.t('Sort by %s.', lang.t('Excludes')) }}">{{ lang.t('Excludes') }}</button>
+            </th>
+            <th scope="col">
+                <button  title="{{ lang.t('Sort by %s.', lang.t('Action')) }}">{{ lang.t('Action') }}</button>
+            </th>
+        </tr>
+        <!-- Loading Jobs Indicator -->
+        <tr ng-if="initialLoading">
+            <td colspan="8" class="text-center jb-loading-row">
+                <div class="jb-loading-screen">
+                    <p class="jb-loading-text">
+                        Loading<span class="jb-dots"><span></span><span></span><span></span></span>
+                    </p>
+                </div>
+            </td>
+        </tr>
+        <!-- No Jobs Found -->
+        <tr ng-if="!initialLoading && jobs.length === 0 && !loading">
+            <td colspan="8" class="text-center">
+                {{ lang.t("No jobs found.") }}
+            </td>
+        </tr>
+
+        <tr ng-repeat="job in jobs"
+            class="jb-table-tr jobs"
+            ng-click="toggleDetail($index)"
+            ng-class="{'jb-table-tr-selected': isDetailVisible($index)}">
+            <td>{{ job.name }}</td>
+            <td>{{ job.destination_names }}</td>
+            <td>{{ backupContains(job.backup_contains) }}</td>
+            <td>  {{ (job.excludes && job.excludes.length > 0) ? 'Yes' : 'No' }}</td>
+            <td>
+                    <button
+                            ng-click="runNow(job._id)"
+                            id=""
+                            name="runNow"
+                            class="btn jb-full-restore-button w-100 jb-orange-button"
+                            type="button"
+                            ng-disabled="!job.enabled || isButtonLoading(job._id, 'runNow')">
+                          <span class="icon">
+                              <i class="fa-sharp fa-light" ng-class="isButtonLoading(job._id, 'runNow') ? 'fa-spinner fa-spin' : 'fa-play-circle'"></i>
+                          </span>
+                        {{ lang.t("Run Now") }}
+                    </button>
+            </td>
+           </tr>
+        </thead>
+    </table>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-secondary cancel_btn" type="button" ng-click="cancel()">
+        {{ lang.t("Cancel") }}
+    </button>
+
+</div>

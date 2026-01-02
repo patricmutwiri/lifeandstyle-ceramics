@@ -1,0 +1,60 @@
+<div class="modal-header">
+    <div class="modal-main-title text-center w-100">
+        <h1 class="modal-title fs-5" id="exportBackupLabel">
+            {{ lang.t("Export Backup (Control Panel Format)") }}
+        </h1>
+    </div>
+    <button type="button" class="btn-close" ng-click="cancel()" aria-label="Close"></button>
+</div>
+
+<div class="modal-body text-center">
+    <div class="row">
+        <p class="px-3 text-start">
+            {{ lang.t("Select your preferred template panel. JetBackup will attempt to transform your WordPress backup into the chosen panel format, enabling straightforward restoration within the panel.") }}
+        </p>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="d-flex justify-content-around">
+                <!-- cPanel option -->
+                <label class="d-flex align-items-center">
+                    <input class="form-check-input me-2" type="radio" name="controlPanel" value=1 ng-model="selectedPanel" />
+                    <img ng-src="{{icons.cpanel_icon}}" alt="cPanel Logo" class="me-2" height="24">
+                </label>
+
+                <!-- DirectAdmin option -->
+                <label class="d-flex align-items-center">
+                    <input class="form-check-input me-2" type="radio" name="controlPanel" value=2 ng-model="selectedPanel" />
+                    <img ng-src="{{icons.da_icon}}" alt="DirectAdmin Logo" class="me-2" height="24">
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Destination selection (shown only if there are multiple destinations and a panel is selected) -->
+    <div class="row mt-4" ng-if="backup.destinations.length > 1 && selectedPanel">
+        <div class="col-md-12 mx-auto text-start fs-13">
+            <label class="form-label text-start w-100">{{ lang.t("This backup exists on multiple destinations. Please select the destination you want to export from.") }}</label>
+            <div class="list-group">
+                <label ng-repeat="dest in backup.destinations">
+                    <input type="radio" name="destinationRadio" ng-click="selectDestination(dest.id)">
+                    {{ lang.t(dest.name || 'Unknown') }}
+                </label>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+<div class="modal-footer justify-content-between">
+    <button class="btn btn-secondary" type="button" ng-click="cancel()">
+        {{ lang.t("Cancel") }}
+    </button>
+    <button class="btn btn-primary" type="button" ng-click="ok()"
+            ng-disabled="!selectedPanel || (backup.destinations.length > 1 && !selectedDestination)">
+        {{ lang.t("Export") }}
+    </button>
+</div>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="black">
+  <!-- Folder shape -->
+  <rect x="0" y="8" width="32" height="24" rx="2" ry="2" fill="black" />
+  <!-- Home symbol -->
+  <polygon points="16,12 24,18 24,26 8,26 8,18 16,12" fill="white" />
+</svg>

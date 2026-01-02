@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="399" height="188" viewBox="0 0 399 188">
+    <g fill="none" fill-rule="evenodd" opacity=".475">
+        <g fill-rule="nonzero">
+            <ellipse cx="84.5" cy="132.453" fill="#DDD" rx="84.5" ry="11.547"/>
+            <path fill="#DDD" d="M44.976 10.868h94.04v108.679h-94.04z"/>
+            <path fill="#EDEDED" d="M35.435 0h113.121v39.396H35.435zM35.435 46.189h113.121v39.396H35.435zM35.435 93.736h113.121v39.396H35.435z"/>
+            <path fill="#DDD" d="M118.573 6.792h8.177v8.151h-8.177zM129.476 6.792h8.177v8.151h-8.177zM139.016 6.792h8.177v8.151h-8.177zM118.573 54.34h8.177v8.151h-8.177zM129.476 54.34h8.177v8.151h-8.177zM139.016 54.34h8.177v8.151h-8.177zM118.573 99.17h8.177v8.151h-8.177zM129.476 99.17h8.177v8.151h-8.177zM139.016 99.17h8.177v8.151h-8.177z"/>
+        </g>
+        <ellipse cx="305.5" cy="175.5" fill="#DDD" fill-rule="nonzero" rx="93.5" ry="12.5"/>
+        <path stroke="#EDEDED" stroke-width="2" d="M182 163.218c29.68 7.467 86.734-9.74 93-29.218M144 80.724s42.268-11.754 44.87 26.12c2.6 37.872-34.79 48.647-5.528 56.156"/>
+        <path fill="#DDD" fill-rule="nonzero" d="M287.58 144.013l-2.592 16.809s-12.765 6.885-3.79 7.088c8.975.203 51.258 0 51.258 0s8.177 0-4.787-7.29L325.076 143l-37.496 1.013z"/>
+        <path fill="#DDD" fill-rule="nonzero" d="M224 27h163a3 3 0 0 1 3 3v112a4 4 0 0 1-4 4H225a4 4 0 0 1-4-4V30a3 3 0 0 1 3-3z"/>
+        <path fill="#EDEDED" fill-rule="nonzero" d="M226 34h158v89H226z"/>
+        <path fill="#FFF" d="M291.625 75.998l13.498 12.572L324.246 60 331 65.715 305.123 100 286 78.287z"/>
+        <circle cx="305.5" cy="30.5" r="1" fill="#F2F2F2" fill-rule="nonzero"/>
+        <path fill="#DDD" fill-rule="nonzero" d="M390 130v10.154c0 1.55-.626 3.037-1.74 4.134a5.99 5.99 0 0 1-4.202 1.712H226.942a5.99 5.99 0 0 1-4.202-1.712 5.798 5.798 0 0 1-1.74-4.134V130h169z"/>
+        <circle cx="305" cy="138" r="4" fill="#F2F2F2" fill-rule="nonzero"/>
+    </g>
+</svg>

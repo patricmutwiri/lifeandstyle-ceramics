@@ -1,0 +1,31 @@
+<div ng-controller="destinationOneDrive">
+
+    <div class="form-group row" ng-if="!saveData.options.refresh_token">
+        <label for="authorization_code" class="col-sm-3 col-form-label jb-label">{{ lang.t("Authorization Code") }}</label>
+        <div class="col-sm-7">
+            <div class="input-group">
+                <input id="authorization_code" required="required" class="form-control col-md-7 col-xs-12" type="text" ng-model="saveData.options.authorization_code" />
+                <div class="input-group-btn"><a href="" class="btn btn-primary jb-background-orange border-0 ml-10" ng-click="getAuthCode()">{{ lang.t("Get Authorization Code") }}</a></div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="http_version" class="col-sm-3 col-form-label jb-label">{{ lang.t("HTTP Version") }}</label>
+        <div class="col-sm-7">
+            <select class="form-control" id="http_version" data-ng-options="httpversion_option.value as httpversion_option.label for httpversion_option in httpversion_options" data-ng-model="saveData.options.http_version"></select>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="onedrive_retries" class="col-sm-3 col-form-label jb-label">{{ lang.t("HTTP Retries") }}</label>
+        <div class="col-sm-7">
+            <input-dropdown addon="Retries" options="{0:lang.t('Disabled'),1:1,3:3,5:5,10:10}" ng-model="saveData.options.retries">
+                <input id="onedrive_retries" validate-field="int" min="0" class="form-control" ng-model="saveData.options.retries" id="retries" type="text" value="" />
+            </input-dropdown>
+            <p class="pd-3">{{ lang.t("If the HTTP call (upload / download / delete) fails for some reason retry for x times. Maximum 10") }}</p>
+        </div>
+    </div>
+
+</div>

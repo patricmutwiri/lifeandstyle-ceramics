@@ -1,0 +1,13 @@
+
+{
+    "Create New Schedule": "Create New Schedule",
+    "Jobs Assigned": "Jobs Assigned",
+    "Name": "Name",
+    "No Schedules are found.": "No Schedules are found.",
+    "Schedules": "Schedules",
+    "Search here...": "Search here...",
+    "Set up recurring schedules to run your backup jobs automatically at regular intervals. Assign schedules to jobs from the Backup Jobs tab to ensure consistent and reliable backups.": "Set up recurring schedules to run your backup jobs automatically at regular intervals. Assign schedules to jobs from the Backup Jobs tab to ensure consistent and reliable backups.",
+    "Sort by %s.": "Sort by %s.",
+    "This is a system default schedule.": "This is a system default schedule.",
+    "Type": "Type"
+}

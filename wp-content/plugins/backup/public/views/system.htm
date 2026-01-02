@@ -1,0 +1,91 @@
+<div ng-controller="system" class="jb-list-backups-container jb-grey-0">
+    <div class="row" navigation active="menuItem"></div>
+
+
+    <div class="row rounded-4 jb-white-0 jb-panel-row shadow-lg">
+        <div class="jb-main-title rounded-3">
+            {{ lang.t("System Information") }}
+         </div>
+        <div class="jb-title-description">
+            <p>{{ lang.t("View detailed information about your WordPress environment and configuration that affects backup performance.") }}</p>
+        </div>
+
+    <div class="snake-line" ng-class="{ 'loading': loading }"></div>
+    <div class="row jb-table-row">
+        <div ng-if="system.alerts" class="form-group row d-flex justify-content-center">
+            <div class="col-sm-12">
+                <div ng-if="!system.system_checks.data_dir_secured" class="alert alert-danger system-alerts" role="alert">
+                    <h2>{{ lang.t("Security Alert") }}</h2>
+                    {{ lang.t("Data folder is in public directory:") }} {{system.data.data_dir}}<br /><br/>
+                    {{ lang.t("Placing JetBackup's data directory within the public WordPress directory exposes it to potential security threats.") }} <br />
+                    {{ lang.t("For optimal safety, please assign 'data directory' to a private, non-public location.") }} <br />
+                    {{ lang.t("Click") }} <a style='font-weight: bold; text-decoration: none; color: #58151c;' href='#!/settings/security'>{{ lang.t("Here") }}</a> {{ lang.t("to set data security folder.") }}<br /><br />
+                    <p ng-show="system.data.secured_dir">{{ lang.t("Example for a recommended secured path:") }} <span style='font-style: italic'>{{system.data.secured_dir}}</span></p>
+                </div>
+
+                <div ng-if="system.system_checks.post_max_size || !system.system_checks.php_compatible || !system.system_checks.heartbeat || system.system_checks.cron_run || !system.system_checks.cron" class="alert alert-danger system-alerts" role="alert">
+                    <h2>{{ lang.t("Warnings") }}</h2>
+                    <ul style="list-style: initial;">
+                        <li ng-if="system.system_checks.post_max_size">
+                            {{ lang.t("Your current file upload limit") }} [ {{system.data.post_max_size}} ] {{ lang.t("is below the recommended") }} {{system.data.recommended_post_max_size}}<br />
+                            {{ lang.t("Please contact your administrator to increase the post_max_size setting for optimal performance.") }}
+                        </li>
+                        <li ng-if="!system.system_checks.php_compatible">
+                            {{ lang.t("PHP CLI is different from the Current PHP!") }}<br />
+                            {{ lang.t("JetBackup is using PHP CLI for background operations and it is crucial to use the exact same PHP version.") }} <br />
+                            {{ lang.t("You can set alternate php-cli path in the settings or contact your hosting provider about this.") }} <br />
+                            {{ lang.t("Click") }} <a style='font-weight: bold; text-decoration: none; color: #58151c;' href='#!/settings/general' target='_blank'>{{ lang.t("Here") }}</a> {{ lang.t("to set PHP binary path.") }}
+                        </li>
+                        <li ng-if="!system.system_checks.pdo_mysql_buffered_query_available">
+                            {{ lang.t("Missing PDO MySQL Buffered Query Support!") }}<br />
+                            {{ lang.t("The PDO::MYSQL_ATTR_USE_BUFFERED_QUERY constant is not available in your environment, which may indicate that the 'pdo_mysql' extension is missing or not enabled.") }}<br />
+                            {{ lang.t("This may affect database export functionality in JetBackup.") }}<br />
+                            {{ lang.t("Please contact your hosting provider or server administrator to ensure the 'pdo_mysql' PHP extension is installed and enabled.") }}
+                        </li>
+                        <li ng-if="!system.system_checks.heartbeat">
+                            {{ lang.t("Heartbeat has been disabled!") }} <br />
+                            {{ lang.t("The JetBackup system relies on the heartbeat mechanism for scheduling and executing tasks. Turning off the heartbeat can significantly impair proper functionality.") }} <br />
+                            {{ lang.t("Click") }} <a style='font-weight: bold; text-decoration: none; color: #58151c;' href='#!/settings/automation' target='_blank'>{{ lang.t("Here") }}</a> {{ lang.t("to enable Heartbeat") }}
+                        </li>
+                        <li ng-if="system.system_checks.cron_run">
+                            {{ lang.t("CLI cron was not executed for more than") }} <strong>{{ lang.t("10 minutes!") }}</strong> <br />
+                            {{ lang.t("Setting up cron jobs is essential to automate scheduled tasks, ensuring they run at specified times without manual intervention, improving efficiency and reliability.") }}
+                        </li>
+                        <li ng-if="!system.system_checks.cron">
+                            {{ lang.t("Cron system disabled!") }}<br />
+                            {{ lang.t("This may affect JetBackup's task scheduling and overall functionality.") }}
+                        </li>
+                        <li ng-if="system.system_checks.jb_linux_status">
+                            {{ lang.t("Server Level JetBackup is available!") }}<br />
+                            {{ lang.t("Your server also has JetBackup installed. Enable JetBackup integration to access and manage your server level backups!") }}
+                        </li>
+                        <li ng-if="system.system_checks.isWindows">
+                            <strong>{{ lang.t("Running in Windows Environment") }}</strong><br />
+                            <span ng-bind-html="lang.t('This PHP plugin is primarily designed for Linux environments. While Windows support is available, certain file operations, such as backups, may experience reduced performance. This is due to known PHP limitations on Windows systems (e.g., <a href=\'https://bugs.php.net/bug.php?id=80695\' target=\'_blank\'>PHP Bug #80695</a>). For optimal results, we recommend using a Linux-based system.')"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div ng-repeat="(key, value) in system.info" class="form-group row">
+            <label for="{{key}}" class="col-sm-3 col-form-label jb-label">
+                {{ keys[key] || key }}
+            </label>
+            <div class="col-sm-9">
+                <input id="{{key}}"
+                       class="form-control"
+                       type="text"
+                       value="{{value}}"
+                       aria-label="{{value}}"
+                       readonly
+                       ng-class="{'text-danger': key === 'memory_limit' && getMemoryValue(value) < 128}">
+                <span ng-if="key === 'memory_limit' && getMemoryValue(value) < 128" class="text-danger">
+                   ️<i class="fas fa-exclamation-triangle"></i> Memory limit is low ({{value}}). Recommended minimum: 128M for stability.
+                </span>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>

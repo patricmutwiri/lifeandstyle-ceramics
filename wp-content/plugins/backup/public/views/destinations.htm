@@ -1,0 +1,155 @@
+<div ng-controller="destinations" class="jb-list-backups-container jb-grey-0">
+
+    <div class="row" navigation active="menuItem"></div>
+
+    <div class="row rounded-4 jb-white-0 jb-panel-row shadow-lg">
+        <div class="jb-main-title rounded-3">
+            {{ lang.t('Destinations') }}
+          </div>
+        <div class="jb-title-description">
+            <p>{{ lang.t('Set up and manage where your backups are stored. We recommend using remote/off-site destinations for disaster recovery. Use the Export Config option to store a lightweight version of your plugin settings.') }}</p>
+            <p
+                    class="fw-bold jetbackup-license-warning"
+                    ng-if="!hasValidLicense"
+                    ng-bind-html="::lang.t('* Destinations are limited to Local and <a href=&quot;https://www.jetbackup.com/jetbackup-storage&quot; target=&quot;_blank&quot;>JetBackup Cloud Storage</a> without a Pro License. Already have a license and want to back up to other remote destinations? Make sure you’ve saved it in <a href=&quot;#!/settings/general&quot; aria-label=&quot;General settings&quot;>Settings</a>.')">
+            </p>
+        </div>
+
+        <div class="row jb-table-row">
+            <div class="table-responsive">
+
+                <div class="row mb-10">
+                    <div class="col-md-8 d-flex pt-2">
+                        <search placeholder="{{ lang.t('Search here...') }}" ng-model="metaData.filterValue" ng-change="fetch()"></search>
+                    </div>
+                    <div class="col-md-4 d-flex justify-content-end align-items-center gap-2">
+
+                        <!--
+                        <a ng-show="!hasActiveJetStorage"
+                           href="https://www.jetbackup.com/jetbackup-for-wordpress/free-storage"
+                           target="_blank"
+                           class="jb-action-button jb-orange-button">
+                            <i class="fa-solid fa-gift"></i> {{ lang.t('Get Free Storage') }}
+                        </a>
+                        -->
+
+                        <a ng-click="manageDestination()" class="jb-action-button jb-green-button">
+                            <i class="fa-sharp fa-solid fa-plus"></i> {{ lang.t('Create new destination') }}
+                        </a>
+                    </div>
+
+
+                </div>
+
+                <div class="snake-line" ng-class="{ 'loading': loading }"></div>
+                <table class="jb-table table table-hover">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th scope="col">
+                            <button sort-by sort-meta="meta" sort-field="name" onSort="fetch()" title="{{ lang.t('Sort by Name') }}">{{ lang.t('Name') }}</button>
+                        </th>
+                        <th scope="col">{{ lang.t('Type') }}</th>
+                        <th scope="col">{{ lang.t('Jobs Assigned') }}</th>
+                        <th scope="col">
+                            <button sort-by sort-meta="meta" sort-field="read_only" onSort="fetch()" title="{{ lang.t('Sort by Read Only') }}">{{ lang.t('Read Only') }}</button>
+                        </th>
+                        <th scope="col">
+                            <button sort-by sort-meta="meta" sort-field="enable" onSort="fetch()" title="{{ lang.t('Sort by Enable') }}">{{ lang.t('Enable') }}</button>
+                        </th>
+                        <th scope="col">
+                            <button sort-by sort-meta="meta" sort-field="export_config" onSort="fetch()" title="{{ lang.t('Sort by Export Config') }}">{{ lang.t('Export Config') }}</button>
+                        </th>
+                        <th scope="col">
+                            <button sort-by sort-meta="meta" sort-field="notes" onSort="fetch()" title="{{ lang.t('Sort by Notes') }}">{{ lang.t('Notes') }}</button>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr ng-if="initialLoading">
+                        <td colspan="8" class="text-center jb-loading-row">
+                            <div class="jb-loading-screen">
+                                <p class="jb-loading-text">
+                                    Loading<span class="jb-dots"><span></span><span></span><span></span></span>
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- No Jobs Found -->
+                    <tr ng-if="!initialLoading && destinations.length === 0 && !loading">
+                        <td colspan="8" class="text-center">
+                            {{ lang.t("No Destinations found.") }}
+                        </td>
+                    </tr>
+
+                    <tr ng-repeat-start="destination in destinations"
+                        class="jb-table-tr destinations"
+                        ng-click="toggleDetail($index)"
+                        ng-class="{'jb-table-tr-selected': isDetailVisible($index)}">
+
+                        <!-- Default Marker Column -->
+                        <td class="text-center" title="{{ destination.default ? lang.t('This is the default destination.') : '' }}">
+                            <i class="fa fa-star" ng-class="{'text-warning': destination.default, 'text-muted': !destination.default}" aria-hidden="true"></i>
+                        </td>
+
+                        <!-- Name Column -->
+                        <td>{{ destination.name }}</td>
+                        <td>{{ destination.type }}</td>
+                        <td>{{ destination.jobs_assigned }}</td>
+                        <td>{{ destination.read_only ? lang.t('Yes') : lang.t('No') }}</td>
+
+                        <td class="switch-main">
+                            <label class="switch">
+                                <input type="checkbox"   aria-label="Enable/Disable destination" value="{{destination.enabled}}" ng-checked="destination.enabled == 1" ng-click="performAction(destination._id, 'setStatus')">
+                                <span class="slider round"></span>
+                            </label>
+                        </td>
+
+                        <td class="switch-main">
+                            <label class="switch">
+                                <input type="checkbox"  aria-label="Enable/Disable export config" value="{{destination.export_config}}" ng-checked="destination.export_config == 1" ng-click="performAction(destination._id, 'toggleExportConfig')">
+                                <span class="slider round"></span>
+                            </label>
+                        </td>
+                        <td>{{ destination.notes }}</td>
+                    </tr>
+
+                    <tr ng-repeat-end ng-show="isDetailVisible($index)"
+                        ng-class="{'jb-table-tr-selected': isDetailVisible($index)}">
+                        <td colspan="8" class="jb-table-elements">
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                                <div class="row g-2">
+
+                                    <!-- buttons start -->
+                                    <div class="col-12 col-md-auto" ng-repeat="action in actions">
+                                        <button ng-click="performAction(destination._id, action.name)"
+                                                id="destid_{{destination._id}}_{{action.name}}"
+                                                name="{{action.name}}"
+                                                class="btn btn-primary jb-full-restore-button w-100"
+                                                ng-class="{'jb-red-button': action.name === 'delete'}"
+                                                type="button"
+                                                ng-disabled="(action.name === 'delete' && (destination.jobs_assigned > 0 || destination.default)) || isButtonLoading(destination._id, action.name)"
+                                                title="{{ (action.name === 'delete' && destination.jobs_assigned > 0) ? lang.t('Cannot delete this destination because it has assigned backup jobs.') :
+                                                             (destination.default ? lang.t('Cannot delete the default destination.') : '') }}">
+                                                <span class="icon">
+                                                    <i class="fa-sharp fa-light" ng-class="isButtonLoading(destination._id, action.name) ? 'fa-spinner fa-spin' : action.icon"></i>
+                                                </span>
+                                            {{ lang.t(action.label) }}
+                                        </button>
+                                    </div>
+
+                                    <!-- buttons end -->
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+                <pagination fetch="fetch" meta="meta"></pagination>
+            </div>
+        </div>
+    </div>
+</div>

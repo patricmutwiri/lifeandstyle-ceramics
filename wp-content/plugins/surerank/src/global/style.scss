@@ -1,0 +1,33 @@
+/* Add the Figtree font from Google Fonts. */
+@import url( "https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" );
+@import "./tailwind.scss";
+@import "./reset-element-styles.scss";
+
+/* Add your custom styles here */
+#wpcontent:has( #surerank-root ) {
+	padding-left: 0;
+}
+
+#wpbody-content:has( #surerank-root ) {
+	padding-bottom: 0;
+}
+
+#wpfooter {
+	display: none;
+}
+
+/* Hide the notice on the SureRank settings and Dashboard pages. */
+#wpbody:has( .surerank-setting-page ) {
+	#wpbody-content > .notice {
+		display: none;
+	}
+}
+
+.surerank__input {
+	box-shadow: none !important;
+	border: none;
+}
+
+body:has( #surerank-admin-dashboard ) {
+	@apply bg-background-secondary;
+}

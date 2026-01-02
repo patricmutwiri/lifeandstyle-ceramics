@@ -1,0 +1,11 @@
+@media screen and (max-width: 700px) {
+
+    html[dir=rtl] #container {
+        margin-right: 0 !important;
+    }
+
+    html[dir=rtl] .modal.left.fade .modal-dialog,
+    html[dir=rtl] .modal.right.fade .modal-dialog {
+        right: 0;
+    }
+}

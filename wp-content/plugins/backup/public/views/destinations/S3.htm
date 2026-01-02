@@ -1,0 +1,188 @@
+<div ng-controller="destinationS3">
+
+    <style>
+        .s3-vendors {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .s3-vendors li {
+            padding: 5px;
+            display: inline-block;
+            border: 1px solid #dddddd;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .s3-vendors li > div {
+            width: 60px;
+            height: 60px;
+            background-image: url("{{icons.destinations_icon}}");
+            background-position: 60px 0;
+        }
+
+        .s3-vendors li.amazon > div { background-position: 60px 0; }
+        .s3-vendors li.amazon:hover > div, .s3-vendors li.amazon.active > div { background-position: 0 0; }
+
+        .s3-vendors li.backblaze > div { background-position: 60px -60px; }
+        .s3-vendors li.backblaze:hover > div, .s3-vendors li.backblaze.active > div { background-position: 0 -60px; }
+
+        .s3-vendors li.digitalocean > div { background-position: 60px -120px; }
+        .s3-vendors li.digitalocean:hover > div, .s3-vendors li.digitalocean.active > div { background-position: 0 -120px; }
+
+        .s3-vendors li.ibm > div { background-position: 60px -180px; }
+        .s3-vendors li.ibm:hover > div, .s3-vendors li.ibm.active > div { background-position: 0 -180px; }
+
+        .s3-vendors li.googlecloud > div { background-position: 60px -240px; }
+        .s3-vendors li.googlecloud:hover > div, .s3-vendors li.googlecloud.active > div { background-position: 0 -240px; }
+
+        .s3-vendors li.wasabi > div { background-position: 60px -300px; }
+        .s3-vendors li.wasabi:hover > div, .s3-vendors li.wasabi.active > div { background-position: 0 -300px; }
+
+        .s3-vendors li.custom > div { background-position: 60px -360px; }
+        .s3-vendors li.custom:hover > div, .s3-vendors li.custom.active > div { background-position: 0 -360px; }
+
+        .s3-vendors li.scaleway > div { background-position: 60px -420px; }
+        .s3-vendors li.scaleway:hover > div, .s3-vendors li.scaleway.active > div { background-position: 0 -420px; }
+
+        .s3-vendors li.oracle > div { background-position: 60px -480px; }
+        .s3-vendors li.oracle:hover > div, .s3-vendors li.oracle.active > div { background-position: 0 -480px; }
+
+        .s3-vendors li.cloudflare > div { background-position: 60px -540px; }
+        .s3-vendors li.cloudflare:hover > div, .s3-vendors li.cloudflare.active > div { background-position: 0 -540px; }
+
+        .s3-vendors li.vultr > div { background-position: 60px -600px; }
+        .s3-vendors li.vultr:hover > div, .s3-vendors li.vultr.active > div { background-position: 0 -600px; }
+
+        span.input-group-addon {
+            background: #f0f0f1;
+            padding-right: 10px;
+            padding-left: 10px;
+            padding-top: 8px;
+            font-weight: normal;
+
+        }
+
+        select.form-control {
+            border-color: #f0f0f1;
+        }
+        input.form-control {
+            border-color: #f0f0f1;
+
+        }
+
+
+    </style>
+
+    <div class="form-group row">
+        <label for="s3-vendors" class="col-sm-3 col-form-label jb-label">{{ lang.t("Vendor")}}</label>
+        <div class="col-sm-7">
+            <div class="input-group">
+                <ul class="s3-vendors" id="s3-vendors">
+                    <li ng-repeat="(vendor_id, vendor) in vendors"  class="{{vendor_id}}" ng-class="{ 'active': vendor_id == selected_vendor }" ng-click="changeVendor(vendor_id, true)">
+                        <div></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row" ng-show="selected_vendor === 'custom'">
+        <label for="endpoint" class="col-sm-3 col-form-label jb-label">{{ lang.t("Endpoint") }}</label>
+        <div class="col-sm-7">
+            <input
+                    type="text"
+                    class="form-control"
+                    id="endpoint"
+                    ng-model="saveData.options.endpoint"
+                    placeholder="{{ lang.t('Enter the custom endpoint URL') }}"
+            />
+            <p class="pd-3">{{ lang.t("Specify a custom endpoint for the selected vendor.") }}</p>
+        </div>
+    </div>
+
+
+    <div class="form-group row" ng-hide="vendors[selected_vendor].regions === false">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="region">{{ lang.t("Region") }}</label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div ng-class="{ 'input-group': vendors[selected_vendor].regions.length && selected_region == 0 }">
+                <select ng-show="vendors[selected_vendor].regions.length" id="region" class="form-control" data-ng-options="region_id as region.name group by region.group for (region_id, region) in vendors[selected_vendor].regions" ng-change="changeRegion()" data-ng-model="selected_region"></select>
+                <span ng-show="vendors[selected_vendor].regions.length && selected_region == 0" class="input-group-addon">{{ lang.t("Region") }}</span>
+                <input ng-show="!vendors[selected_vendor].regions.length || selected_region == 0" id="region_custom" class="form-control col-md-7 col-xs-12" type="text" ng-model="saveData.options.region" value="saveData.options.region" />
+            </div>
+        </div>
+    </div>
+    <div class="form-group row" ng-repeat="field in vendors[selected_vendor].extrafields">
+        <label class="col-sm-3 col-form-label">{{ field.label }}</label>
+        <div class="col-sm-7">
+            <input
+                    type="text"
+                    class="form-control"
+                    id="{{ field.name }}"
+                    ng-model="saveData.options.extrafields[field.name]"
+                    placeholder="{{ field.description || '' }}" />
+        </div>
+    </div>
+
+    <div class="form-group row" ng-if="!saveData.options.refresh_token">
+        <label for="s3_access_key" class="col-sm-3 col-form-label jb-label">{{ lang.t("Access Key") }}</label>
+        <div class="col-sm-7">
+            <input type="text" class="form-control" id="s3_access_key" name="s3_access_key" ng-model="saveData.options.access_key">
+            <p class="pd-3">{{ lang.t("Your S3 access key.") }}</p>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="s3_secret_key" class="col-sm-3 col-form-label jb-label">{{ lang.t("Secret Key") }}</label>
+        <div class="col-sm-7">
+            <input type="password" class="form-control" id="s3_secret_key" name="s3_secret_key" ng-model="saveData.options.secret_key">
+            <p class="pd-3">{{ lang.t("Your S3 secret key.") }}</p>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="s3_bucket" class="col-sm-3 col-form-label jb-label">{{ lang.t("Bucket") }}</label>
+        <div class="col-sm-7">
+            <input  class="form-control" type="text" id="s3_bucket" name="s3_bucket" ng-model="saveData.options.bucket">
+            <p class="pd-3">{{ lang.t("Your S3 Bucket Name") }}</p>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="s3_verifyssl" class="col-sm-3 col-form-label jb-label">{{ lang.t("Verify SSL") }}</label>
+        <div class="col-sm-7">
+            <span class="switch-main">
+                <label class="switch">
+                    <input id="s3_verifyssl" type="checkbox" ng-model="saveData.options.verifyssl" ng-checked="saveData.options.verifyssl == 1" ng-click="toggleState(saveData.options.verifyssl)">
+                    <span class="slider round"></span>
+                </label>
+            </span>
+            <p class="pd-3">{{ lang.t("Enable SSL certificate verification.") }}</p>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="s3_retries" class="col-sm-3 col-form-label jb-label">{{ lang.t("Retries") }}</label>
+        <div class="col-sm-7">
+            <input type="number" class="form-control" id="s3_retries" name="s3_retries" ng-model="saveData.options.retries">
+            <p class="pd-3">{{ lang.t("Number of retry attempts.") }}</p>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="s3_keepalive_timeout" class="col-sm-3 col-form-label jb-label">{{ lang.t("Keep-Alive Timeout") }}</label>
+        <div class="col-sm-7">
+            <input type="number" class="form-control" id="s3_keepalive_timeout" name="s3_keepalive_timeout" ng-model="saveData.options.keepalive_timeout">
+            <p class="pd-3">{{ lang.t("Timeout for keep-alive connections.") }}</p>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="s3_keepalive_requests" class="col-sm-3 col-form-label jb-label">{{ lang.t("Keep-Alive Requests") }}</label>
+        <div class="col-sm-7">
+            <input type="number" class="form-control" id="s3_keepalive_requests" name="s3_keepalive_requests" ng-model="saveData.options.keepalive_requests">
+            <p class="pd-3">{{ lang.t("Number of keep-alive requests.") }}</p>
+        </div>
+    </div>
+
+</div>

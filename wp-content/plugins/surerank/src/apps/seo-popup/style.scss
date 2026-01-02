@@ -1,0 +1,61 @@
+@import url( "https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" );
+@import "../../global/tailwind.scss";
+
+@layer utilities {
+	hr {
+		@apply border-t border-b-0 border-x-0 border-solid border-border-subtle;
+	}
+
+	input[type="checkbox"] {
+		@apply before:border-0;
+	}
+
+	::file-selector-button {
+		@apply font-sans text-text-primary;
+	}
+}
+
+// Fix rem value for Bricks editor.
+html:has( #surerank-root ):has( #bricks-panel ) {
+	font-size: 100%;
+	font-size: 16px;
+	body {
+		min-height: 100dvh;
+	}
+	input[type="checkbox"] {
+		@apply p-0;
+	}
+}
+
+html:has( #surerank-root ) {
+	font-size: 16px;
+}
+
+#surerank-root {
+	* {
+		box-sizing: border-box;
+		font-family: Figtree, sans-serif;
+	}
+	input[type="checkbox"]:checked,
+	input[type="checkbox"]::before {
+		background-image: none;
+		border: none;
+	}
+}
+
+#seo-popup {
+	vertical-align: middle;
+}
+
+#screen-meta + .wrap {
+	> h1 {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	#seo-popup {
+		display: contents;
+		align-content: center;
+	}
+}

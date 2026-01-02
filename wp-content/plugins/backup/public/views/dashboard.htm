@@ -1,0 +1,274 @@
+<form id="dashboard" style="display: none;">
+    <input type="hidden" id="_wp_http_referer" value="{{referer}}" />
+    <input type="hidden" id="nonce" value="{{nonce}}" />
+</form>
+
+<div ng-controller="dashboard" class="jb-container jb-grey-0 jetbackup_main">
+
+    <div class="row rounded-4 jb-banners jb-white-0 d-flex justify-content-betwen justify-content-lg-around">
+
+        <div class="col-12 col-md-4 col-sm-6 jb-inner-banner">
+            <div class="rounded-3 jb-new-alerts d-flex">
+                <span class="jb-inner-banner-icon rounded-widget orange">
+                    <span class="icon">
+                        <i class="fa-sharp fa-light fa-circle-exclamation"></i>
+                    </span>
+                </span>
+                <span class="jb-inner-banner-span">
+                    <ul class="jb-inner-banner-ul">
+                        <li class="jb-inner-banner-li-numeric total_alerts">{{stats.alerts}}</li>
+                        <li class="jb-inner-banner-li-msg">{{ lang.t('Alerts') }}</li>
+                    </ul>
+                </span>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-4 col-sm-6 jb-inner-banner">
+            <div class="rounded-3 jb-total-backups d-flex">
+                <span class="jb-inner-banner-icon rounded-widget green">
+                    <span class="icon">
+                        <i class="fa-sharp fa-light fa-database"></i>
+                    </span>
+                </span>
+                <span class="jb-inner-banner-span">
+                    <ul class="jb-inner-banner-ul">
+                        <li class="jb-inner-banner-li-numeric total_backup">{{stats.snapshots}}</li>
+                        <li class="jb-inner-banner-li-msg">{{ lang.t('Total Backups') }}</li>
+                    </ul>
+                </span>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-4 col-sm-6 jb-inner-banner">
+            <div class="rounded-3 jb-total-usage d-flex">
+                <span class="jb-inner-banner-icon rounded-widget blue">
+                    <span class="icon">
+                        <i class="fa-sharp fa-light fa-chart-pie"></i>
+                    </span>
+                </span>
+                <span class="jb-inner-banner-span">
+                    <ul class="jb-inner-banner-ul">
+                        <li class="jb-inner-banner-li-numeric total_backup_size">{{stats.snapshots_size}}</li>
+                        <li class="jb-inner-banner-li-msg">{{ lang.t('Total Backups Size') }}</li>
+                    </ul>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row rounded-4 jb-white-0 jb-panel-row">
+
+        <div class="jb-main-title rounded-3">{{ lang.t('Manage Options') }}</div>
+
+        <div class="jb-panel-items d-flex flex-wrap justify-content-center">
+            <div class="col rounded-3 jb-panel-inner-item d-flex jb-grey-0 jb-custom-tooltip"
+                 data-tooltip="{{ lang.t('Easily manage your existing backups: restore, download, export, or extract files. This is your central hub for all backup-related actions.') }}">
+                <a href="#!/backups">
+                    <ul>
+                        <li>
+                            <span class="jb-panel-inner-item-icon inner-icons">
+                                <span class="icon">
+                                    <i class="fa-regular fa-file-lines"></i>
+                                </span>
+                            </span>
+                        </li>
+                        <li><span class="jb-panel-inner-item-text">{{ lang.t('Backups') }}</span></li>
+                    </ul>
+                </a>
+            </div>
+
+            <div class="col rounded-3 jb-panel-inner-item d-flex jb-grey-0 jb-custom-tooltip"
+                 data-tooltip="{{ lang.t('Create and manage automated backup tasks. You can also run jobs manually whenever needed.') }}">
+                <a href="#!/jobs">
+                    <ul>
+                        <li>
+                            <span class="jb-panel-inner-item-icon inner-icons">
+                                <span class="icon">
+                                    <i class="fa-regular fa-file-shield"></i>
+                                </span>
+                            </span>
+                        </li>
+                        <li><span class="jb-panel-inner-item-text">{{ lang.t('Backup Jobs') }}</span></li>
+                    </ul>
+                </a>
+            </div>
+
+            <div class="col rounded-3 jb-panel-inner-item d-flex jb-grey-0 jb-custom-tooltip"
+                 data-tooltip="{{ lang.t('Set up and manage where your backups are stored. Choose local or remote destinations for safe, secure, and flexible storage.') }}">
+                <a href="#!/destinations">
+                    <ul>
+                        <li>
+                            <span class="jb-panel-inner-item-icon inner-icons">
+                                <span class="icon">
+                                    <i class="fa-sharp fa-light fa-server"></i>
+                                </span>
+                            </span>
+                        </li>
+                        <li><span class="jb-panel-inner-item-text">{{ lang.t('Destinations') }}</span></li>
+                    </ul>
+                </a>
+            </div>
+
+            <div class="col rounded-3 jb-panel-inner-item d-flex jb-grey-0 jb-custom-tooltip"
+                 data-tooltip="{{ lang.t('Create and manage schedules to automate when your backup jobs run. Assign these to your backup jobs to ensure seamless operation.') }}">
+                <a href="#!/schedules">
+                    <ul>
+                        <li>
+                            <span class="jb-panel-inner-item-icon inner-icons">
+                                <span class="icon">
+                                    <i class="fa-sharp fa-light fa-calendar-days"></i>
+                                </span>
+                            </span>
+                        </li>
+                        <li><span class="jb-panel-inner-item-text">{{ lang.t('Schedules') }}</span></li>
+                    </ul>
+                </a>
+            </div>
+
+            <div class="col rounded-3 jb-panel-inner-item d-flex jb-grey-0 jb-custom-tooltip"
+                 data-tooltip="{{ lang.t('Access all plugin-specific settings, including performance, security, notifications, and retention rules.') }}">
+                <a href="#!/settings/general">
+                    <ul>
+                        <li>
+                            <span class="jb-panel-inner-item-icon inner-icons">
+                                <span class="icon">
+                                    <i class="fa-sharp fa-light fa-gear"></i>
+                                </span>
+                            </span>
+                        </li>
+                        <li><span class="jb-panel-inner-item-text">{{ lang.t('Settings') }}</span></li>
+                    </ul>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row rounded-4 jb-white-0 jb-panel-row">
+        <div class="jb-main-title rounded-3">{{ lang.t('View Options') }}</div>
+
+        <div class="jb-panel-items d-flex flex-wrap justify-content-center">
+
+
+            <div class="col rounded-3 jb-panel-inner-item d-flex jb-grey-0 jb-custom-tooltip"
+                 data-tooltip="{{ lang.t('View and manage all active backup, restore, and system tasks in real time. Click a task to see details or take action.') }}">
+                <a href="#!/queue">
+                    <ul>
+                        <li>
+                            <span class="jb-panel-inner-item-icon inner-icons position-relative">
+                                <span class="icon">
+                                    <i class="fa-sharp fa-light fa-timer"></i>
+                                </span>
+                                <span ng-show="stats.queue" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-info queuePill">{{stats.queue}}</span>
+                            </span>
+                        </li>
+                        <li><span class="jb-panel-inner-item-text">{{ lang.t('Queue') }}</span></li>
+                    </ul>
+                </a>
+            </div>
+
+            <div class="col rounded-3 jb-panel-inner-item d-flex jb-grey-0 jb-custom-tooltip"
+                 data-tooltip="{{ lang.t('View all your alerts and notifications here.') }}">
+                <a href="#!/alerts">
+                    <ul>
+                        <li>
+                            <span class="jb-panel-inner-item-icon inner-icons position-relative">
+                                <span class="icon">
+                                    <i class="fa-sharp fa-light fa-circle-exclamation"></i>
+                                </span>
+                                <span ng-show="stats.alerts" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger alertsPill">{{stats.alerts}}</span>
+                            </span>
+                        </li>
+                        <li><span class="jb-panel-inner-item-text">{{ lang.t('Alerts') }}</span></li>
+                    </ul>
+                </a>
+            </div>
+
+            <div class="col rounded-3 jb-panel-inner-item d-flex jb-grey-0 jb-custom-tooltip"
+                 data-tooltip="{{ lang.t('View System information.') }}">
+                <a href="#!/system">
+                    <ul>
+                        <li>
+                            <span class="jb-panel-inner-item-icon inner-icons position-relative">
+                                <span class="icon">
+                                    <i class="fa-sharp fa-light fa-info-circle"></i>
+                                </span>
+                                <span ng-show="stats.system_alerts" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{stats.system_alerts}}</span>
+                            </span>
+                        </li>
+                        <li><span class="jb-panel-inner-item-text">{{ lang.t('System Info') }}</span></li>
+                    </ul>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row rounded-4 jb-white-0 jb-panel-row queue_summary">
+        <div class="jb-main-title rounded-3">{{ lang.t('Queue Summary') }}</div>
+
+        <div class="jb-panel-items d-flex flex-wrap justify-content-center">
+
+            <div class="col rounded-3 jb-panel-inner-item jb-manage d-flex jb-grey-0">
+                <a href="#!/queue">
+                    <ul>
+                        <li>
+                            <span class="jb-panel-inner-item-icon inner-icons position-relative">
+                                <span  class="queue_summary_text">{{stats.total_queue_pending}}</span>
+                                  <span class="icon">
+                                    <i class="fa-sharp fa-solid fa-timer"></i>
+                                </span>
+                            </span>
+                        </li>
+                        <li><span class="jb-panel-inner-item-text">{{ lang.t('Pending') }}</span></li>
+                    </ul>
+                </a>
+            </div>
+
+            <div class="col rounded-3 jb-panel-inner-item jb-manage d-flex jb-grey-0">
+                <a href="#!/queue">
+                    <ul>
+                        <li>
+                            <span class="jb-panel-inner-item-icon inner-icons position-relative">
+                                <span  class="queue_summary_text">{{stats.total_queue_processing}}</span>
+                                 <span class="icon">
+                                    <i class="fa-sharp fa-solid fa-running"></i>
+                                </span>
+                            </span>
+                        </li>
+                        <li><span class="jb-panel-inner-item-text">{{ lang.t('Processing') }}</span></li>
+                    </ul>
+                </a>
+            </div>
+
+            <div class="col rounded-3 jb-panel-inner-item jb-manage d-flex jb-grey-0">
+                <a href="#!/queue">
+                    <ul>
+                        <li>
+                            <span class="jb-panel-inner-item-icon inner-icons position-relative">
+                                <span  class="queue_summary_text">{{stats.total_queue_completed}}</span>
+                                  <span class="icon">
+                                    <i class="fa-sharp fa-solid fa-check"></i>
+                                </span>
+                            </span>
+                        </li>
+                        <li><span class="jb-panel-inner-item-text">{{ lang.t('Completed') }}</span></li>
+                    </ul>
+                </a>
+            </div>
+            <div class="col rounded-3 jb-panel-inner-item jb-manage d-flex jb-grey-0">
+                <a href="#!/queue">
+                    <ul>
+                        <li>
+                            <span class="jb-panel-inner-item-icon inner-icons position-relative">
+                                 <span class="queue_summary_text">{{stats.total_queue_aborted}}</span>
+                                 <span class="icon">
+                                    <i class="fa-sharp fa-solid fa-times"></i>
+                                </span>
+                            </span>
+                        </li>
+                        <li><span class="jb-panel-inner-item-text">{{ lang.t('Failed/Canceled') }}</span></li>
+                    </ul>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

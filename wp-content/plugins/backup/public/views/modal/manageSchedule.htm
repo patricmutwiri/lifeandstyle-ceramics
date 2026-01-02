@@ -1,0 +1,129 @@
+<div class="modal-header">
+    <div class="modal-main-title">
+        <h1 class="modal-title fs-5" id="scheduleManageModal">
+            {{ scheduleID ? lang.t("Edit Schedule") : lang.t("Create New Schedule") }}
+        </h1>
+    </div>
+    <button type="button" class="btn-close" ng-click="cancel()" aria-label="Close"></button>
+</div>
+
+<div class="modal-body">
+
+    <div class="jb-loading-screen" ng-if="loading">
+        <p class="jb-loading-text">
+            Loading<span class="jb-dots"><span></span><span></span><span></span></span>
+        </p>
+    </div>
+
+    <div id="job-form-wrapper" ng-if="!loading">
+
+        <div class="form-group row">
+            <label for="scheduleName" class="col-sm-3 col-form-label jb-label">{{ lang.t("Schedule Name") }}</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control jb-input jb-grey-0" id="scheduleName" ng-model="saveData.name" name="name">
+                <p>{{ lang.t("Enter a recognizable name for your schedule.") }}</p>
+            </div>
+        </div>
+        <!-- End row name -->
+
+        <div class="form-group row">
+            <label for="scheduleType" class="col-sm-3 col-form-label jb-label">{{ lang.t("Schedule Type") }}</label>
+            <div class="col-sm-6">
+                <select class="form-select form-select-lg mb-3 jb-input jb-background-grey"
+                        ng-model="saveData.type"
+                        ng-options="option.value as option.label for option in scheduleTypes"
+                        ng-change="initializeIntervals()"
+                        aria-label=".form-select-lg example"
+                        name="scheduleType"
+                        id="scheduleType">
+                </select>
+                <p>{{ lang.t("Select the type of schedule and its interval (e.g., daily, weekly).") }}</p>
+            </div>
+        </div>
+        <!-- End row type -->
+
+        <div class="form-group row">
+            <label for="intervals" class="col-sm-3 col-form-label jb-label">{{ getIntervalsLabel() }}</label>
+            <div class="col-sm-6">
+                <div id="intervals" ng-switch="saveData.type">
+                    <!-- Hourly Intervals (Single Selection) -->
+                    <div ng-switch-when="1">
+                        <div ng-repeat="interval in hourlyIntervals">
+                            <input type="radio" ng-model="saveData.intervals" ng-value="interval.value" id="hourly_{{interval.value}}">
+                            <label for="hourly_{{interval.value}}">{{ interval.label }}</label>
+                        </div>
+                    </div>
+
+                    <!-- Daily Intervals (Multiple Selections) -->
+                    <div ng-switch-when="2">
+                        <div ng-repeat="interval in dailyIntervals">
+                            <input id="daily_{{interval.value}}"
+                                   type="checkbox"
+                                   ng-checked="saveData.intervals.includes(interval.value)"
+                                   ng-model="interval.selected"
+                                   ng-click="toggleIntervalSelection(interval.value, $event.target.checked)">
+                            <label for="daily_{{interval.value}}">{{ interval.label }}</label>
+                        </div>
+                    </div>
+
+                    <!-- Weekly Intervals (Single Selection) -->
+                    <div ng-switch-when="3">
+                        <div ng-repeat="interval in weeklyIntervals">
+                            <input type="radio" ng-model="saveData.intervals" ng-value="interval.value" id="weekly_{{interval.value}}">
+                            <label for="weekly_{{interval.value}}">{{ interval.label }}</label>
+                        </div>
+                    </div>
+
+                    <!-- Monthly Intervals (Multiple Selections) -->
+                    <div ng-switch-when="4">
+                        <div ng-repeat="interval in monthlyIntervals">
+                            <input id="monthly_{{interval.value}}"
+                                   type="checkbox"
+                                   ng-checked="saveData.intervals.includes(interval.value)"
+                                   ng-model="interval.selected"
+                                   ng-click="toggleIntervalSelection(interval.value, $event.target.checked)">
+                            <label for="monthly_{{interval.value}}">{{ interval.label }}</label>
+                        </div>
+                    </div>
+
+                    <div ng-switch-when="5">
+                        <p>No interval selection is required for this schedule type.</p>
+                    </div>
+
+                    <div ng-switch-when="6">
+                        <ul class="list-group">
+                            <li ng-repeat="job in backupJobs">
+                                <input type="radio"
+                                       ng-model="saveData.backup_id"
+                                       ng-value="job._id"
+                                       id="job_{{ job._id }}">
+                                <label for="job_{{ job._id }}">{{ job.name }}</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Default Case for No Interval Needed -->
+                    <div ng-switch-default>
+                        <p>Unknown Schedule Type</p>
+                    </div>
+                </div>
+            </div>
+        <!-- End row intervals -->
+
+    </div>
+</div>
+
+    <div class="modal-footer">
+        <button class="btn btn-secondary cancel_btn" type="button" ng-click="cancel()">
+            {{ lang.t("Cancel") }}
+        </button>
+        <button
+                class="btn btn-primary apply_btn"
+                type="button"
+                ng-click="ok()"
+                ng-disabled="loading">
+            <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true" ng-show="loading"></span>
+            {{ lang.t("Save") }}
+        </button>
+    </div>
+</div>

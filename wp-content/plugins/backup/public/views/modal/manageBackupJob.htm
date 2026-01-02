@@ -1,0 +1,249 @@
+<div class="modal-header">
+    <div class="modal-main-title">
+        <h1 class="modal-title fs-5" id="jobManageModal">
+            {{ jobID ? lang.t("Edit Job") : lang.t("Create New Job") }}
+        </h1>
+    </div>
+    <button type="button" class="btn-close" ng-click="cancel()" aria-label="Close"></button>
+</div>
+
+<div class="modal-body">
+
+    <div class="jb-loading-screen" ng-if="loading">
+        <p class="jb-loading-text">
+            Loading<span class="jb-dots"><span></span><span></span><span></span></span>
+        </p>
+    </div>
+    <div id="job-form-wrapper" ng-show="!loading">
+        <div class="form-group row">
+            <label for="jobName" class="col-sm-3 col-form-label jb-label">{{ lang.t("Job Name") }}</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control jb-input jb-grey-0" id="jobName" ng-model="saveData.name" name="name">
+                <p class="pd-3">{{ lang.t("Give your backup job a clear, descriptive name (e.g., 'Daily Backups' or 'Database Only'). This name is for internal reference only.") }}</p>
+            </div>
+        </div>
+
+        <div class="form-group row selectDestinations">
+            <label for="destinations" class="col-sm-3 col-form-label jb-label">{{ lang.t("Destinations") }}</label>
+            <div class="col-sm-9">
+                <div id="destinations" class="pd-3">
+                    <div ng-repeat="destination in destinations" ng-if="!destination.read_only" class="d-flex align-items-center mb-2">
+                        <span class="switch-main">
+                            <label class="switch">
+                               <input type="checkbox"
+                                      ng-model="destination.selected"
+                                      ng-change="toggleDestination(destination._id)"
+                                      ng-checked="isDestinationChecked(destination._id)"
+                                      id="destination_{{destination._id}}">
+                                <span class="slider round"></span>
+                            </label>
+                        </span>
+                        <label for="destination_{{destination._id}}" class="ml-10">{{ destination.name }}</label>
+                        <span class="ml-10" ng-if="destination.read_only">{{ lang.t("[Read-only]") }}</span>
+                    </div>
+                </div>
+                <p class="pd-3">{{ lang.t("Enable one or more destinations to store backups when this job runs. Don’t see your destination? Make sure it’s enabled in the Destinations tab.") }}</p>
+            </div>
+        </div>
+
+        <div class="form-group row backup_contains">
+            <label class="col-sm-3 col-form-label jb-label">{{ lang.t("Backup Contains") }}</label>
+            <div class="col-sm-9">
+
+                <!-- Checkbox for Files (Home Directory) -->
+                <div class="pd-3 d-flex align-items-center">
+            <span class="switch-main">
+                <label class="switch">
+                  <input id="switch_files" type="checkbox" ng-model="saveData.contains_files" ng-change="toggleBackupOption()">
+                  <span class="slider round"></span>
+                </label>
+            </span>
+                    <label for="switch_files" class="ml-10">{{ lang.t("Files") }}</label>
+                    <span class="switch-main ml-10" ng-show="saveData.contains_files">
+                <label class="switch">
+                  <input id="switch_is_files_excluded" type="checkbox" ng-model="saveData.is_files_excluded" ng-change="toggleBackupOption()">
+                  <span class="slider round"></span>
+                </label>
+            </span>
+                    <label for="switch_is_files_excluded" class="ml-10" ng-show="saveData.contains_files">{{ lang.t("Exclude Folders/Files") }}</label>
+                </div>
+
+                <div class="col-sm-9">
+                    <div class="mt-2" id="excludeFilesWrapper">
+
+                        <textarea ng-show="saveData.is_files_excluded" class="form-control" id="exclude_files" rows="5"
+                                  ng-model="excludeFilesInput"
+                                  placeholder="{{ lang.t('Enter paths to exclude, one per line (e.g., /wp-content/cache/*)') }}">
+                        </textarea>
+                        <small ng-show="saveData.is_files_excluded" class="text-muted mt-1 d-block">
+                            {{ lang.t('You can use wildcards like * to exclude multiple files or folders.') }}
+                        </small>
+
+                    </div>
+                </div>
+
+                <!-- Checkbox for Database -->
+                <div class="pd-3 d-flex align-items-center">
+                    <span class="switch-main">
+                        <label class="switch">
+                          <input id="switch_database" type="checkbox" ng-model="saveData.contains_database" ng-change="toggleBackupOption('database')">
+                          <span class="slider round"></span>
+                        </label>
+                    </span>
+                    <label for="switch_database" class="ml-10">{{ lang.t("Database") }}</label>
+                    <span class="switch-main ml-10" ng-show="saveData.contains_database">
+                        <label class="switch">
+                          <input id="switch_is_tables_excluded" type="checkbox" ng-model="saveData.is_tables_excluded" ng-change="toggleBackupOption('is_tables_excluded')">
+                          <span class="slider round"></span>
+                        </label>
+                    </span>
+                    <label for="switch_is_tables_excluded" class="ml-10" ng-show="saveData.contains_database">{{ lang.t("Exclude Database Tables") }}</label>
+                </div>
+
+                <div class="col-sm-9">
+                    <div class="mt-2" id="excludeTablesWrapper">
+                        <select class="form-select form-select-lg"
+                                id="exclude_tables"
+                                multiple
+                                ng-model="database_excludes"
+                                ng-options="table as table.name for table in databaseTables"
+                                ng-show="saveData.is_tables_excluded"
+                                ng-disabled="!saveData.is_tables_excluded"
+                                aria-label="{{ lang.t('Select tables to exclude') }}">
+                            <option ng-if="databaseTables.length === 0" disabled>{{ lang.t('No tables available') }}</option>
+                        </select>
+                        <small ng-show="saveData.is_tables_excluded" class="text-muted mt-1 d-block">
+                            {{ lang.t('Hold down the Ctrl (Windows) or Command (Mac) key to select multiple tables. Excluding a table will backup the structure of the table, not the content of the table.') }}
+                        </small>
+                    </div>
+                </div>
+                <p class="pd-3">{{ lang.t("By default, all site files and database tables are included. You can customize what’s excluded in this job by toggling the Exclude Files or Exclude Tables option. Common Exclusions are enabled by default regardless of your selections for optimal performance; you can adjust this behavior in Settings.") }}</p>
+            </div>
+        </div>
+
+        <!-- EOF Backup contains -->
+
+        <div class="form-group row selectSchedules">
+            <label for="schedules" class="col-sm-3 col-form-label jb-label">{{ lang.t("Schedules") }}</label>
+            <div id="schedules" class="col-sm-9">
+                <div ng-repeat="schedule in schedules" class="pd-3 d-flex align-items-center">
+                    <div class="col-xl-5 col-sm-5 d-flex align-items-center">
+                    <span class="switch-main">
+                      <label class="switch">
+                       <input type="checkbox"
+                              ng-model="schedule.selected"
+                              ng-change="toggleSchedule(schedule)"
+                              ng-checked="isScheduleChecked(schedule._id)"
+                              id="schedule_{{schedule._id}}">
+                        <span class="slider round"></span>
+                      </label>
+                    </span>
+                        <label for="schedule_{{schedule._id}}" class="ml-10">{{ schedule.name }}</label>
+                    </div>
+                    <div ng-show="schedule.selected" class="col-sm-5 col-xl-7 col-lg-7 d-flex schedule_retention_wrapper align-items-center schedule_retention_{{schedule._id}}">
+                        <div class="col-sm-4 col-lg-5 col-xl-3 col-md-5">
+                            <label for="schedule_retention_{{schedule._id}}">{{ lang.t("Retention") }}:</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <button type="button" class="btn btn-secondary"
+                                        ng-click="changeRetain(schedule, -1)">
+                                    -
+                                </button>
+                                <input id="schedule_retention_{{schedule._id}}"
+                                       name="schedule_retention[{{schedule._id}}]"
+                                       class="form-control text-center"
+                                       type="number"
+                                       min="0"
+                                       max="999"
+                                       placeholder="0"
+                                       ng-model="schedule.retain"
+                                       ng-change="updateScheduleRetain(schedule)">
+                                <button type="button" class="btn btn-secondary"
+                                        ng-click="changeRetain(schedule, 1)">
+                                    +
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="pd-3">
+                    <p>{{ lang.t("Select one or more schedules to automate this backup job. Set the minimum number of backups to retain under each schedule (e.g., keep 7 daily backups).") }}</p>
+                </div>
+            </div>
+        </div>
+        <!-- EOF Schdules -->
+
+        <div class="form-group row schedules_time_row">
+            <label for="schedule_time" class="col-sm-3 col-form-label jb-label">{{ lang.t("Schedule Time") }}</label>
+            <div class="col-sm-9">
+                <div class="col-sm-4">
+                    <div class="input-group position-relative" moment-picker="saveData.schedule_time" format="HH:mm" show-header="false">
+                        <input type="text"
+                               class="form-control text-center pr-5"
+                               id="schedule_time"
+                               name="schedule_time"
+                               placeholder="{{ lang.t('Pick a time') }}"
+                               ng-model="saveData.schedule_time"
+                               ng-model-options="{ updateOn: 'blur' }"
+                               style="border-radius: 5px;" />
+
+                        <!-- Clock icon moved to the right -->
+                        <span class="position-absolute clock-icon"
+                              style="right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
+                    <em aria-hidden="true" class="far fa-clock text-muted"></em>
+                </span>
+                    </div>
+                </div>
+                <div class="pd-3">
+                    <p>{{ lang.t("Define the time of day the backup job should run, based on the schedules you selected. If no schedule is enabled, the job must be run manually. Old backups will be automatically cleaned based on your retention settings.") }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row backup_monitor">
+            <label for="backup_monitor" class="col-sm-3 col-form-label jb-label">{{ lang.t("Backup Monitor") }}</label>
+            <div class="col-sm-9">
+                <div class="col-1">
+                    <input type="text" class="form-control mb-3 text-center"
+                           name="backup_monitor"
+                           id="backup_monitor"
+                           ng-model="saveData.job_monitor"
+                           min="0"
+                           max="99"
+                           string-to-number
+                           validate-field="int"
+                           placeholder="0">
+                </div>
+                <p>{{ lang.t("Get alerts if backups haven’t run for a specified number of days. Configure the alert email in Settings > Notification.") }}</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="form-group row justify-content-center">
+    <div class="col-11 error-messages" ng-if="formErrors.length > 0">
+        <div class="alert alert-danger" role="alert">
+            <ul class="mb-0">
+                <li ng-repeat="error in formErrors">{{ error }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-secondary cancel_btn" type="button" ng-click="cancel()">
+        {{ lang.t("Cancel") }}
+    </button>
+    <button
+            class="btn btn-primary apply_btn"
+            type="button"
+            ng-click="ok()"
+            ng-disabled="saving">
+        <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true" ng-show="saving"></span>
+        {{ lang.t("Save") }}
+    </button>
+
+</div>

@@ -1,0 +1,26 @@
+
+Started Import Process
+# System Details: 
+Debug Mode 		: Disabled
+Operating System 	: Linux
+Software 		: LiteSpeed
+MySQL version 		: 8.4.7
+XML Reader 		: Yes
+PHP Version 		: 8.3.27
+PHP Max Input Vars 	: 1000
+PHP Max Post Size 	: 800M
+PHP Extension GD 	: Yes
+PHP Max Execution Time 	: 60
+Max Upload Size 	: 200 MB
+Memory Limit 		: Current memory limit 40M. We recommend setting memory to at least 64M.
+Timezone 		: 0
+
+-----
+
+Importing Started! - 17:56:37 UTC
+---
+
+WHY IMPORT PROCESS CAN FAIL? READ THIS - 
+https://wpastra.com/docs/?p=1314&utm_source=demo-import-panel&utm_campaign=import-error&utm_medium=wp-dashboard
+
+---

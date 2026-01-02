@@ -1,0 +1,26 @@
+#wpadminbar .siteseo-noindex-warning,
+#wpadminbar .siteseo-noindex-warning:hover,
+#wpadminbar .siteseo-noindex-warning:focus,
+#wpadminbar .siteseo-noindex-warning *:hover{
+background-color: #dc3232 !important;
+color: #ffffff !important;
+height: 100%;
+display: flex;
+align-items: center;
+}
+
+#wpadminbar .siteseo-noindex-warning .warning-container{
+display: flex;
+align-items: center;
+padding: 0 10px;
+height: 100%;
+}
+
+#wpadminbar .siteseo-noindex-warning svg{
+margin-right: 6px;
+vertical-align: middle;
+}
+
+#wpadminbar .siteseo-noindex-warning .ab-item{
+height: 100%;
+}

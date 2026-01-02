@@ -1,0 +1,30 @@
+
+.display-flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.i360-app__container {
+    display: none; /* Should be overwritten to a display: flex after app init */
+    flex-direction: column;
+    flex: auto;
+    max-width: 1600px;
+}
+.i360-app__loader {
+    display: flex;
+    flex: auto;
+    min-height: 400px;
+    max-width: 1600px;
+    overflow: hidden;
+}
+.i360-app__loader-icon {
+    flex: auto;
+    background: url(nav-root/images/common/loader.svg) center center no-repeat;
+    background-size: 90px;
+    animation: spin 2s ease-in-out infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

@@ -1,0 +1,118 @@
+html[dir=rtl] #menu {
+    left: auto;
+    right: 0;
+    box-shadow: 10px 0 20px 0 rgba(0,0,0,0.1);
+}
+
+html[dir=rtl] #container {
+    margin-left: 0;
+    margin-right: 230px;
+    transition: margin-right 200ms;
+}
+
+html[dir=rtl] ul#navigation li a span {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+html[dir=rtl] .menu-closed #container {
+    margin-left: 0;
+    margin-right: 73px;
+}
+
+html[dir=rtl] .dropdown ul {
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.1);
+}
+
+html[dir=rtl] .text-right {
+    text-align: left;
+}
+
+html[dir=rtl] .rounded-widget .icon {
+    padding: 0 10px 0 20px;
+}
+
+html[dir=rtl] .box-title div {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 10px 10px 10px 0;
+}
+
+html[dir=rtl] .btn span {
+    margin-left: 0;
+    margin-right: 5px;
+}
+
+html[dir=rtl] .dropdown button {
+    text-align: right;
+}
+
+html[dir=rtl] .dropdown button:after {
+    float: left;
+}
+
+html[dir=rtl] .dropdown button.show:after {
+    transform: rotate(90deg)
+}
+
+html[dir=rtl] .radio label, html[dir=rtl] .checkbox label {
+    margin-right: 0;
+    margin-left: 10px;
+}
+
+html[dir=rtl] .radio label:last-child, html[dir=rtl] .checkbox label:last-child {
+    margin-right: inherit;
+    margin-left: 0;
+}
+
+html[dir=rtl] label.search-box i {
+    margin: 0 5px 0 10px;
+}
+
+html[dir=rtl] ul.pagination {
+    margin-right: 0;
+    margin-left: 15px;
+}
+
+html[dir=rtl] ul.pagination li {
+    margin-right: 0;
+    margin-left: 5px;
+    float: right;
+}
+
+html[dir=rtl] ul.pagination li:last-child {
+    margin-right: inherit;
+    margin-left: 0;
+}
+
+html[dir=rtl] #menu-bars {
+    right: auto;
+    left: 20px;
+}
+/*Left*/
+html[dir=rtl] .modal.left.fade .modal-dialog{
+    left: auto;
+    right: -33%;
+    -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+    -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+    -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+    transition: opacity 0.3s linear, right 0.3s ease-out;
+}
+
+html[dir=rtl] .modal.left.fade.show .modal-dialog{
+    right: 0;
+}
+
+/*Right*/
+html[dir=rtl] .modal.right.fade .modal-dialog {
+    right: auto;
+    left: -33%;
+    -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+    -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+    -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+    transition: opacity 0.3s linear, left 0.3s ease-out;
+}
+
+html[dir=rtl] .modal.right.fade.show .modal-dialog {
+    left: 0;
+}

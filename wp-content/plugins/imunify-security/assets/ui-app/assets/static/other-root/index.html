@@ -1,0 +1,37 @@
+<!DOCTYPE html><html><head>
+    <meta charset="UTF-8">
+    <title>Imunify360</title>
+    <script>
+        var adminAssets = '/assets/';
+        var clientAssets = adminAssets;
+        var adminAction = 'http://ui-test-server:55555/';
+        var clientAction = 'http://ui-test-server:55555/';
+        var I360_PANEL = 'noPanel';
+        var IMUNIFY_PACKAGE = '360';
+        var i360ieExist = '1';
+    </script>
+    <style>
+        html { /* jumping scroll */
+            overflow-y: scroll;
+            background-color: #E6E6E6;
+        }
+        body {
+            margin: 0 auto;
+            padding: 8px 25px;
+            max-width: 1600px;
+            background-color: white;
+            min-height: calc(100vh - 16px);
+        }
+        .i360-app { /* centering */
+            margin: auto;
+        }
+    </style>
+    <base href="/">
+</head>
+<body>
+<div class="i360-app">
+    <app>Loading...</app>
+</div>
+<script src="main.js" type="module"></script>
+
+</body></html>

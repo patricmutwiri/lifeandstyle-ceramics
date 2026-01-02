@@ -1,0 +1,79 @@
+<div class="pd-20 settings">
+    <div class="form-group row">
+        <label for="queue_ttl" class="col-sm-3 col-form-label jb-label">{{ lang.t('Done Queue Items TTL') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 jobs">
+                <!-- Number input for Queue Items TTL -->
+                <input type="number"
+                       max="72"
+                       id="queue_ttl"
+                       class="form-control"
+                       name="MAINTENANCE_QUEUE_HOURS_TTL"
+                       ng-model="saveData.MAINTENANCE_QUEUE_HOURS_TTL">
+                <p class="pd-3">{{ lang.t('This action will clear completed items from the queue table after a specified number of hours (TTL). Set to 0 to disable this feature.') }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="download_ttl" class="col-sm-3 col-form-label jb-label">{{ lang.t('Download TTL') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 jobs">
+                <input type="number"
+                       max="730"
+                       id="download_ttl"
+                       class="form-control"
+                       name="MAINTENANCE_DOWNLOAD_ITEMS_TTL"
+                       ng-model="saveData.MAINTENANCE_DOWNLOAD_ITEMS_TTL">
+                <p class="pd-3">{{ lang.t('Sets the time-to-live (TTL) for downloads. After the specified number of hours, expired items will be automatically deleted. Enter a value in hours, e.g., 72 for 3 days') }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="download_limit" class="col-sm-3 col-form-label jb-label">{{ lang.t('Download Limit') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 jobs">
+                <input type="number"
+                       max="99"
+                       id="download_limit"
+                       class="form-control"
+                       name="MAINTENANCE_DOWNLOAD_LIMIT"
+                       ng-model="saveData.MAINTENANCE_DOWNLOAD_LIMIT">
+                <p class="pd-3">{{ lang.t('This setting controls how many downloads can be active at the same time. For example, if set to 2, and there are already 2 active downloads, new downloads cannot be generated until at least one is cleared. Set to 0 to disable this feature.') }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="alerts_ttl" class="col-sm-3 col-form-label jb-label">{{ lang.t('System Alerts TTL') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 jobs">
+                <!-- Number input for System Alerts TTL -->
+                <input type="number"
+                       max="72"
+                       id="alerts_ttl"
+                       class="form-control"
+                       name="MAINTENANCE_QUEUE_ALERTS_TTL"
+                       ng-model="saveData.MAINTENANCE_QUEUE_ALERTS_TTL">
+                <p class="pd-3">{{ lang.t('This action will clear generated system alerts after a specified number of hours (TTL). Set to 0 to disable this feature.') }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="config_rotate_ttl" class="col-sm-3 col-form-label jb-label">{{ lang.t('Export Config Rotate Days') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 jobs">
+                <!-- Number input for Config Rotate Days -->
+                <input type="number"
+                       max="30"
+                       id="config_rotate_ttl"
+                       class="form-control"
+                       name="CONFIG_EXPORT_ROTATE"
+                       ng-model="saveData.CONFIG_EXPORT_ROTATE">
+                <p class="pd-3">{{ lang.t('JetBackup exports its core config settings to selected destinations (once a day). Specify the number of exports to keep. Older exports beyond this duration will be automatically deleted. Set this value to 0 to keep exports indefinitely.') }}</p>
+            </div>
+        </div>
+    </div>
+</div>

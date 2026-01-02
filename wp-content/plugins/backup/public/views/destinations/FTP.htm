@@ -1,0 +1,90 @@
+<div ng-controller="destinationFTP">
+
+    <div class="form-group row">
+        <label for="ftp_remote_host" class="col-sm-3 col-form-label jb-label">{{ lang.t("Remote Host") }}</label>
+        <div class="col-sm-7">
+            <input type="text" class="form-control jb-input jb-grey-0" id="ftp_remote_host" name="ftp_remote_host" ng-model="saveData.options.server">
+            <p class="pd-3">{{ lang.t("Enter the hostname or IP address of the FTP server you wish to connect to for backup storage. Example: FTP.example.com or 192.0.2.1") }}</p>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="ftp_port" class="col-sm-3 col-form-label jb-label">{{ lang.t("Port") }}</label>
+        <div class="col-sm-7">
+            <input type="number" class="form-control jb-input jb-grey-0" id="ftp_port" name="ftp_port" ng-model="saveData.options.port">
+            <p class="pd-3">{{ lang.t("Specify the port number used to connect to the FTP server. The default FTP port is 21, but this may differ if your server uses a custom configuration.") }}</p>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="ftp_username" class="col-sm-3 col-form-label jb-label">{{ lang.t("Remote Username") }}</label>
+        <div class="col-sm-7">
+            <input type="text" class="form-control jb-input jb-grey-0" id="ftp_username" name="ftp_username" ng-model="saveData.options.username">
+            <p class="pd-3">{{ lang.t("Enter the username for authentication with the FTP server. This user must have the necessary permissions to access and write to the specified backup directory.") }}</p>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="ftp_password" class="col-sm-3 col-form-label jb-label">{{ lang.t("Remote Password") }}</label>
+        <div class="col-sm-7">
+            <input type="password" class="form-control jb-input jb-grey-0" id="ftp_password" name="ftp_password" ng-model="saveData.options.password" value="{{$saveData.options.password}}">
+            <p class="pd-3">{{ lang.t("Provide the password for the specified username. Ensure this password is kept secure to prevent unauthorized access to your backups.") }}</p>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="ftp_secure_ssl" class="col-sm-3 col-form-label jb-label">{{ lang.t("Secure SSL") }}</label>
+        <div class="col-sm-7">
+            <span class="switch-main">
+                <label class="switch">
+                    <input id="ftp_secure_ssl" type="checkbox" ng-model="saveData.options.ssl" ng-checked="saveData.options.ssl == 1" ng-click="toggleState(saveData.options.ssl)">
+                    <span class="slider round"></span>
+                </label>
+            </span>
+            <p class="pd-3">{{ lang.t("Enable SSL encryption to ensure a secure and encrypted FTP connection, protecting data during transfer.") }}</p>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="ftp_ignore_self_signed" class="col-sm-3 col-form-label jb-label">{{ lang.t("Ignore Self-Signed") }}</label>
+        <div class="col-sm-7">
+            <span class="switch-main">
+                <label class="switch">
+                    <input id="ftp_ignore_self_signed" type="checkbox" ng-model="saveData.options.ignore_self_signed" ng-checked="saveData.options.ignore_self_signed == 1" ng-click="toggleState(saveData.options.ignore_self_signed)">
+                    <span class="slider round"></span>
+                </label>
+            </span>
+            <p class="pd-3">{{ lang.t("Select 'Yes' to ignore self-signed SSL certificates, allowing connections without verifying the certificate's authenticity.") }}</p>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="ftp_passive" class="col-sm-3 col-form-label jb-label">{{ lang.t("Passive Mode") }}</label>
+        <div class="col-sm-7">
+            <span class="switch-main">
+                <label class="switch">
+                    <input id="ftp_passive" type="checkbox" ng-model="saveData.options.passive_mode" ng-checked="saveData.options.passive_mode == 1" ng-click="toggleState(saveData.options.passive_mode)">
+                    <span class="slider round"></span>
+                </label>
+            </span>
+            <p class="pd-3">{{ lang.t("Activate passive mode to enhance FTP transfer compatibility with firewalls and NAT configurations, ensuring smooth data transfer.") }}</p>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="ftp_timeout" class="col-sm-3 col-form-label jb-label">{{ lang.t("Connection Timeout") }}</label>
+        <div class="col-sm-7">
+            <input type="number" class="form-control jb-input jb-grey-0" id="ftp_timeout" name="ftp_timeout" ng-model="saveData.options.timeout">
+            <p class="pd-3">{{ lang.t("Set the maximum time (in seconds) the system should wait for a connection to the FTP server before timing out. Increase this if you experience connection issues, especially over slow networks.") }}</p>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="ftp_retries" class="col-sm-3 col-form-label jb-label">{{ lang.t("Connection Retries") }}</label>
+        <div class="col-sm-7">
+            <input type="number" min="0" max="10" class="form-control jb-input jb-grey-0" id="ftp_retries" name="ftp_retries" ng-model="saveData.options.retries">
+            <p class="pd-3">{{ lang.t("Specify the number of times the system should attempt to reconnect to the FTP server if the initial connection fails. A higher number of retries can be useful in unstable network conditions.") }}</p>
+        </div>
+    </div>
+
+</div>

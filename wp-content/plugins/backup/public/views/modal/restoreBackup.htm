@@ -1,0 +1,196 @@
+<div class="modal-header">
+    <div class="modal-main-title">
+        <h1 class="modal-title fs-5" id="restoreBackupLabel">{{ lang.t("Restore Backup") }}</h1>
+    </div>
+    <button type="button" class="btn-close" ng-click="cancel()" aria-label="Close"></button>
+</div>
+
+<div class="modal-body fs-13">
+    <p>{{ lang.t('Please choose your restore preferences. Based on the preferences, your task will be added to the queue for restore preparations. Once it’s ready, you can initiate the restore from the queue page.') }}</p>
+
+    <!-- Choose destination -->
+    <div class="row mb-3 form-group" ng-if="backup.destinations.length > 1">
+        <label for="choose_destination" class="form-label col-sm-4">{{ lang.t('Restore From') }}</label>
+        <div class="col-sm-8">
+            <div class="list-group">
+                <label ng-repeat="dest in backup.destinations" ng-show="!selectedDestination || dest.id === selectedDestination.id">
+                    <input
+                            type="radio"
+                            name="destinationRadio"
+                            ng-click="selectDestination(dest)"
+                            ng-checked="selectedDestination && dest.id === selectedDestination.id">
+                    {{ lang.t(dest.name || 'Unknown') }}
+                </label>
+            </div>
+            <div class="option-description mt-1" id="choose_destination">
+                {{ lang.t('Please select the source for your backup. This determines which destination will be used to restore the backup.') }}
+            </div>
+        </div>
+    </div>
+
+    <div ng-show="selectedDestination">
+
+        <!-- Backup Contains -->
+        <div class="row mb-3 form-group">
+            <label class="form-label col-sm-4"> {{ lang.t('Backup Contains') }}</label>
+            <div class="col-sm-8">{{ backupContains(backup.contains) }}</div>
+        </div>
+
+        <!-- Multisite Selection (Only appears if multisite has entries) -->
+        <div class="row mb-3 form-group" ng-if="multisite.length > 0">
+            <label for="multisiteSelector" class="form-label col-sm-4">
+                <strong>{{ lang.t("Select Site to Restore") }}</strong>
+            </label>
+            <div class="col-sm-8">
+                <select id="multisiteSelector"
+                        class="form-select"
+                        ng-model="selectedSiteID"
+                        ng-change="onMultisiteChange(selectedSiteID)">
+                    <option ng-repeat="site in multisite"
+                            ng-value="site.id"
+                            ng-selected="selectedSiteID == site.id">
+                        {{ site.domain }} -
+                        {{ site.id == 1 ? lang.t('Main domain with all sites') : lang.t('Only files/db related to this site') }}                </option>
+                </select>
+
+                <div class="option-description mt-1">
+                    {{ lang.t("Select a specific site from your multisite network or restore all sites.") }}
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Database Restore Option -->
+        <div ng-show="containsDatabase()">
+
+            <div class="row mb-3 form-group">
+                <label for="database_restore" class="form-label col-sm-4"> {{ lang.t('Database Restore') }}</label>
+                <div class="col-sm-8">
+                    <select class="form-select" id="database_restore"
+                            ng-model="selectedDatabaseOption"
+                            ng-options="key as value for (key, value) in backup.database_options"
+                            ng-class="{'is-invalid': errors.database}"
+                            ng-disabled="databaseOptionReadOnly">
+                        <option value="">{{ lang.t('Select database restore option') }}</option>
+                    </select>
+
+                    <div class="option-description mt-1" id="database_restore_description">
+                        {{ lang.t('Restore the entire database or exclude specific tables from the restore.') }}
+                    </div>
+                    <!-- Error message if not selected -->
+                    <div class="invalid-feedback" ng-if="errors.database">
+                        {{ lang.t('Please select a database restore option.') }}
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Exclude Tables Dropdown (disabled by default, enabled when selectedDatabaseOption is RESTORE_DATABASE_EXCLUDE or RESTORE_DATABASE_INCLUDE) -->
+            <div class="row mb-3 form-group" id="exclude_tables_dropdown" ng-show="backup.engine == 1">
+                <label for="exclude_tables" class="form-label col-sm-4">{{ lang.t('Select Tables') }}</label>
+                <div class="col-sm-8">
+                    <div id="excludeTablesWrapper">
+
+                        <!-- Placeholder Spinner -->
+                        <div ng-if="loadingTables" class="text-start option-description mt-2">
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            {{ lang.t('Loading tables...') }}
+                        </div>
+                        <select class="form-select"
+                                id="exclude_tables"
+                                multiple
+                                ng-model="selectedTables"
+                                ng-options="table for table in databaseTables.db_tables"
+                                ng-show="!loadingTables"
+                                ng-disabled="selectedTablesReadOnly || !(selectedDatabaseOption == consts.RESTORE_DATABASE_EXCLUDE || selectedDatabaseOption == consts.RESTORE_DATABASE_INCLUDE)">
+                        <option ng-if="databaseTables.db_tables.length == 0" disabled>{{ lang.t('No tables available') }}</option>
+                        </select>
+                    </div>
+                    <div class="option-description mt-2" id="exclude_tables_description">{{ lang.t('Select the tables you want to exclude from the restore.') }}</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Files Restore Option -->
+        <div ng-show="containsHomeDir()">
+            <div class="row mb-3 form-group">
+                <label for="homedir_restore" class="form-label col-sm-4">{{ lang.t('Files Restore') }}</label>
+                <div class="col-sm-8">
+                    <select class="form-select" id="homedir_restore"
+                            ng-model="selectedHomedirOption"
+                            ng-options="key as value for (key, value) in backup.homedir_options"
+                            ng-class="{'is-invalid': errors.homedir}"
+                            ng-disabled="fileOptionReadOnly">
+                        <option value="">{{ lang.t('Select files restore option') }}</option>
+                    </select>
+
+
+                    <div class="option-description" id="files_restore_description">{{ lang.t('Restore all files or exclude specific folders from the restore.') }}</div>
+                    <!-- Error message if not selected -->
+                    <div class="invalid-feedback" ng-if="errors.homedir">
+                        {{ lang.t('Please select a files restore option.') }}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Folders Includes/Excludes (disabled by default, enabled when selectedHomedirOption is RESTORE_FILES_EXCLUDE or RESTORE_FILES_INCLUDE) -->
+            <div class="row mb-3 form-group">
+                <label for="homedir_user_list" class="form-label col-sm-4">{{ folderListLabel }}</label>
+                <div class="col-sm-8" ng-show="backup.engine == 1">
+                <textarea class="form-control mw-25" id="homedir_user_list" rows="5"
+                          placeholder="{{ lang.t('wp-content/uploads\n*/cache/*\n/logs/*') }}"
+                          ng-model="folderList"
+                          ng-disabled="fileOptionReadOnly || !(selectedHomedirOption == consts.RESTORE_FILES_EXCLUDE || selectedHomedirOption == consts.RESTORE_FILES_INCLUDE)">
+                </textarea>
+                    <div class="option-description mt-2" id="homedir_user_list_description">{{ lang.t('You can use the global wildcard * to match any folder or file name. Each entry should be placed on a new line.') }}</div>
+                </div>
+                <div class="col-sm-8" ng-show="backup.engine == 2">
+                    <button
+                            class="btn btn-primary apply_btn"
+                            type="button"
+                            ng-click="fileBrowse(backup)"
+                            ng-disabled="isFileBrowseDisabled || (selectedHomedirOption != consts.RESTORE_FILES_INCLUDE)">
+                        <span class="icon">
+                            <i class="fa-regular fa-folder-open"></i>
+                        </span>
+                        {{ lang.t("Select") }}
+                    </button>
+                    <div class="option-description" id="fff">{{ lang.t('Click to fetch backup files from the backup destination. Availability will be confirmed upon retrieval.') }}</div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div> <!-- ng-show="selectedDestination" -->
+
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-secondary cancel_btn" type="button" ng-click="cancel()">
+        <span class="icon">
+            <i class="fa-regular fa-ban"></i>
+        </span>
+        {{ lang.t("Cancel") }}
+    </button>
+
+    <button class="btn btn-primary apply_btn jb_button" type="button"
+            ng-click="ok()"
+            ng-disabled="loading ||
+                    (selectedHomedirOption == undefined && selectedDatabaseOption == undefined) ||
+                    (selectedHomedirOption == undefined && selectedDatabaseOption == consts.RESTORE_DATABASE_SKIP) ||
+                    (selectedHomedirOption == consts.RESTORE_FILES_SKIP && selectedDatabaseOption == undefined) ||
+                    (selectedHomedirOption == consts.RESTORE_FILES_SKIP && selectedDatabaseOption == consts.RESTORE_DATABASE_SKIP) ||
+                    (backup.destinations.length > 1 && !selectedDestination)">
+    <span class="icon" ng-if="!loading">
+        <i class="fa-regular fa-square-plus"></i>
+    </span>
+        <span ng-if="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        {{ lang.t(loading ? "Adding to queue..." : "Add to queue") }}
+    </button>
+
+
+
+</div>

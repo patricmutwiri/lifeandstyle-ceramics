@@ -1,0 +1,34 @@
+<div class="pd-20 settings">
+
+    <div class="form-group row">
+        <p class="pd-6">{{ lang.t('Please note that enabling these options may lead to a slight decrease in system performance and increased use of disk space due to the detailed nature of the logs generated.') }}</p>
+    </div>
+
+    <div class="form-group row">
+        <label for="DEBUG" class="col-sm-3 col-form-label jb-label">{{ lang.t('Debug Enabled') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 switch-main">
+                <label class="switch">
+                    <input id="DEBUG"
+                           type="checkbox"
+                           ng-model="saveData.DEBUG"
+                           ng-true-value=1
+                           ng-false-value=0>
+                    <span class="slider round"></span>
+                </label>
+                <p class="pd-3">{{ lang.t('Toggle to enable logging of detailed cron events, helping diagnose timing or execution issues with system tasks.') }}</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group row">
+        <label for="alerts_ttl" class="col-sm-3 col-form-label jb-label">{{ lang.t('Log Rotate Days') }}</label>
+        <div class="col-sm-9">
+            <div class="pd-3 jobs">
+                <input type="number" max="30" id="alerts_ttl" class="form-control" name="LOG_ROTATE" ng-model="saveData.LOG_ROTATE">
+                <p class="pd-3">{{ lang.t('Specify the number of days to retain log files. Older logs beyond this duration will be automatically deleted. Set this value to 0 to keep logs indefinitely.') }}</p>
+            </div>
+        </div>
+    </div>
+
+</div>
