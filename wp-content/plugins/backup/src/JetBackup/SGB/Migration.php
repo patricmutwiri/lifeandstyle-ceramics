@@ -398,8 +398,8 @@ class Migration  {
 		        'refresh_token'         => $config['SG_GOOGLE_DRIVE_REFRESH_TOKEN'],
 
 		        // This is for legacy migration only
-		        'client_id'             => '1030123017859-vfdlqkjhiuuu5n36pbov93v9ruo6jpj5.apps.googleusercontent.com',
-		        'client_secret'         => 'oUcZwC17q5ZSbYahnQkGYpyH',
+		        'client_id'             => '',
+		        'client_secret'         => '',
 	        ]);
 	        $destination->save();
 
